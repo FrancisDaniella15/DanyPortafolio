@@ -27,3 +27,7 @@ El [boceto web en HTML](boceto-web/index.html) se abre directamente en un navega
 El documento general mantiene el estado y las decisiones vigentes; los documentos de detalle desarrollan cada parte y están enlazados desde allí.
 
 El [prototipo web](prototipo-web/index.html) permite comparar Host Grotesk y una alternativa serif, con un fondo floral provisional en movimiento. Su [guía](prototipo-web/LEEME.md) explica las variantes, decisiones y pendientes. El boceto original permanece intacto.
+
+## Exploración del hero
+
+La [exploración visual y prototipo de transición](exploracion-hero/README.md) recoge las propuestas, recursos y estado actual del hero.
