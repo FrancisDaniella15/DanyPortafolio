@@ -35,6 +35,6 @@ Fuente de contenido: [portada propuesta](portada-textos-es-propuesta.md) y [borr
 
 ## Archivo HTML solicitado después
 
-Dany aclaró que quería una página web HTML, no únicamente la vista integrada en la conversación. Se creó [boceto-web/index.html](../boceto-web/index.html), un documento completo y autónomo, sin iframe ni dependencias de Codex. Se puede abrir con doble clic en un navegador. Conserva las secciones y las interacciones del boceto, en una presentación neutra clara. El CV, los idiomas y el selector visual siguen pendientes; no se publicó la página en internet.
+Dany aclaró que quería una página web HTML, no únicamente la vista integrada en la conversación. Se creó [boceto-web/index.html](../_descartado/boceto-web/index.html), un documento completo y autónomo, sin iframe ni dependencias de Codex. Se puede abrir con doble clic en un navegador. Conserva las secciones y las interacciones del boceto, en una presentación neutra clara. El CV, los idiomas y el selector visual siguen pendientes; no se publicó la página en internet.
 
 Comprobaciones: estructura del documento, IDs, destinos internos y sintaxis de JavaScript revisados. El recorrido del fragmento original se comprobó antes en navegador; el navegador integrado bloqueó abrir el nuevo archivo local mediante file://, por lo que no se afirma una nueva comprobación visual de este documento final.

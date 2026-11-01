@@ -22,8 +22,8 @@ La [propuesta de estructura de la web](docs/estructura-web.md) desarrolla las p�
 
 El [boceto de estructura del 27 de octubre](docs/wireframe-estructura.md) registra el wireframe de información y botones: portada, detalle de proyectos y trayectoria desplegable. Usa los textos propuestos y no fija el estilo visual.
 
-El [boceto web en HTML](boceto-web/index.html) se abre directamente en un navegador con doble clic. Es una página completa y autónoma, con navegación, proyectos y trayectoria desplegable; no requiere instalar herramientas.
-
 El documento general mantiene el estado y las decisiones vigentes; los documentos de detalle desarrollan cada parte y están enlazados desde allí.
 
-El [prototipo web](prototipo-web/index.html) permite comparar Host Grotesk y una alternativa serif, con un fondo floral provisional en movimiento. Su [guía](prototipo-web/LEEME.md) explica las variantes, decisiones y pendientes. El boceto original permanece intacto.
+El [prototipo web](prototipo-web/index.html) es la versión activa de la portada. Su [guía](prototipo-web/LEEME.md) explica decisiones y pendientes. La [selección del logo](identidad/logo-francis-daniella/SELECCION.md) recoge las propuestas 3A y 3B.
+
+La carpeta [`_descartado/`](_descartado/LEEME.md) guarda lo que ya no se usa (boceto web inicial, variantes del prototipo, paletas no elegidas, exploraciones de logo y borradores superados), con la misma estructura de carpetas de origen.

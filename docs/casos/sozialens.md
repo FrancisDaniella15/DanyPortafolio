@@ -67,7 +67,7 @@ Dany participó como Product Designer en la fase inicial de Sozialens: trabajó 
 
 ## Primera síntesis de contenido
 
-La [ficha resumen de Sozialens](sozialens-borrador.md) reúne el alcance de UX/UI, los entregables descritos y la duración aproximada. La entrevista continúa con PortalFi para completar la primera recopilación de los tres proyectos. Este avance no cierra el caso ni confirma sus datos pendientes.
+La [ficha resumen de Sozialens](../../_descartado/docs/casos/sozialens-borrador.md) reúne el alcance de UX/UI, los entregables descritos y la duración aproximada. La entrevista continúa con PortalFi para completar la primera recopilación de los tres proyectos. Este avance no cierra el caso ni confirma sus datos pendientes.
 
 ## Información para reunir después
 
@@ -81,4 +81,4 @@ La [ficha resumen de Sozialens](sozialens-borrador.md) reúne el alcance de UX/U
 
 ## Relación con el proceso general
 
-La entrevista de Carbon ya tiene una [primera síntesis](carbon-borrador.md). Sus ejemplos pendientes se retomarán con archivos; el avance a Sozialens no implica aprobar o cerrar el caso de Carbon. Después se recogerá la información de PortalFi para revisar juntos los textos de Proyectos seleccionados.
+La entrevista de Carbon ya tiene una [primera síntesis](../../_descartado/docs/casos/carbon-borrador.md). Sus ejemplos pendientes se retomarán con archivos; el avance a Sozialens no implica aprobar o cerrar el caso de Carbon. Después se recogerá la información de PortalFi para revisar juntos los textos de Proyectos seleccionados.

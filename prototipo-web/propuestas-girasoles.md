@@ -18,7 +18,7 @@ Use case: photorealistic-natural. Create a transparent botanical sprite sheet, w
 
 Archivo: `assets/girasoles-lapiz-v1.png`. Exploración ilustrada conservada; no sustituye a la versión activa.
 
-![Lápiz](assets/girasoles-lapiz-v1.png)
+![Lápiz](../_descartado/prototipo-web/assets/girasoles-lapiz-v1.png)
 
 ### Prompt
 

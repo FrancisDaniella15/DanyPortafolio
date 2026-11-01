@@ -76,7 +76,7 @@ La recopilación del primer caso está en la [ficha de IntentX → Carbon](casos
 
 **Estado de Sozialens según Dany:** tiene entendido que el producto llegó a desarrollarse. Se mantiene ese matiz; no se da por confirmado lanzamiento, uso o resultados. La siguiente pregunta será la duración de su participación.
 
-**Duración de Sozialens y avance:** Dany estima unos dos meses y aclara que no recuerda el periodo con certeza. La [primera síntesis de Sozialens](casos/sozialens-borrador.md) reúne su aportación de UX/UI; los ejemplos y datos pendientes se retomarán con archivos. La recopilación continúa con la [ficha de PortalFi](casos/portalfi.md), comenzando por su responsabilidad de revisión. Ninguno de estos avances supone aprobar los casos finales.
+**Duración de Sozialens y avance:** Dany estima unos dos meses y aclara que no recuerda el periodo con certeza. La [primera síntesis de Sozialens](../_descartado/docs/casos/sozialens-borrador.md) reúne su aportación de UX/UI; los ejemplos y datos pendientes se retomarán con archivos. La recopilación continúa con la [ficha de PortalFi](casos/portalfi.md), comenzando por su responsabilidad de revisión. Ninguno de estos avances supone aprobar los casos finales.
 
 **Descripción ampliada de Sozialens:** Dany especifica Product Designer como rol, arquitectura de información y flujos, co-creación del sistema de diseño, prototipos interactivos de alta fidelidad y Design QA con desarrollo para revisar fidelidad visual y funcional. Se actualizó su síntesis y la base factual de Proyectos seleccionados. El método y participantes de la validación, el alcance de las entregas y los resultados siguen pendientes.
 
@@ -122,7 +122,7 @@ La recopilación del primer caso está en la [ficha de IntentX → Carbon](casos
 
 **Resultado del reskin global — 26 de octubre:** Dany desarrollaba las ideas como propuestas de diseño para el cliente. Afirma que casi todo el reskin global fue aprobado y que gran parte de ese trabajo se refleja en producción. Se mantiene como resultado cualitativo referido por Dany; falta reconstruir un cambio concreto antes/después, sin atribuirle la programación ni mejoras de negocio no medidas.
 
-**Origen de la auditoría y el reskin:** fue una decisión conjunta de Dany y su jefe. El cliente revisaba y aprobaba las propuestas después. La [primera síntesis editorial de Carbon](casos/carbon-borrador.md) reúne el relato para revisar; no se da por cerrado el caso ni la entrevista.
+**Origen de la auditoría y el reskin:** fue una decisión conjunta de Dany y su jefe. El cliente revisaba y aprobaba las propuestas después. La [primera síntesis editorial de Carbon](../_descartado/docs/casos/carbon-borrador.md) reúne el relato para revisar; no se da por cerrado el caso ni la entrevista.
 
 **Punto de entrevista:** Dany no recuerda ahora un cambio específico y destaca la búsqueda continua de mejoras. El ejemplo queda pendiente para retomarlo con archivos. La ficha de Carbon ya incluye una síntesis provisional del relato; la siguiente cuestión es el periodo de participación.
 
@@ -223,7 +223,7 @@ Dany pidió empezar ahora por el copy del hero, antes de continuar la entrevista
 
 Dany indicó que le gusta el tono de esa propuesta. Aportó seis capturas adicionales —Halaska, Nina Park, Leon North, Leo Marlowe, Marcus Presse y Zara Miller— para estudiar información y texto. Su análisis y las recomendaciones están en el mismo documento del hero; la composición y la redacción final siguen pendientes.
 
-Dany también quiere explorar movimiento y una forma de mostrar su uso de IA en el hero. Se revisaron el avatar de Leo Marlowe, su guía y el escritorio de Marielbydesign. La [exploración de interacciones](hero-interacciones.md) distingue lo observado de las propuestas; no se ha elegido ni implementado un concepto.
+Dany también quiere explorar movimiento y una forma de mostrar su uso de IA en el hero. Se revisaron el avatar de Leo Marlowe, su guía y el escritorio de Marielbydesign. La [exploración de interacciones](../_descartado/docs/hero-interacciones.md) distingue lo observado de las propuestas; no se ha elegido ni implementado un concepto.
 
 **Prioridad actual indicada por Dany:** trabajar primero ideas y textos. Las opciones de persona trabajando en el paisaje y laptop en la naturaleza son inspiración, sin diseño elegido. Tras dos bocetos generados, pidió expresamente no generar más imágenes y retomar la parte visual después. Se preparó una alternativa de descripción del hero que menciona el uso de IA; sigue en revisión.
 

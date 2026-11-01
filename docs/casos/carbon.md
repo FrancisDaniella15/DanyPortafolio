@@ -164,7 +164,7 @@ Dany explica que desarrollaba las ideas como propuestas de diseño y las present
 
 ## Primer borrador editorial
 
-La [síntesis del caso para revisar](carbon-borrador.md) organiza la información reunida en contexto, aportación, sistema de diseño, QA, auditoría, uso de IA y resultado del reskin. Es un borrador, no un caso final aprobado. Los ejemplos concretos y las fechas de calendario siguen pendientes.
+La [síntesis del caso para revisar](../../_descartado/docs/casos/carbon-borrador.md) organiza la información reunida en contexto, aportación, sistema de diseño, QA, auditoría, uso de IA y resultado del reskin. Es un borrador, no un caso final aprobado. Los ejemplos concretos y las fechas de calendario siguen pendientes.
 
 ## Para completar después
 

@@ -1,14 +1,12 @@
 # Primer prototipo de Dany Design
 
-## Abrir y comparar
+## Abrir
 
 Abre `index.html` en tu navegador. Todo está guardado localmente; no requiere instalaciones ni conexión para mostrar imágenes o fuentes.
 
-- `index.html`: prototipo activo con **Mantequilla y oliva (D)** en todo el recorrido, Host Grotesk en textos, Instrument Serif en títulos e Instrument Sans en header y botones.
-- `index-serif.html`: mismo tratamiento activo que `index.html`, conservado como enlace de revisión.
-- La barra superior identifica la combinación provisional. Es una herramienta de revisión, no la navegación definitiva.
-- `index-laptop.html`: primera composición con laptop, conservada.
-- `index-tulipanes.html`: exploración con tulipanes amarillos generados, conservada.
+- `index.html`: única entrada activa, con **Mantequilla y oliva (D)** en todo el recorrido, Instrument Serif en títulos e Instrument Sans en textos, header y botones.
+
+**Limpieza del 1 de noviembre de 2026:** las variantes anteriores (laptop, tulipanes, abstracto, heros previos), las copias idénticas de la entrada activa (`index-serif.html`, `revision-header.html`, `propuesta-d.html`), las propuestas de paleta A/B/C con sus comparativas, `PALETAS.md`, `REVISION.md`, `imagen-flores.md`, `hero-motion.js`, `buttons-mighty.css`, `capturas/` y las imágenes que no usa `index.html` se movieron a `../_descartado/prototipo-web/`. Las menciones a esos archivos en el historial siguiente se refieren a esa carpeta.
 
 ## Decisiones de esta prueba
 
@@ -36,7 +34,7 @@ Las fuentes están guardadas en `assets/fonts/` junto con sus licencias OFL. Fue
 - `capturas/`: vistas de revisión.
 - `imagen-flores.md`: prompt, herramienta y procedencia del recurso generado anterior.
 
-Documentos de referencia: `../docs/portada-textos-es-propuesta.md`, `../docs/casos/propuesta-editorial.md`, `../docs/wireframe-estructura.md` y `../docs/hero-interacciones.md`.
+Documentos de referencia: `../docs/portada-textos-es-propuesta.md`, `../docs/casos/propuesta-editorial.md`, `../docs/wireframe-estructura.md` y `../_descartado/docs/hero-interacciones.md`.
 
 ## Pendientes
 
