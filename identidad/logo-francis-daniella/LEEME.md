@@ -4,7 +4,7 @@
 
 **3A y 3B son las propuestas elegidas provisionalmente.** La lámina está guardada como `seleccion-3a-3b.png`. Decisión y uso en el prototipo: `SELECCION.md`. Las referencias que inspiraron las láminas están en `referencias/`.
 
-La web activa usa una edición de 3A en verde oliva con fondo transparente: `../../web/assets/logo-francis-daniella-3a-oliva.png`.
+La versión anterior de la web usaba una edición de 3A en verde oliva (`../../_descartado/web-girasoles/assets/logo-francis-daniella-3a-oliva.png`, archivo dañado). La web actual muestra la firma en Caveat hasta tener el original.
 
 ## Exploraciones archivadas
 

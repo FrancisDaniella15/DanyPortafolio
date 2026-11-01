@@ -1,6 +1,6 @@
 # Historial del prototipo
 
-Registro de los cambios aplicados al prototipo entre el 28 y el 30 de octubre de 2026, en orden. Las notas de detalle que antes estaban en archivos separados se reúnen al final como anexos. Los archivos que se mencionan y ya no están en `web/` se guardan en `../_descartado/prototipo-web/`.
+Registro de los cambios aplicados al prototipo entre el 28 y el 30 de octubre de 2026, en orden. Las notas de detalle que antes estaban en archivos separados se reúnen al final como anexos. Los archivos que se mencionan y ya no están en `web/` se guardan en `../_descartado/prototipo-web/` (variantes descartadas el 1 de noviembre) o en `../_descartado/web-girasoles/` (la versión de girasoles completa).
 
 ## Primera versión · 28 de octubre de 2026
 
@@ -197,7 +197,7 @@ Archivo: `assets/girasoles-naturales-v2.png`.
 
 Pétalos abiertos, firmes y amarillos, centros marrones. El hero pasa de cuatro a siete flores, conserva los tallos, cielo, nubes y caída de pétalos. El ciclo de balanceo pasa de 12 a 8 segundos; las nubes siguen siendo lentas.
 
-![Naturales](assets/girasoles-naturales-v2.png)
+![Naturales](../_descartado/web-girasoles/assets/girasoles-naturales-v2.png)
 
 #### Prompt
 
@@ -435,3 +435,7 @@ Recursos locales, identificadores, destinos, etiquetas ARIA y sincronización co
 Ocho pruebas automáticas superadas con la composición baja: veinte girasoles entre 320 y 1920 px de ancho, límites del lienzo, centro superior libre y cuatro flores pequeñas en la franja inferior, interacción con cada flor y las cinco comprobaciones previas de límites, origen de caída, regeneración y reducción de movimiento. Son pruebas de geometría y lógica de pétalos; no validan el encuadre renderizado del texto ni sustituyen una revisión visual.
 
 La inspección de la referencia pública no valida el funcionamiento del prototipo. La revisión visual de la página local, sus encuadres y las interacciones reales sigue pendiente por el bloqueo del acceso automatizado al archivo local.
+
+## Nueva web: intro HELLO y hero de escritorio · 1 de noviembre de 2026
+
+La versión de girasoles se archivó en `../_descartado/web-girasoles/`. La página se rehízo con un solo HTML, una hoja de estilos y dos scripts. Ahora tiene una intro HELLO cuyas teclas vuelan al teclado del escritorio, un hero construido en código a partir de las referencias de `../referencias/hero-hello/`, y los modos claro y cálido. Detalle del estado vigente en [LEEME.md](LEEME.md).

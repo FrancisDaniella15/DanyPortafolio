@@ -6,17 +6,17 @@ Portfolio de Francis Daniella (Dany Cova), Product Designer. Lanzamiento objetiv
 
 | Carpeta | Qué contiene |
 |---|---|
-| [`web/`](web/LEEME.md) | Prototipo activo de la web. Abre [`web/index.html`](web/index.html) en el navegador. |
+| [`web/`](web/LEEME.md) | La web: intro HELLO, hero de escritorio y modos claro y cálido. Abre [`web/index.html`](web/index.html) en el navegador. |
 | [`contenido/`](contenido/) | Textos de la web: portada, secciones y casos de estudio. |
 | [`estrategia/`](estrategia/) | Documento de trabajo, brief, plan, estructura de la web, wireframe y método. |
 | [`identidad/`](identidad/logo-francis-daniella/LEEME.md) | Logo elegido (3A y 3B) y sus referencias. |
-| [`referencias/`](referencias/referencias-visuales.md) | Referencias visuales y de redacción compartidas por Dany. |
+| [`referencias/`](referencias/referencias-visuales.md) | Referencias visuales y de redacción compartidas por Dany. Las del hero nuevo están en `referencias/hero-hello/`. |
 | [`_descartado/`](_descartado/LEEME.md) | Material que ya no se usa, guardado por si hace falta recuperarlo. |
 
 ## Por dónde empezar
 
 1. [Documento de trabajo](estrategia/documento-de-trabajo.md): perfil, proyectos, decisiones, ideas visuales, plan y pendientes. Mantiene el estado vigente y enlaza los documentos de detalle.
-2. [Guía del prototipo](web/LEEME.md): estado actual de la web, archivos y pendientes. Los cambios anteriores están en el [historial](web/HISTORIAL.md).
+2. [Guía de la web](web/LEEME.md): estado actual, archivos y pendientes. La etapa anterior está en el [historial](web/HISTORIAL.md).
 3. [Textos de la portada](contenido/portada-textos-es.md) y [portada propuesta](contenido/portada-textos-es-propuesta.md), pendiente de aprobación.
 
 ## Estrategia
@@ -35,4 +35,4 @@ Portfolio de Francis Daniella (Dany Cova), Product Designer. Lanzamiento objetiv
 
 ## Pendiente importante
 
-Varias imágenes PNG están cortadas a 700 000 bytes y no se ven completas, entre ellas el logo y los girasoles de la web. Hacen falta los archivos originales.
+Varias imágenes PNG antiguas están cortadas a 700 000 bytes y no se ven completas, entre ellas la lámina del logo 3A. La web ya no depende de ellas, pero hace falta el archivo original del logo.
