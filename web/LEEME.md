@@ -37,11 +37,16 @@ y abrir http://localhost:4173. No requiere instalaciones; fuentes e imágenes es
 
 ## Pruebas del HELLO
 
-`pruebas-hello/index.html` compara cuatro entradas al hero en el hero real, con los botones de la barra inferior:
+`pruebas-hello/index.html` compara varias entradas al hero en el hero real, con los botones de la barra inferior:
 - **A · Cámara:** primer plano del teclado de la foto, se pulsan H-E-L-L-O y la cámara se aleja.
 - **B · Teclas reales:** las teclas HELLO de Dany caen y vuelan en curva hasta su letra.
 - **D · Revelado:** la L naranja hace de Enter y un círculo abre el hero.
-- **E · Zoom en la O:** HELLO entra de derecha a izquierda, la cámara se acerca a la O y la letra se funde con la O del teclado de la foto (alineadas por la letra), luego la cámara se aleja hasta el hero. Para el primer plano hay una capa de detalle alrededor de la O escalada dos veces con IA (`assets/hero/*-detalle-o.webp`) y una O grande (`assets/hello/*-o-grande.webp`).
+- **E · HELLO de derecha a izquierda y la O se convierte en el teclado**, con tres transiciones:
+  - **E1 · Zoom:** la cámara se acerca a la O, la letra se funde con la O del teclado de la foto (alineadas por la letra) y la cámara se aleja.
+  - **E2 · Portal:** H-E-L-L siguen hacia la izquierda, la O se pulsa y su cara se abre como una ventana que crece hasta mostrar el escritorio mientras la cámara se aleja.
+  - **E3 · La O cae:** H-E-L-L siguen hacia la izquierda, aparece el escritorio y la O vuela en curva hasta encajar en su tecla.
+
+  Para los primeros planos hay una capa de detalle alrededor de la O escalada dos veces con IA (`assets/hero/*-detalle-o.webp`) y una O grande (`assets/hello/*-o-grande.webp`).
 
 Las teclas HELLO reales están recortadas de las imágenes de Dany, mejoradas con Real-ESRGAN y con fondo transparente (`assets/hello/`). La foto en 4608 px (`assets/hero/*-4608.webp`) permite el primer plano de A. La página está pensada para escritorio; la versión elegida se ajustará también a móvil al pasarla a `index.html`.
 
