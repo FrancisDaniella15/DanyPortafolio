@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es" class="js" data-theme="calido">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pruebas del HELLO — A, B y D</title>
+<meta name="robots" content="noindex, nofollow">
+<script>
+  try {
+    var theme = localStorage.getItem('fd-theme');
+    if (theme === 'claro' || theme === 'calido') document.documentElement.dataset.theme = theme;
+  } catch (error) {}
+</script>
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="pruebas.css">
+<script src="pruebas.js" defer></script>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <a class="brand" href="../index.html">francis daniella</a>
+  <nav class="site-nav" aria-label="Navegación de muestra">
+    <a class="site-nav__link" href="../index.html#proyectos">Proyectos</a>
+    <a class="site-nav__link" href="../index.html#sobre-mi">Sobre mí</a>
+    <a class="site-nav__link" href="../index.html#contacto">Contacto</a>
+    <span class="button button--primary button--small">Iniciemos un proyecto</span>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="hero__content">
+      <p class="hero__eyebrow" style="--i:0">Product Designer</p>
+      <h1 id="hero-title" style="--i:1">Diseño de producto, <em>con IA y criterio propio.</em></h1>
+      <p class="hero__lede" style="--i:2">FinTech · DeFi · Apps · Sistemas de diseño</p>
+      <div class="hero__actions" style="--i:3">
+        <span class="button button--primary">Iniciemos un proyecto</span>
+        <span class="button">Ver proyectos</span>
+      </div>
+    </div>
+    <div class="desk" aria-hidden="true">
+      <div class="desk__stage" id="desk-stage">
+        <img class="desk__photo desk__photo--calido" src="../assets/hero/escritorio-calido-3072.webp" srcset="../assets/hero/escritorio-calido-3072.webp 3072w, ../assets/hero/escritorio-calido-4608.webp 4608w" sizes="250vw" width="1536" height="1024" alt="">
+        <img class="desk__photo desk__photo--claro" src="../assets/hero/escritorio-claro-3072.webp" srcset="../assets/hero/escritorio-claro-3072.webp 3072w, ../assets/hero/escritorio-claro-4608.webp 4608w" sizes="250vw" width="1536" height="1024" alt="">
+        <span class="photo-key" data-key="h" style="--x:780; --y:737"></span>
+        <span class="photo-key" data-key="e" style="--x:625; --y:692"></span>
+        <span class="photo-key" data-key="l" style="--x:917; --y:737"></span>
+        <span class="photo-key" data-key="o" style="--x:905; --y:692"></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- A: texto tecleado sobre el primer plano -->
+<p class="typed" id="typed" aria-hidden="true"><span class="typed__text"></span><span class="typed__caret"></span></p>
+
+<!-- B y D: teclas reales recortadas de las imágenes de Dany -->
+<div class="overlay" id="overlay" aria-hidden="true">
+  <div class="overlay__bg"></div>
+  <div class="real-keys" id="real-keys">
+    <img class="real-key" data-letter="h" alt="" width="360" height="374">
+    <img class="real-key" data-letter="e" alt="" width="360" height="374">
+    <img class="real-key real-key--accent" data-letter="l" alt="" width="360" height="374">
+    <img class="real-key" data-letter="l" alt="" width="360" height="374">
+    <img class="real-key" data-letter="o" alt="" width="360" height="374">
+  </div>
+</div>
+
+<div class="lab" role="region" aria-label="Controles de la prueba">
+  <div class="lab__options" role="group" aria-label="Opción">
+    <button type="button" data-variant="a">A · Cámara</button>
+    <button type="button" data-variant="b">B · Teclas reales</button>
+    <button type="button" data-variant="d">D · Revelado</button>
+  </div>
+  <button type="button" class="lab__replay" id="replay">↻ Repetir</button>
+  <div class="lab__theme" role="group" aria-label="Modo">
+    <button type="button" data-theme-option="claro">Claro</button>
+    <button type="button" data-theme-option="calido">Cálido</button>
+  </div>
+  <p class="lab__note" id="note"></p>
+</div>
+
+</body>
+</html>

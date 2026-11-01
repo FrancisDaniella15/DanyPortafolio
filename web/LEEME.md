@@ -35,6 +35,15 @@ y abrir http://localhost:4173. No requiere instalaciones; fuentes e imágenes es
 - `assets/hero/`: fotos del escritorio en tres tamaños por modo.
 - `assets/fonts/`: Instrument Sans, Instrument Serif y Caveat, con licencias OFL.
 
+## Pruebas del HELLO
+
+`pruebas-hello/index.html` compara tres entradas al hero en el hero real, con los botones de la barra inferior:
+- **A · Cámara:** primer plano del teclado de la foto, se pulsan H-E-L-L-O y la cámara se aleja.
+- **B · Teclas reales:** las teclas HELLO de Dany caen y vuelan en curva hasta su letra.
+- **D · Revelado:** la L naranja hace de Enter y un círculo abre el hero.
+
+Las teclas HELLO reales están recortadas de las imágenes de Dany, mejoradas con Real-ESRGAN y con fondo transparente (`assets/hello/`). La foto en 4608 px (`assets/hero/*-4608.webp`) permite el primer plano de A. La página está pensada para escritorio; la versión elegida se ajustará también a móvil al pasarla a `index.html`.
+
 ## Pendientes
 
 - **Logo:** la firma usa Caveat mientras falta el archivo original del logo 3A, porque el PNG está dañado.

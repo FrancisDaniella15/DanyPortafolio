@@ -1,0 +1,98 @@
+/* Página de pruebas del HELLO. Se apoya en ../site.css para que el hero sea el real. */
+
+@property --r {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+/* La prueba usa siempre el encuadre de escritorio. */
+.hero { height: 100svh; min-height: 620px; }
+.desk__stage { will-change: transform; }
+
+/* Teclas de la foto: un recorte de la propia foto que se puede "pulsar". */
+.photo-key {
+  position: absolute;
+  left: calc(var(--x) * 1px);
+  top: calc(var(--y) * 1px);
+  width: 42px;
+  height: 43px;
+  border-radius: 7px;
+  background-size: 1536px 1024px;
+  background-position: calc(var(--x) * -1px) calc(var(--y) * -1px);
+  transition: transform .12s ease, filter .12s ease, box-shadow .5s ease;
+}
+[data-theme="calido"] .photo-key { background-image: url('../assets/hero/escritorio-calido-4608.webp'); }
+[data-theme="claro"] .photo-key { background-image: url('../assets/hero/escritorio-claro-4608.webp'); }
+.photo-key.is-down {
+  transform: translateY(1.6px) scale(.975);
+  filter: brightness(.92);
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, .28), 0 0 0 1px rgba(239, 106, 33, .55), 0 0 16px 3px rgba(239, 106, 33, .5);
+  transition-duration: .06s;
+}
+.photo-key.is-lit { box-shadow: 0 0 0 1px rgba(239, 106, 33, .35), 0 0 12px 2px rgba(239, 106, 33, .28); }
+
+/* A: texto tecleado */
+.typed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 15vh;
+  z-index: 60;
+  margin: 0;
+  text-align: center;
+  color: var(--ink);
+  font: italic 400 clamp(64px, 10vw, 150px)/1 var(--serif);
+  letter-spacing: -.01em;
+  pointer-events: none;
+  opacity: 0;
+}
+.typed.is-on { opacity: 1; }
+.typed__caret { display: inline-block; width: .06em; height: .78em; margin-left: .06em; vertical-align: -.04em; background: var(--accent); animation: caret 1s steps(1) infinite; }
+@keyframes caret { 50% { opacity: 0; } }
+
+/* B y D: capa con las teclas reales */
+.overlay { position: fixed; inset: 0; z-index: 80; display: none; place-items: center; }
+.overlay.is-on { display: grid; }
+.overlay__bg { position: absolute; inset: 0; background: var(--bg); }
+.overlay--mask {
+  -webkit-mask-image: radial-gradient(circle at var(--cx, 50%) var(--cy, 50%), transparent var(--r), #000 calc(var(--r) + 1px));
+  mask-image: radial-gradient(circle at var(--cx, 50%) var(--cy, 50%), transparent var(--r), #000 calc(var(--r) + 1px));
+}
+.real-keys { position: relative; display: flex; gap: calc(var(--k) * .26); --k: clamp(62px, 11.5vw, 156px); }
+.real-key {
+  width: var(--k);
+  height: auto;
+  transform-origin: 0 0;
+  filter: drop-shadow(0 calc(var(--k) * .12) calc(var(--k) * .12) rgba(70, 45, 20, .22));
+  opacity: 0;
+  user-select: none;
+}
+
+/* Controles */
+.lab {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  z-index: 300;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 10px;
+  width: max-content;
+  max-width: calc(100% - 24px);
+  padding: 8px;
+  border-radius: 18px;
+  background: rgba(27, 26, 24, .88);
+  color: #F4F4F2;
+  transform: translateX(-50%);
+  box-shadow: 0 18px 40px -16px rgba(0, 0, 0, .45);
+  font-size: 13px;
+}
+.lab button { padding: 8px 12px; border: 0; border-radius: 10px; background: transparent; color: inherit; font-weight: 600; cursor: pointer; }
+.lab button:hover { background: rgba(255, 255, 255, .1); }
+.lab button[aria-pressed="true"] { background: #EF6A21; color: #1B1A18; }
+.lab__options, .lab__theme { display: flex; gap: 4px; }
+.lab__theme { padding-left: 10px; border-left: 1px solid rgba(255, 255, 255, .18); }
+.lab__note { flex-basis: 100%; margin: 0; padding: 2px 8px 4px; color: rgba(244, 244, 242, .75); text-align: center; }
