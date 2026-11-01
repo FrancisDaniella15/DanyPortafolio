@@ -16,17 +16,14 @@
       var theme = localStorage.getItem('fd-theme');
       if (theme === 'claro' || theme === 'calido') root.dataset.theme = theme;
     } catch (error) {}
-    var seen = false;
-    try { seen = sessionStorage.getItem('fd-hello') === '1'; } catch (error) {}
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var deepLink = location.hash && location.hash !== '#inicio';
-    if (!seen && !reduce && !deepLink) root.dataset.intro = 'play';
+    if (!reduce && !deepLink) root.dataset.intro = 'play';
   })();
 </script>
 <link rel="preload" href="assets/fonts/InstrumentSans.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="site.css">
 <script src="content.js" defer></script>
-<script src="icons.js" defer></script>
 <script src="desk.js" defer></script>
 <script src="site.js" defer></script>
 </head>
@@ -75,36 +72,13 @@
 
     <div class="desk" id="desk" aria-hidden="true">
       <div class="desk__stage" id="desk-stage">
-        <div class="desk__mat"></div>
-        <div class="obj lamp" style="--enter:-40px -30px"></div>
-        <div class="obj sleeve" style="--enter:-50px 0px"></div>
-        <div class="obj record" style="--enter:-60px 10px"></div>
-        <div class="obj coffee" style="--enter:-20px 30px"><span class="coffee__handle"></span><span class="coffee__cup"></span></div>
-        <div class="obj tray" style="--enter:40px -20px">
-          <div class="note note--lilac">research<br>→ flujos → UI</div>
-          <div class="polaroid">
-            <svg viewBox="0 0 96 104" preserveAspectRatio="xMidYMid slice">
-              <defs>
-                <linearGradient id="sky" x2="0" y2="1"><stop offset="0" stop-color="#9FC3DD"/><stop offset="1" stop-color="#E4EEF2"/></linearGradient>
-                <linearGradient id="fall" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DCE7EA"/></linearGradient>
-              </defs>
-              <rect width="96" height="104" fill="url(#sky)"/>
-              <path d="M0 18 26 10 40 16 40 104 0 104Z" fill="#5B4A3A"/>
-              <path d="M52 14 70 8 96 16 96 104 52 104Z" fill="#6A5642"/>
-              <path d="M38 16 54 14 56 104 38 104Z" fill="#4E3F31"/>
-              <path d="M44 15h6l3 89H41Z" fill="url(#fall)"/>
-              <path d="M0 72c18-8 30 4 48-2s30-6 48 2v32H0Z" fill="#3F6B45"/>
-              <path d="M0 86c22-6 40 6 60 0s26-2 36 2v16H0Z" fill="#2F5536"/>
-              <ellipse cx="47" cy="78" rx="18" ry="6" fill="#FFFFFF" opacity=".7"/>
-            </svg>
-          </div>
-          <div class="note note--yellow">design QA ✓</div>
-        </div>
-        <div class="obj keyboard" id="keyboard"></div>
-        <div class="obj macropad" id="macropad" style="--enter:40px 20px"></div>
+        <img class="desk__photo desk__photo--calido" src="assets/hero/escritorio-calido-1920.webp" srcset="assets/hero/escritorio-calido-1200.webp 1200w, assets/hero/escritorio-calido-1920.webp 1920w, assets/hero/escritorio-calido-3072.webp 3072w" sizes="(max-width: 600px) 265vw, (max-width: 1099px) 130vw, 100vw" width="1536" height="1024" alt="" fetchpriority="high">
+        <img class="desk__photo desk__photo--claro" src="assets/hero/escritorio-claro-1920.webp" srcset="assets/hero/escritorio-claro-1200.webp 1200w, assets/hero/escritorio-claro-1920.webp 1920w, assets/hero/escritorio-claro-3072.webp 3072w" sizes="(max-width: 600px) 265vw, (max-width: 1099px) 130vw, 100vw" width="1536" height="1024" alt="">
+        <span class="desk__key" data-key="h" style="left:780px; top:737px"></span>
+        <span class="desk__key" data-key="e" style="left:625px; top:692px"></span>
+        <span class="desk__key" data-key="l" style="left:917px; top:737px"></span>
+        <span class="desk__key" data-key="o" style="left:905px; top:692px"></span>
       </div>
-      <div class="desk__shade"></div>
-      <div class="desk__glow"></div>
     </div>
   </section>
 

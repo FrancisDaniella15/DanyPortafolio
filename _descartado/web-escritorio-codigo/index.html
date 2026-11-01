@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="es" data-theme="calido">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Francis Daniella — Product Designer</title>
+<meta name="description" content="Francis Daniella, Product Designer. Plataformas financieras, FinTech, DeFi, apps y sistemas de diseño.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F1E4D0">
+<script>
+  // Tema guardado y decisión de la intro antes de pintar, para evitar parpadeos.
+  (function () {
+    var root = document.documentElement;
+    root.classList.add('js');
+    try {
+      var theme = localStorage.getItem('fd-theme');
+      if (theme === 'claro' || theme === 'calido') root.dataset.theme = theme;
+    } catch (error) {}
+    var seen = false;
+    try { seen = sessionStorage.getItem('fd-hello') === '1'; } catch (error) {}
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var deepLink = location.hash && location.hash !== '#inicio';
+    if (!seen && !reduce && !deepLink) root.dataset.intro = 'play';
+  })();
+</script>
+<link rel="preload" href="assets/fonts/InstrumentSans.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="site.css">
+<script src="content.js" defer></script>
+<script src="icons.js" defer></script>
+<script src="desk.js" defer></script>
+<script src="site.js" defer></script>
+</head>
+<body>
+
+<div class="intro" id="intro">
+  <div class="intro__bg"></div>
+  <div class="intro__word" aria-hidden="true">
+    <span class="key key--intro" data-letter="h"><span class="key__cap">H</span></span>
+    <span class="key key--intro" data-letter="e"><span class="key__cap">E</span></span>
+    <span class="key key--intro key--accent" data-letter="l"><span class="key__cap">L</span></span>
+    <span class="key key--intro" data-letter="l"><span class="key__cap">L</span></span>
+    <span class="key key--intro" data-letter="o"><span class="key__cap">O</span></span>
+  </div>
+  <button class="intro__skip" type="button" id="intro-skip">Saltar intro</button>
+</div>
+
+<a class="skip-link" href="#inicio" data-home-target="inicio">Saltar al contenido</a>
+
+<header class="site-header" id="site-header">
+  <a class="brand" href="#inicio" data-home-target="inicio" aria-label="Francis Daniella · Ir al inicio">francis daniella</a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menú</button>
+  <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+    <a class="site-nav__link" href="#proyectos" data-home-target="proyectos">Proyectos</a>
+    <a class="site-nav__link" href="#sobre-mi" data-home-target="sobre-mi">Sobre mí</a>
+    <a class="site-nav__link" href="#contacto" data-home-target="contacto">Contacto</a>
+    <div class="theme-switch" role="group" aria-label="Modo de color">
+      <button type="button" data-theme-option="claro" aria-pressed="false">Claro</button>
+      <button type="button" data-theme-option="calido" aria-pressed="true">Cálido</button>
+    </div>
+    <a class="button button--primary button--small" href="#contacto" data-home-target="contacto">Iniciemos un proyecto</a>
+  </nav>
+</header>
+
+<main id="home">
+  <section class="hero" id="inicio" tabindex="-1" aria-labelledby="hero-title">
+    <div class="hero__content">
+      <p class="hero__eyebrow" style="--i:0">Product Designer</p>
+      <h1 id="hero-title" style="--i:1">Diseño de producto, <em>con IA y criterio propio.</em></h1>
+      <p class="hero__lede" style="--i:2">FinTech · DeFi · Apps · Sistemas de diseño</p>
+      <div class="hero__actions" style="--i:3">
+        <a class="button button--primary" href="#contacto" data-home-target="contacto">Iniciemos un proyecto</a>
+        <a class="button" href="#proyectos" data-home-target="proyectos">Ver proyectos</a>
+      </div>
+    </div>
+
+    <div class="desk" id="desk" aria-hidden="true">
+      <div class="desk__stage" id="desk-stage">
+        <div class="desk__mat"></div>
+        <div class="obj lamp" style="--enter:-40px -30px"></div>
+        <div class="obj sleeve" style="--enter:-50px 0px"></div>
+        <div class="obj record" style="--enter:-60px 10px"></div>
+        <div class="obj coffee" style="--enter:-20px 30px"><span class="coffee__handle"></span><span class="coffee__cup"></span></div>
+        <div class="obj tray" style="--enter:40px -20px">
+          <div class="note note--lilac">research<br>→ flujos → UI</div>
+          <div class="polaroid">
+            <svg viewBox="0 0 96 104" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="sky" x2="0" y2="1"><stop offset="0" stop-color="#9FC3DD"/><stop offset="1" stop-color="#E4EEF2"/></linearGradient>
+                <linearGradient id="fall" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DCE7EA"/></linearGradient>
+              </defs>
+              <rect width="96" height="104" fill="url(#sky)"/>
+              <path d="M0 18 26 10 40 16 40 104 0 104Z" fill="#5B4A3A"/>
+              <path d="M52 14 70 8 96 16 96 104 52 104Z" fill="#6A5642"/>
+              <path d="M38 16 54 14 56 104 38 104Z" fill="#4E3F31"/>
+              <path d="M44 15h6l3 89H41Z" fill="url(#fall)"/>
+              <path d="M0 72c18-8 30 4 48-2s30-6 48 2v32H0Z" fill="#3F6B45"/>
+              <path d="M0 86c22-6 40 6 60 0s26-2 36 2v16H0Z" fill="#2F5536"/>
+              <ellipse cx="47" cy="78" rx="18" ry="6" fill="#FFFFFF" opacity=".7"/>
+            </svg>
+          </div>
+          <div class="note note--yellow">design QA ✓</div>
+        </div>
+        <div class="obj keyboard" id="keyboard"></div>
+        <div class="obj macropad" id="macropad" style="--enter:40px 20px"></div>
+      </div>
+      <div class="desk__shade"></div>
+      <div class="desk__glow"></div>
+    </div>
+  </section>
+
+  <section class="section" id="proyectos" tabindex="-1" aria-labelledby="work-title">
+    <div class="container">
+      <p class="eyebrow">Proyectos</p>
+      <h2 id="work-title">Proyectos seleccionados</h2>
+      <div class="work-grid">
+        <article class="work work--featured reveal">
+          <a class="work__link" data-project="carbon" href="#proyecto-carbon" aria-labelledby="work-carbon-name work-carbon-action">
+            <div class="work__cover">
+              <span class="work__mark" aria-hidden="true">Carbon</span>
+              <span class="work__pending">Capturas en preparación</span>
+            </div>
+            <div class="work__meta">
+              <div>
+                <h3 id="work-carbon-name">IntentX → Carbon</h3>
+                <p class="work__type">Plataforma de trading DeFi.</p>
+              </div>
+              <p class="work__description">Durante tres años trabajé en flujos e interfaces, co-creé el sistema de diseño y realicé auditorías para su evolución visual.</p>
+              <ul class="tags" aria-label="Áreas de trabajo"><li>Flujos e interfaces</li><li>Sistema de diseño</li><li>Design QA</li></ul>
+              <span class="work__open" id="work-carbon-action">Ver proyecto <span aria-hidden="true">↗</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="work reveal">
+          <a class="work__link" data-project="sozialens" href="#proyecto-sozialens" aria-labelledby="work-sozialens-name work-sozialens-action">
+            <div class="work__cover">
+              <span class="work__mark" aria-hidden="true">Sozialens</span>
+              <span class="work__pending">Capturas en preparación</span>
+            </div>
+            <div class="work__meta">
+              <div>
+                <h3 id="work-sozialens-name">Sozialens</h3>
+                <p class="work__type">Creadores de contenido y campañas.</p>
+              </div>
+              <p class="work__description">Organicé la navegación, diseñé pantallas y co-creé el sistema de diseño. También revisé la implementación junto al equipo de desarrollo.</p>
+              <ul class="tags" aria-label="Áreas de trabajo"><li>Arquitectura</li><li>Prototipado</li><li>Design QA</li></ul>
+              <span class="work__open" id="work-sozialens-action">Ver proyecto <span aria-hidden="true">↗</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="work reveal">
+          <a class="work__link" data-project="portalfi" href="#proyecto-portalfi" aria-labelledby="work-portalfi-name work-portalfi-action">
+            <div class="work__cover">
+              <span class="work__mark" aria-hidden="true">PortalFi</span>
+              <span class="work__pending">Capturas en preparación</span>
+            </div>
+            <div class="work__meta">
+              <div>
+                <h3 id="work-portalfi-name">PortalFi</h3>
+                <p class="work__type">Neobanca con tecnología DeFi.</p>
+              </div>
+              <p class="work__description">Apoyé la creación del sistema de diseño, preparé prototipos de navegación y revisé las diferencias entre Figma y la interfaz implementada.</p>
+              <ul class="tags" aria-label="Áreas de trabajo"><li>Sistema de diseño</li><li>Prototipado</li><li>Design QA</li></ul>
+              <span class="work__open" id="work-portalfi-action">Ver proyecto <span aria-hidden="true">↗</span></span>
+            </div>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint" aria-labelledby="apps-title">
+    <div class="container split reveal">
+      <div>
+        <p class="eyebrow">Trabajo reciente</p>
+        <h2 id="apps-title">Apps móviles con apoyo de IA</h2>
+      </div>
+      <p class="lead">Diseñé propuestas de interfaz y sistemas de diseño para tres apps móviles. Partí de las indicaciones del cliente y usé Figma Agents para generar pantallas y explorar alternativas.</p>
+    </div>
+  </section>
+
+  <section class="section" id="sobre-mi" tabindex="-1" aria-labelledby="about-title">
+    <div class="container split reveal">
+      <div>
+        <p class="eyebrow">Perfil</p>
+        <h2 id="about-title">Sobre mí</h2>
+        <p class="lead">Soy Dany. Me gusta entender cómo funciona un producto antes de diseñar sus pantallas. Investigo, hago preguntas y uso IA para explorar mejoras y desarrollar propuestas.</p>
+        <p class="lead">Amo la música, los colores y la naturaleza. Quise traer un poco de todo eso a este espacio.</p>
+      </div>
+      <div>
+        <h3 class="career__title">Mi trayectoria</h3>
+        <ol class="career">
+          <li><span class="career__company">Esthetiqo Studio</span><span class="career__role">Lead Product Designer &amp; UX/UI Systems</span><span class="career__years">2023–2026</span></li>
+          <li><span class="career__company">Indexceed</span><span class="career__role">Product Designer &amp; UX Specialist</span><span class="career__years">2023</span></li>
+          <li><span class="career__company">edunam</span><span class="career__role">Product Designer</span><span class="career__years">2023</span></li>
+        </ol>
+        <ol class="career" id="more-career" hidden>
+          <li><span class="career__company">Global Logistics Group LLC</span><span class="career__role">Product Designer</span><span class="career__years">2022</span></li>
+          <li><span class="career__company">Invita</span><span class="career__role">UI Designer</span><span class="career__years">2022</span></li>
+          <li><span class="career__company">Duxura Health</span><span class="career__role">UI Designer</span><span class="career__years">2022</span></li>
+          <li><span class="career__company">Holis</span><span class="career__role">UI Designer</span><span class="career__years">2021–2022</span></li>
+          <li><span class="career__company">GaluApps</span><span class="career__role">Visual Designer</span><span class="career__years">2019–2021</span></li>
+        </ol>
+        <div class="actions">
+          <button class="button" id="career-toggle" type="button" aria-expanded="false" aria-controls="more-career">Ver toda mi trayectoria</button>
+          <a class="text-link" href="https://www.linkedin.com/in/danycovadesign" target="_blank" rel="noopener noreferrer">Ver perfil en LinkedIn <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint" aria-labelledby="tools-title">
+    <div class="container reveal">
+      <p class="eyebrow">Herramientas</p>
+      <h2 id="tools-title">Mis herramientas</h2>
+      <ul class="toolkeys" aria-label="Herramientas de trabajo">
+        <li class="key key--label"><span class="key__cap">Figma</span></li>
+        <li class="key key--label"><span class="key__cap">Notion</span></li>
+        <li class="key key--label"><span class="key__cap">ChatGPT</span></li>
+        <li class="key key--label key--accent"><span class="key__cap">Claude</span></li>
+        <li class="key key--label"><span class="key__cap">Gemini</span></li>
+        <li class="key key--label"><span class="key__cap">Stitch</span></li>
+        <li class="key key--label"><span class="key__cap">Banani</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--contact" id="contacto" tabindex="-1" aria-labelledby="contact-title">
+    <div class="container contact reveal">
+      <p class="eyebrow">Contacto</p>
+      <h2 id="contact-title">¿Buscas una diseñadora de producto para tu equipo?</h2>
+      <p class="lead">Cuéntame sobre el producto y el rol que necesitan cubrir.</p>
+      <a class="contact__email" href="mailto:cova.francis15@gmail.com">cova.francis15@gmail.com</a>
+      <div class="actions actions--center">
+        <a class="button button--primary" href="mailto:cova.francis15@gmail.com">Escríbeme por correo</a>
+        <button class="button" id="copy-email" type="button">Copiar correo</button>
+      </div>
+      <p class="notice" id="copy-status" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+</main>
+
+<main id="case" class="case" hidden aria-labelledby="case-title">
+  <div class="container">
+    <button class="text-link" type="button" data-back>← Volver a proyectos</button>
+    <p class="eyebrow">Caso de estudio</p>
+    <h1 id="case-title" tabindex="-1"></h1>
+    <div class="case__intro"><p class="lead" id="case-description"></p><p id="case-summary"></p></div>
+    <h2>Mi aportación</h2>
+    <ul class="case__list" id="case-contributions"></ul>
+    <h2>El trabajo, paso a paso</h2>
+    <div class="case__stages" id="case-stages"></div>
+    <h2 id="case-delivery-title">Qué se entregó</h2>
+    <p class="lead" id="case-delivery"></p>
+    <div class="actions">
+      <button class="button" type="button" data-back>Volver a proyectos</button>
+      <button class="button button--primary" type="button" id="next-project"></button>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <span class="brand brand--small">francis daniella</span>
+    <span>© 2026 · Product Designer</span>
+    <a class="text-link" href="https://www.linkedin.com/in/danycovadesign" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+    <button class="text-link" type="button" id="replay-intro">Repetir el hello</button>
+  </div>
+</footer>
+
+</body>
+</html>

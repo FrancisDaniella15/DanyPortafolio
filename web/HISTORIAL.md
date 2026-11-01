@@ -439,3 +439,7 @@ La inspección de la referencia pública no valida el funcionamiento del prototi
 ## Nueva web: intro HELLO y hero de escritorio · 1 de noviembre de 2026
 
 La versión de girasoles se archivó en `../_descartado/web-girasoles/`. La página se rehízo con un solo HTML, una hoja de estilos y dos scripts. Ahora tiene una intro HELLO cuyas teclas vuelan al teclado del escritorio, un hero construido en código a partir de las referencias de `../referencias/hero-hello/`, y los modos claro y cálido. Detalle del estado vigente en [LEEME.md](LEEME.md).
+
+## Hero con las fotos de Dany · 1 de noviembre de 2026
+
+A petición de Dany, el escritorio dibujado en código se sustituyó por sus fotos, mejoradas para web (escalado a 3072 px y WebP en tres tamaños). El HELLO pasa a salir en cada carga. La versión en código queda en `../_descartado/web-escritorio-codigo/`.
