@@ -114,7 +114,7 @@ Esto aporta un entregable concreto de su participación: el reporte de QA. La re
 - Durante 2026 realizó research y una auditoría para un reskin. En su respuesta posterior confirmó que el cliente aprobó casi todo el reskin global y que gran parte de ese trabajo llegó a producción. Falta identificar los cambios concretos para mostrar su evolución.
 - Le interesa mostrar este trabajo porque le dedicó tiempo y lo considera representativo de su práctica.
 - Utilizó IA para obtener nuevas ideas y análisis de posibles mejoras. Todavía no se ha reconstruido cómo revisó o convirtió esas sugerencias en decisiones.
-- Aclara que este tipo de trabajo también se realizaba en otros productos. Se recoge como parte de su [método transversal](../metodo-de-trabajo.md), manteniendo en cada caso sus evidencias y alcance propios.
+- Aclara que este tipo de trabajo también se realizaba en otros productos. Se recoge como parte de su [método transversal](../../estrategia/metodo-de-trabajo.md), manteniendo en cada caso sus evidencias y alcance propios.
 
 ### Material observado
 

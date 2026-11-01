@@ -31,7 +31,7 @@ Los tres botones de proyecto muestran un esquema breve con datos ya recogidos; n
 - Navegación entre secciones y proyectos y despliegue de trayectoria disponibles para probar el recorrido.
 - No se publica una web ni se modifica Figma.
 
-Fuente de contenido: [portada propuesta](portada-textos-es-propuesta.md) y [borradores de casos](casos/propuesta-editorial.md).
+Fuente de contenido: [portada propuesta](../contenido/portada-textos-es-propuesta.md) y [borradores de casos](../contenido/casos/propuesta-editorial.md).
 
 ## Archivo HTML solicitado después
 

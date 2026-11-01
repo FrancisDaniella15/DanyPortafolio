@@ -2,7 +2,7 @@
 
 Fecha: 26 de octubre de 2026.
 
-[Volver a la ficha del caso](../carbon.md) · [Método de trabajo transversal](../../metodo-de-trabajo.md)
+[Volver a la ficha del caso](../carbon.md) · [Método de trabajo transversal](../../../estrategia/metodo-de-trabajo.md)
 
 Dany indica que creó la estructura de trabajo en Figma y realizó la auditoría y el research para un reskin durante 2026, con apoyo de IA para generar ideas y explorar posibles mejoras. También aclara que este tipo de prácticas se realizaba en otros productos. Estas capturas documentan el ejemplo de Carbon.
 

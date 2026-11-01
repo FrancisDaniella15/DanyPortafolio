@@ -4,7 +4,7 @@
 
 Este documento reúne el contexto, las decisiones, las referencias y las ideas del portfolio. Es nuestra base de trabajo y se actualizará durante el proyecto.
 
-**Imágenes de referencia:** la [galería visual recopilada](referencias/referencias-visuales.md) reúne copias locales de las 17 imágenes de inspiración y antecedentes compartidas por Dany. Incluye las capturas de heroes, paisajes, computadoras en la naturaleza, herramientas, trayectoria y la propuesta previa de Gemini, diferenciada de las ideas vigentes. También enlaza la captura de Victoria tomada durante la revisión. El CV y las muestras de producto se mantienen separados.
+**Imágenes de referencia:** la [galería visual recopilada](../referencias/referencias-visuales.md) reúne copias locales de las 17 imágenes de inspiración y antecedentes compartidas por Dany. Incluye las capturas de heroes, paisajes, computadoras en la naturaleza, herramientas, trayectoria y la propuesta previa de Gemini, diferenciada de las ideas vigentes. También enlaza la captura de Victoria tomada durante la revisión. El CV y las muestras de producto se mantienen separados.
 
 **Estado actual:** definición de contenido y dirección creativa. Las propuestas visuales existentes son exploraciones; la estructura, los textos y el diseño final siguen en desarrollo.
 
@@ -62,9 +62,9 @@ El resumen inicial indica más de 4 años de experiencia y el CV más de 6. Conf
 
 **Selección propuesta:** dos casos con mayor profundidad —Carbon y Sozialens— y un caso más enfocado de PortalFi. Esta jerarquía puede ajustarse al revisar el material disponible.
 
-La recopilación del primer caso está en la [ficha de IntentX → Carbon](casos/carbon.md). Contiene información de trabajo, todavía sin textos finales para publicar.
+La recopilación del primer caso está en la [ficha de IntentX → Carbon](../contenido/casos/carbon.md). Contiene información de trabajo, todavía sin textos finales para publicar.
 
-**Paso actual de contenido:** Carbon tiene una primera síntesis en revisión. La entrevista continúa con la [ficha de Sozialens](casos/sozialens.md), empezando por qué permitía hacer el producto y para quién estaba pensado. Los ejemplos pendientes de Carbon se retomarán con archivos; no se da por cerrado su caso. Después se recogerá PortalFi antes de revisar el conjunto de proyectos seleccionados.
+**Paso actual de contenido:** Carbon tiene una primera síntesis en revisión. La entrevista continúa con la [ficha de Sozialens](../contenido/casos/sozialens.md), empezando por qué permitía hacer el producto y para quién estaba pensado. Los ejemplos pendientes de Carbon se retomarán con archivos; no se da por cerrado su caso. Después se recogerá PortalFi antes de revisar el conjunto de proyectos seleccionados.
 
 **Primera respuesta sobre Sozialens:** Dany reafirma que comenzó desde cero, entendiendo el producto antes de desarrollar wireframes, y describe su trabajo como comparable al de Carbon. Falta concretar la función y el público del producto, y después sus entregables y resultados propios.
 
@@ -76,27 +76,27 @@ La recopilación del primer caso está en la [ficha de IntentX → Carbon](casos
 
 **Estado de Sozialens según Dany:** tiene entendido que el producto llegó a desarrollarse. Se mantiene ese matiz; no se da por confirmado lanzamiento, uso o resultados. La siguiente pregunta será la duración de su participación.
 
-**Duración de Sozialens y avance:** Dany estima unos dos meses y aclara que no recuerda el periodo con certeza. La [primera síntesis de Sozialens](../_descartado/docs/casos/sozialens-borrador.md) reúne su aportación de UX/UI; los ejemplos y datos pendientes se retomarán con archivos. La recopilación continúa con la [ficha de PortalFi](casos/portalfi.md), comenzando por su responsabilidad de revisión. Ninguno de estos avances supone aprobar los casos finales.
+**Duración de Sozialens y avance:** Dany estima unos dos meses y aclara que no recuerda el periodo con certeza. La [primera síntesis de Sozialens](../_descartado/docs/casos/sozialens-borrador.md) reúne su aportación de UX/UI; los ejemplos y datos pendientes se retomarán con archivos. La recopilación continúa con la [ficha de PortalFi](../contenido/casos/portalfi.md), comenzando por su responsabilidad de revisión. Ninguno de estos avances supone aprobar los casos finales.
 
 **Descripción ampliada de Sozialens:** Dany especifica Product Designer como rol, arquitectura de información y flujos, co-creación del sistema de diseño, prototipos interactivos de alta fidelidad y Design QA con desarrollo para revisar fidelidad visual y funcional. Se actualizó su síntesis y la base factual de Proyectos seleccionados. El método y participantes de la validación, el alcance de las entregas y los resultados siguen pendientes.
 
 **Duración de PortalFi y punto de revisión:** Dany estima aproximadamente un mes. Ya hay una primera base de alcance y duración para los tres proyectos. El siguiente paso es revisar las descripciones breves de Proyectos seleccionados; los casos profundos siguen pendientes de ejemplos y materiales específicos.
 
-**Descripciones aceptadas — 26 de octubre:** Dany indicó que le gustan las tres descripciones breves de [Proyectos seleccionados](selected-work-copy.md). Quedan elegidas para las tarjetas; los casos completos y su presentación visual siguen pendientes. La siguiente sección de contenido es el [bloque de apps recientes con apoyo de IA](apps-recientes-copy.md), cuyo primer texto se prepara para revisión.
+**Descripciones aceptadas — 26 de octubre:** Dany indicó que le gustan las tres descripciones breves de [Proyectos seleccionados](../contenido/secciones/selected-work-copy.md). Quedan elegidas para las tarjetas; los casos completos y su presentación visual siguen pendientes. La siguiente sección de contenido es el [bloque de apps recientes con apoyo de IA](../contenido/secciones/apps-recientes-copy.md), cuyo primer texto se prepara para revisión.
 
-**Bloque de apps aceptado — 26 de octubre:** Dany aceptó el título «Apps móviles con apoyo de IA» y la descripción sobre briefs, interfaces, sistemas de diseño y Figma Agents. La selección de muestras y qué puede divulgarse siguen pendientes. El trabajo de textos continúa con la [primera propuesta de Sobre mí](sobre-mi-copy.md), todavía por revisar.
+**Bloque de apps aceptado — 26 de octubre:** Dany aceptó el título «Apps móviles con apoyo de IA» y la descripción sobre briefs, interfaces, sistemas de diseño y Figma Agents. La selección de muestras y qué puede divulgarse siguen pendientes. El trabajo de textos continúa con la [primera propuesta de Sobre mí](../contenido/secciones/sobre-mi-copy.md), todavía por revisar.
 
 **Revisión de Sobre mí:** Dany indicó que la primera versión no le convencía y pidió un tono más personal. Solicitó retirar la formación en Derecho y expresar que ama la música, los colores y la naturaleza. La segunda propuesta se concentra en esos elementos y una presentación profesional breve; sigue pendiente de aceptación.
 
-**Sobre mí aceptado — 26 de octubre:** Dany aceptó la segunda versión, que presenta su gusto por explorar ideas, estructurarlas y cuidar los detalles, junto a su amor por la música, los colores y la naturaleza. La siguiente sección es [Herramientas](herramientas-copy.md), con una selección breve propuesta para revisar.
+**Sobre mí aceptado — 26 de octubre:** Dany aceptó la segunda versión, que presenta su gusto por explorar ideas, estructurarlas y cuidar los detalles, junto a su amor por la música, los colores y la naturaleza. La siguiente sección es [Herramientas](../contenido/secciones/herramientas-copy.md), con una selección breve propuesta para revisar.
 
 **Revisión de Herramientas:** Dany pidió mostrar herramientas de trabajo concretas, citando Notion, Figma, ChatGPT, Stitch y «nano banani». La agrupación inicial por disciplinas no fue aceptada. La nueva base se titula «Mis herramientas» y reúne nombres; se confirmará si el último corresponde a Nano Banana o Banani antes de cerrar la lista.
 
 **Nombre aclarado:** Dany confirmó Banani. La base de herramientas se actualiza a Figma, Notion, ChatGPT, Claude, Gemini, Stitch y Banani; esta corrección resuelve la ambigüedad anterior y no implica aprobar el diseño visual del bloque.
 
-**Paso actual de textos:** se prepara el cierre [Trabajemos juntos / Contacto](contacto-copy.md), con invitación a conversar sobre equipos y productos, correo y enlaces profesionales. El primer borrador utiliza los datos del CV compartido; faltan revisión de copy y confirmación del correo preferido. Después se podrá revisar la portada completa y los textos pendientes antes de adaptarlos al inglés.
+**Paso actual de textos:** se prepara el cierre [Trabajemos juntos / Contacto](../contenido/secciones/contacto-copy.md), con invitación a conversar sobre equipos y productos, correo y enlaces profesionales. El primer borrador utiliza los datos del CV compartido; faltan revisión de copy y confirmación del correo preferido. Después se podrá revisar la portada completa y los textos pendientes antes de adaptarlos al inglés.
 
-**Correo confirmado y revisión conjunta — 26 de octubre:** Dany confirmó cova.francis15@gmail.com para oportunidades laborales. Se reunieron los [textos de la portada en español](portada-textos-es.md) para leerlos como un recorrido completo. El correo está elegido; el texto de contacto y el ajuste del hero con IA siguen propuestos. Las descripciones de proyectos, el bloque de apps y Sobre mí están aceptados; los casos completos y el diseño siguen en desarrollo.
+**Correo confirmado y revisión conjunta — 26 de octubre:** Dany confirmó cova.francis15@gmail.com para oportunidades laborales. Se reunieron los [textos de la portada en español](../contenido/portada-textos-es.md) para leerlos como un recorrido completo. El correo está elegido; el texto de contacto y el ajuste del hero con IA siguen propuestos. Las descripciones de proyectos, el bloque de apps y Sobre mí están aceptados; los casos completos y el diseño siguen en desarrollo.
 
 **Ampliación de la entrevista de Carbon:** Dany indica que creó el sistema de diseño y participó en QA, documentación y benchmarking. Describe componentes con variantes y una etapa de rediseño de IntentX dirigida por un colaborador cuya identidad queda por aclarar. Su valoración de la calidad y el aprendizaje es cualitativa. Se precisarán las aportaciones con ejemplos antes de cerrar el relato del caso.
 
@@ -112,7 +112,7 @@ La recopilación del primer caso está en la [ficha de IntentX → Carbon](casos
 
 **Design QA de la implementación:** Dany confirmó que probaba la web implementada frente al diseño en Figma y elaboraba personalmente un reporte comentando los errores para desarrollo. Las capturas siguientes precisan su estructura; falta el seguimiento de las correcciones.
 
-**Material de QA y auditoría — 26 de octubre:** Dany compartió siete capturas, cinco distintas, conservadas en el [catálogo de evidencias de Carbon](casos/carbon/evidencias.md). Se observan categorías y estados de QA, comparativas Figma/producción, benchmarking, una auditoría y planificación de evolución del sistema y reskin. Dany afirma haber creado esta estructura y realizado la auditoría en 2026 con apoyo de IA. Se preguntará qué se implementó y qué quedó propuesto; las metas y estimaciones de los tableros no son métricas obtenidas.
+**Material de QA y auditoría — 26 de octubre:** Dany compartió siete capturas, cinco distintas, conservadas en el [catálogo de evidencias de Carbon](../contenido/casos/carbon/evidencias.md). Se observan categorías y estados de QA, comparativas Figma/producción, benchmarking, una auditoría y planificación de evolución del sistema y reskin. Dany afirma haber creado esta estructura y realizado la auditoría en 2026 con apoyo de IA. Se preguntará qué se implementó y qué quedó propuesto; las metas y estimaciones de los tableros no son métricas obtenidas.
 
 **Práctica transversal:** Dany aclara que este tipo de trabajo también se realizaba en otros productos. Su [método de trabajo](metodo-de-trabajo.md) reúne estas prácticas para el contenido de Sobre mí y los casos. Las capturas de Carbon son un ejemplo concreto; no se atribuyen sus mismos tableros o resultados a los demás proyectos.
 
@@ -182,7 +182,7 @@ La propuesta detallada está en [Estructura de la web](estructura-web.md). Sigue
 
 El detalle del producto explica qué es y para quién existe; el caso de estudio cuenta las aportaciones, decisiones y evidencia de Dany. Ambos forman la página de cada proyecto. La propuesta reúne los listados de productos y casos bajo “Proyectos” e integra “Cómo trabajo” en “Sobre mí” para mantener una portada concisa. El selector visual y el idioma funcionan como controles separados de la navegación.
 
-**Tarea actual:** tras trabajar la base del hero, Dany pidió continuar con la información de la siguiente sección. El [borrador de Proyectos seleccionados](selected-work-copy.md) reúne el título y las descripciones iniciales de las tres tarjetas. Son textos para revisar, no casos de estudio terminados. El copy final del hero sigue pendiente de cierre.
+**Tarea actual:** tras trabajar la base del hero, Dany pidió continuar con la información de la siguiente sección. El [borrador de Proyectos seleccionados](../contenido/secciones/selected-work-copy.md) reúne el título y las descripciones iniciales de las tres tarjetas. Son textos para revisar, no casos de estudio terminados. El copy final del hero sigue pendiente de cierre.
 
 ### Estructura propuesta para los casos
 
@@ -219,7 +219,7 @@ Profesional, directa y estratégica. Clara y precisa al explicar el trabajo; cá
 
 Los titulares anteriores del chat son borradores, no textos finales. La propuesta de Gemini se revisó como referencia y Dany quiere iniciar una dirección nueva.
 
-Dany pidió empezar ahora por el copy del hero, antes de continuar la entrevista de Carbon. La [primera propuesta de hero](hero-copy.md) recoge el borrador en español y sus criterios de revisión. La recopilación de Carbon queda pendiente para retomarla después; no cambia el alcance del portfolio.
+Dany pidió empezar ahora por el copy del hero, antes de continuar la entrevista de Carbon. La [primera propuesta de hero](../contenido/secciones/hero-copy.md) recoge el borrador en español y sus criterios de revisión. La recopilación de Carbon queda pendiente para retomarla después; no cambia el alcance del portfolio.
 
 Dany indicó que le gusta el tono de esa propuesta. Aportó seis capturas adicionales —Halaska, Nina Park, Leon North, Leo Marlowe, Marcus Presse y Zara Miller— para estudiar información y texto. Su análisis y las recomendaciones están en el mismo documento del hero; la composición y la redacción final siguen pendientes.
 
@@ -297,7 +297,7 @@ Para cada efecto se definirá qué aporta. Se comprobarán legibilidad, navegaci
 - **Personalidad:** [Playground](https://victoria-salatino-portfolio.netlify.app/playground) presenta una habitación ilustrada, cambio día/noche y acceso a un mini piano. Se inspeccionó la escena y se probó el cambio de iluminación; no se evaluó la reproducción musical.
 - **Adaptación propuesta:** explorar collage en el inicio o un espacio personal breve; títulos específicos y comparaciones visuales cuando tengamos versiones reales equivalentes. Mantener el acceso directo a los proyectos.
 - La versión bilingüe es una referencia de interacción; Dany tendrá también versiones en español e inglés desde el lanzamiento. Las cifras publicadas por Victoria describen su caso y no se han verificado de forma independiente.
-- [Captura de la escena personal](referencias/victoria-playground.png).
+- [Captura de la escena personal](../referencias/diseno-web/victoria-playground.png).
 
 ### Daniel Sun
 
@@ -484,7 +484,7 @@ Dany aportó una captura con una fila de tarjetas, logos grandes y nombres en la
 
 ### 26 de octubre de 2026 — Propuesta de trayectoria profesional
 
-Dany compartió una referencia de empresas, cargos y periodos. Confirmó incorporar [«Mi trayectoria»](trayectoria-contenido.md) como bloque breve. Se propone ubicarlo junto a Sobre mí. La captura está conservada en la galería.
+Dany compartió una referencia de empresas, cargos y periodos. Confirmó incorporar [«Mi trayectoria»](../contenido/secciones/trayectoria-contenido.md) como bloque breve. Se propone ubicarlo junto a Sobre mí. La captura está conservada en la galería.
 
 Dany aclaró el formato aportando una captura de su experiencia en LinkedIn: quiere empresa, cargo y fechas, sin los párrafos de responsabilidades. La captura se conserva como fuente laboral, separada de la galería de inspiración. Se registraron ocho entradas visibles, desde GaluApps (2019–2021) hasta Esthetiqo Studio (2023–2026); falta revisar la selección pública. No se adopta una cifra total de años ni una modalidad de trabajo a partir de esta captura.
 
@@ -494,7 +494,7 @@ Dany aclaró el formato aportando una captura de su experiencia en LinkedIn: qui
 
 ### 26 de octubre de 2026 — Revisión integral de UX writing solicitada
 
-Se preparó una [revisión con textos actuales, propuestas y motivos](revision-ux-writing.md), una [portada recomendada](portada-textos-es-propuesta.md) y una [reescritura de los borradores de casos](casos/propuesta-editorial.md). Se consultaron de nuevo Halaska, Bohdana, Victoria Salatino, Daniel Sun, Leo Marlowe y Mariel by Design; el [análisis de referencias](referencias/analisis-redaccion-2026-10-26.md) delimita qué se pudo leer. No se reabrió Figma ni se generaron imágenes o diseño.
+Se preparó una [revisión con textos actuales, propuestas y motivos](../contenido/revision-ux-writing.md), una [portada recomendada](../contenido/portada-textos-es-propuesta.md) y una [reescritura de los borradores de casos](../contenido/casos/propuesta-editorial.md). Se consultaron de nuevo Halaska, Bohdana, Victoria Salatino, Daniel Sun, Leo Marlowe y Mariel by Design; el [análisis de referencias](../referencias/analisis-redaccion-2026-10-26.md) delimita qué se pudo leer. No se reabrió Figma ni se generaron imágenes o diseño.
 
 Dany aclaró que Sozialens permitía buscar creadores y organizar campañas, con recuerdo aproximado. Describió PortalFi como una neobanca con tecnología DeFi y confirmó de forma general saldo, transferencias, ahorro y tarjetas, sin atribuirse todas sus pantallas. La nueva redacción diferencia función del producto, aportación personal y trabajo compartido.
 
@@ -504,4 +504,4 @@ Estado: nuevas recomendaciones pendientes de revisión, sin reemplazar como apro
 
 Dany pidió un boceto de la estructura, sin profundizar en el diseño. Se preparó un wireframe neutro de la portada con los textos propuestos, botones entre secciones, acceso al esquema de cada proyecto y despliegue de trayectoria. El [registro del boceto](wireframe-estructura.md) recoge el alcance. No se generaron imágenes, no se publicó una web ni se modificó Figma; los textos y la composición siguen pendientes de revisión.
 
-**Aceptación provisional del boceto:** Dany indica que por el momento está bien y que podremos mejorarlo después. Se adopta la estructura como base para continuar, sin registrar una aprobación definitiva de cada texto ni del diseño visual. Se prepara una [selección inicial de materiales de Carbon](casos/carbon/seleccion-materiales.md), reutilizando los reportes y la auditoría ya compartidos. El primer material por elegir es una vista principal limpia en escritorio y móvil.
+**Aceptación provisional del boceto:** Dany indica que por el momento está bien y que podremos mejorarlo después. Se adopta la estructura como base para continuar, sin registrar una aprobación definitiva de cada texto ni del diseño visual. Se prepara una [selección inicial de materiales de Carbon](../contenido/casos/carbon/seleccion-materiales.md), reutilizando los reportes y la auditoría ya compartidos. El primer material por elegir es una vista principal limpia en escritorio y móvil.

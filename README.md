@@ -1,29 +1,38 @@
 # Portfolio de Dany Cova
 
-La base del proyecto está en el [documento de trabajo](docs/portfolio-documento-de-trabajo.md).
+Portfolio de Francis Daniella (Dany Cova), Product Designer. Lanzamiento objetivo: 20 de noviembre de 2026.
 
-Los [textos reunidos de la portada en español](docs/portada-textos-es.md) permiten revisar el recorrido completo y distinguir los bloques aceptados de los pendientes.
+## Estructura
 
-La [revisión de UX writing del 26 de octubre](docs/revision-ux-writing.md) compara los textos actuales con una recomendación nueva, apoyada en seis referencias consultadas. La [portada propuesta](docs/portada-textos-es-propuesta.md) y los [casos reescritos](docs/casos/propuesta-editorial.md) están preparados para revisión, todavía sin aprobación.
+| Carpeta | Qué contiene |
+|---|---|
+| [`web/`](web/LEEME.md) | Prototipo activo de la web. Abre [`web/index.html`](web/index.html) en el navegador. |
+| [`contenido/`](contenido/) | Textos de la web: portada, secciones y casos de estudio. |
+| [`estrategia/`](estrategia/) | Documento de trabajo, brief, plan, estructura de la web, wireframe y método. |
+| [`identidad/`](identidad/logo-francis-daniella/LEEME.md) | Logo elegido (3A y 3B) y sus referencias. |
+| [`referencias/`](referencias/referencias-visuales.md) | Referencias visuales y de redacción compartidas por Dany. |
+| [`_descartado/`](_descartado/LEEME.md) | Material que ya no se usa, guardado por si hace falta recuperarlo. |
 
-Allí se reúnen el perfil, los proyectos, las decisiones, las ideas visuales, las referencias, el UX writing, el plan y los pendientes. Las propuestas están diferenciadas de las decisiones confirmadas.
+## Por dónde empezar
 
-La [galería de referencias visuales](docs/referencias/referencias-visuales.md) conserva las imágenes compartidas por Dany en esta carpeta, con un índice y vistas de cada referencia.
+1. [Documento de trabajo](estrategia/documento-de-trabajo.md): perfil, proyectos, decisiones, ideas visuales, plan y pendientes. Mantiene el estado vigente y enlaza los documentos de detalle.
+2. [Guía del prototipo](web/LEEME.md): estado actual de la web, archivos y pendientes. Los cambios anteriores están en el [historial](web/HISTORIAL.md).
+3. [Textos de la portada](contenido/portada-textos-es.md) y [portada propuesta](contenido/portada-textos-es-propuesta.md), pendiente de aprobación.
 
-Los textos se trabajan por secciones: [hero](docs/hero-copy.md) y [proyectos seleccionados](docs/selected-work-copy.md). La tarea actual es probar la composición del hero en una web local, con textos editables.
+## Estrategia
 
-El [método de trabajo transversal](docs/metodo-de-trabajo.md) recoge prácticas de investigación, sistemas de diseño, documentación y QA. El [material de Carbon](docs/casos/carbon/evidencias.md) conserva las capturas del trabajo compartido por Dany.
+- [Brief estratégico](estrategia/brief-estrategico.md): objetivo, público y alcance.
+- [Plan de trabajo por fases](estrategia/plan-de-trabajo.md): tareas, dependencias y criterios para avanzar hasta el lanzamiento.
+- [Estructura de la web](estrategia/estructura-web.md): páginas, secciones, contenidos y llamadas a la acción.
+- [Wireframe del 27 de octubre](estrategia/wireframe-estructura.md): portada, detalle de proyectos y trayectoria desplegable.
+- [Método de trabajo](estrategia/metodo-de-trabajo.md): investigación, sistemas de diseño, documentación y QA.
 
-El [plan de trabajo por fases](docs/plan-de-trabajo.md) define las tareas, las dependencias y los criterios para avanzar desde la estrategia hasta el lanzamiento. El avance actual es el primer prototipo local del hero.
+## Contenido
 
-El [brief estratégico](docs/brief-estrategico.md) reúne el resumen de objetivo, público y alcance propuesto, con lanzamiento objetivo el 20 de noviembre de 2026.
+- [Revisión de UX writing](contenido/revision-ux-writing.md): compara los textos actuales con la recomendación del 26 de octubre.
+- Secciones: [hero](contenido/secciones/hero-copy.md), [proyectos seleccionados](contenido/secciones/selected-work-copy.md), [sobre mí](contenido/secciones/sobre-mi-copy.md), [trayectoria](contenido/secciones/trayectoria-contenido.md), [herramientas](contenido/secciones/herramientas-copy.md), [apps recientes](contenido/secciones/apps-recientes-copy.md) y [contacto](contenido/secciones/contacto-copy.md).
+- Casos: [Carbon](contenido/casos/carbon.md) (con [materiales](contenido/casos/carbon/evidencias.md)), [Sozialens](contenido/casos/sozialens.md), [PortalFi](contenido/casos/portalfi.md) y la [propuesta editorial](contenido/casos/propuesta-editorial.md), pendiente de aprobación.
 
-La [propuesta de estructura de la web](docs/estructura-web.md) desarrolla las páginas, las secciones, sus contenidos y las llamadas a la acción.
+## Pendiente importante
 
-El [boceto de estructura del 27 de octubre](docs/wireframe-estructura.md) registra el wireframe de información y botones: portada, detalle de proyectos y trayectoria desplegable. Usa los textos propuestos y no fija el estilo visual.
-
-El documento general mantiene el estado y las decisiones vigentes; los documentos de detalle desarrollan cada parte y están enlazados desde allí.
-
-El [prototipo web](prototipo-web/index.html) es la versión activa de la portada. Su [guía](prototipo-web/LEEME.md) explica decisiones y pendientes. La [selección del logo](identidad/logo-francis-daniella/SELECCION.md) recoge las propuestas 3A y 3B.
-
-La carpeta [`_descartado/`](_descartado/LEEME.md) guarda lo que ya no se usa (boceto web inicial, variantes del prototipo, paletas no elegidas, exploraciones de logo y borradores superados), con la misma estructura de carpetas de origen.
+Varias imágenes PNG están cortadas a 700 000 bytes y no se ven completas, entre ellas el logo y los girasoles de la web. Hacen falta los archivos originales.

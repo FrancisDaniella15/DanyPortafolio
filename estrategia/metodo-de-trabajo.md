@@ -31,7 +31,7 @@ Queda pendiente reconstruir una recomendación concreta y cómo se transformó m
 
 Dany indica que creó una estructura de trabajo en Figma, una guía de categorías y estados, reportes de comparación entre diseño y producción, y material de auditoría y planificación para un reskin en 2026. Explica que utilizó IA para recibir ideas y análisis de oportunidades de mejora.
 
-Las [capturas de Carbon](casos/carbon/evidencias.md) permiten describir artefactos concretos. Falta reconstruir qué sugerencias de IA revisó, adaptó o descartó, qué otras fuentes consultó y relacionar propuestas específicas con los cambios que llegaron a producción. El estado general de aprobación e implementación ya fue explicado por Dany.
+Las [capturas de Carbon](../contenido/casos/carbon/evidencias.md) permiten describir artefactos concretos. Falta reconstruir qué sugerencias de IA revisó, adaptó o descartó, qué otras fuentes consultó y relacionar propuestas específicas con los cambios que llegaron a producción. El estado general de aprobación e implementación ya fue explicado por Dany.
 
 ## Dónde puede aparecer en la web
 

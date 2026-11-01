@@ -98,7 +98,7 @@ No necesita páginas individuales en esta primera versión. Las muestras son tra
 
 Los casos aportarán ejemplos de estas capacidades. Por petición de Dany, la presentación personal no incluirá su formación en Derecho.
 
-**Contenido confirmado:** [«Mi trayectoria»](trayectoria-contenido.md), con empresa, cargo y años, sin párrafos de responsabilidades. Mostrar inicialmente Esthetiqo Studio, Indexceed y edunam; «Ver trayectoria completa» despliega otras cinco experiencias dentro de la web. Mantener un enlace independiente a LinkedIn. Se propone ubicarlo después de la presentación personal. Esthetiqo Studio y Quantiqo son la misma empresa, confirmado por Dany; no duplicar esa experiencia. La selección está aceptada; la composición visual sigue abierta.
+**Contenido confirmado:** [«Mi trayectoria»](../contenido/secciones/trayectoria-contenido.md), con empresa, cargo y años, sin párrafos de responsabilidades. Mostrar inicialmente Esthetiqo Studio, Indexceed y edunam; «Ver trayectoria completa» despliega otras cinco experiencias dentro de la web. Mantener un enlace independiente a LinkedIn. Se propone ubicarlo después de la presentación personal. Esthetiqo Studio y Quantiqo son la misma empresa, confirmado por Dany; no duplicar esa experiencia. La selección está aceptada; la composición visual sigue abierta.
 
 El espacio personal puede ampliarse dentro de esta sección. La habitación interactiva o un Playground independiente quedan como ideas opcionales.
 
@@ -175,4 +175,4 @@ El [plan por fases](plan-de-trabajo.md), propuesto el 22 de octubre de 2026, org
 
 En esa fase redactaremos el **hero y las tres introducciones de proyectos** con contenido real para probar la composición antes de cerrar colores, tipografías y movimiento.
 
-Contexto y referencias: [documento general de trabajo](portfolio-documento-de-trabajo.md).
+Contexto y referencias: [documento general de trabajo](documento-de-trabajo.md).

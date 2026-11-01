@@ -40,7 +40,7 @@ Fuente conservada aparte de las referencias visuales: [captura de experiencia la
 
 ## Referencia
 
-![Referencia de trayectoria profesional](referencias/imagenes/17-trayectoria-experiencia.png)
+![Referencia de trayectoria profesional](../../referencias/imagenes/17-trayectoria-experiencia.png)
 
 Tomamos como idea la lectura rápida de empresa, rol y fechas. El diseño de tarjetas, tipografía y composición siguen abiertos.
 

@@ -119,7 +119,7 @@ LinkedIn · CV en PDF
 ## Notas de revisión — fuera del contenido público
 
 - Revisar el recorrido, las repeticiones y la voz del conjunto. No se generan imágenes ni se comienza el diseño en esta revisión.
-- [«Mi trayectoria»](trayectoria-contenido.md) incluye las ocho experiencias aceptadas, sin responsabilidades. Esthetiqo, Indexceed y edunam se muestran inicialmente; «Ver trayectoria completa» despliega las otras cinco en la web. El enlace a LinkedIn se conserva como acceso externo. La composición y el texto para contraer la lista siguen por diseñar.
+- [«Mi trayectoria»](secciones/trayectoria-contenido.md) incluye las ocho experiencias aceptadas, sin responsabilidades. Esthetiqo, Indexceed y edunam se muestran inicialmente; «Ver trayectoria completa» despliega las otras cinco en la web. El enlace a LinkedIn se conserva como acceso externo. La composición y el texto para contraer la lista siguen por diseñar.
 - El nombre profesional visible y la etiqueta de marca siguen pendientes de cierre.
 - El correo está confirmado. El destino de LinkedIn parte del CV compartido y el PDF actualizado aún debe prepararse; las etiquetas anteriores no implican enlaces implementados.
 - Las imágenes, videos y materiales de los casos se elegirán después según disponibilidad y qué pueda mostrarse.

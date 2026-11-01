@@ -7,4 +7,4 @@ Material que ya no forma parte del portfolio activo. Se movió aquí el 1 de nov
 - `identidad/logo-francis-daniella/`: exploraciones de logo no elegidas, sus fuentes, scripts y la galería con el historial.
 - `docs/`: borradores superados de Carbon y Sozialens y la exploración de interacciones del hero con laptop.
 
-Las páginas HTML del prototipo archivadas no cargan bien desde aquí: sus estilos y scripts siguen en `../prototipo-web/`. Algunos enlaces internos de los documentos archivados también apuntan a rutas antiguas.
+Las páginas HTML del prototipo archivadas no cargan bien desde aquí: sus estilos y scripts siguen en `../web/`. Algunos enlaces internos de los documentos archivados también apuntan a rutas antiguas.

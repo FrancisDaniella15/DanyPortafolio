@@ -72,6 +72,6 @@ Estos son criterios y propuestas, no nuevas decisiones visuales aprobadas. El no
 
 ## Exploración de interacción
 
-Dany pidió estudiar un hero con movimiento, personalidad y una muestra de su uso de IA. Las observaciones de Leo Marlowe y Marielbydesign, y el concepto propuesto, están en [Hero: interacciones y apoyo con IA](../_descartado/docs/hero-interacciones.md). El copy permanece como base; la interacción aún no está elegida.
+Dany pidió estudiar un hero con movimiento, personalidad y una muestra de su uso de IA. Las observaciones de Leo Marlowe y Marielbydesign, y el concepto propuesto, están en [Hero: interacciones y apoyo con IA](../../_descartado/docs/hero-interacciones.md). El copy permanece como base; la interacción aún no está elegida.
 
 Después precisó su idea: aparecer sentada trabajando en una computadora dentro de un paisaje de cielo o naturaleza, con referencias de color y surrealismo. Esta escena sustituye al retrato aislado como dirección a explorar. Se reservará una zona visual tranquila para el texto y los botones.

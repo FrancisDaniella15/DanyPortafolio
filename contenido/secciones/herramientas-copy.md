@@ -22,7 +22,7 @@ La descripción y lista son una base para revisar. Dany aclaró el 26 de octubre
 
 ## Referencia de presentación aportada por Dany
 
-Dany quiere explorar una sección similar a la [captura de tarjetas con logos](referencias/imagenes/16-herramientas-tarjetas-logos.png): título breve, tarjetas de tamaño consistente, logo destacado y nombre de la herramienta en la parte inferior.
+Dany quiere explorar una sección similar a la [captura de tarjetas con logos](../../referencias/imagenes/16-herramientas-tarjetas-logos.png): título breve, tarjetas de tamaño consistente, logo destacado y nombre de la herramienta en la parte inferior.
 
 - La propuesta de contenido es una tarjeta por herramienta de la selección actual: Figma, Notion, ChatGPT, Claude, Gemini, Stitch y Banani.
 - No se añaden las herramientas de la captura a su stack ni se copia su titular sobre modelos de IA.

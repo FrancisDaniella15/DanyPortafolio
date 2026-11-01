@@ -266,6 +266,6 @@ Ambas preguntas iniciales están respondidas. El selector está confirmado para 
 
 ## Documentos relacionados
 
-- [Contexto y decisiones](portfolio-documento-de-trabajo.md).
+- [Contexto y decisiones](documento-de-trabajo.md).
 - [Propuesta de estructura](estructura-web.md).
 - [Brief estratégico](brief-estrategico.md).

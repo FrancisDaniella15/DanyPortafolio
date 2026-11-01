@@ -8,7 +8,7 @@ Se revisaron los textos actuales de la portada, las propuestas por sección, la 
 
 Se consultaron de nuevo [Halaska](https://halaska.com/), [Bohdana](https://www.bohdana.design/), [Victoria Salatino](https://victoria-salatino-portfolio.netlify.app/), [Daniel Sun](https://danielsun.space/), [Leo Marlowe](https://leomarlowe.framer.website/) y [Mariel by Design](https://marielbydesign.com/en). Se recuperaron los seis enlaces; cuatro necesitaron navegador. Se leyeron además Work de Halaska, Crosstab Tables de Bohdana y Dibsy de Daniel. No se afirma una revisión exhaustiva de todos sus casos.
 
-El [análisis de referencias](referencias/analisis-redaccion-2026-10-26.md) identifica qué se consultó y cómo. Las capturas antiguas están disponibles, pero no se confunden con versiones actuales de las webs. El archivo Figma está registrado y no se reabrió en esta revisión. Los seis portafolios aportan suficiente material para esta revisión de voz y contenido.
+El [análisis de referencias](../referencias/analisis-redaccion-2026-10-26.md) identifica qué se consultó y cómo. Las capturas antiguas están disponibles, pero no se confunden con versiones actuales de las webs. El archivo Figma está registrado y no se reabrió en esta revisión. Los seis portafolios aportan suficiente material para esta revisión de voz y contenido.
 
 Durante la revisión Dany confirmó de forma general, con recuerdo aproximado, la búsqueda de creadores y la organización de campañas en Sozialens. Describió PortalFi como una neobanca con DeFi y confirmó funciones de saldo, transferencias, ahorro y tarjetas. Esto describe el producto, sin atribuirle la autoría de cada función.
 

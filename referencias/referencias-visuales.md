@@ -6,7 +6,7 @@ Estas imágenes son inspiración, no diseños aprobados ni material propio de lo
 
 **Orden vigente:** primero ideas, información y textos. Retomar diseño y generación de imágenes cuando Dany lo solicite.
 
-[Volver al documento de trabajo](../portfolio-documento-de-trabajo.md)
+[Volver al documento de trabajo](../estrategia/documento-de-trabajo.md)
 
 ## Índice
 
@@ -125,7 +125,7 @@ Antecedente para revisar, no dirección aprobada. Sus métricas y capacidades no
 
 Captura tomada durante la revisión de Victoria; no es un adjunto enviado por Dany.
 
-![Playground de Victoria](victoria-playground.png)
+![Playground de Victoria](diseno-web/victoria-playground.png)
 
 
 <a id="16-herramientas-tarjetas-logos"></a>

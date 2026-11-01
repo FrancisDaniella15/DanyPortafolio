@@ -4,7 +4,7 @@
 
 **3A y 3B son las propuestas elegidas provisionalmente.** La lámina está guardada como `seleccion-3a-3b.png`. Decisión y uso en el prototipo: `SELECCION.md`. Las referencias que inspiraron las láminas están en `referencias/`.
 
-La web activa usa una edición de 3A en verde oliva con fondo transparente: `../../prototipo-web/assets/logo-francis-daniella-3a-oliva.png`.
+La web activa usa una edición de 3A en verde oliva con fondo transparente: `../../web/assets/logo-francis-daniella-3a-oliva.png`.
 
 ## Exploraciones archivadas
 
