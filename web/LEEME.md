@@ -42,7 +42,7 @@ y abrir http://localhost:4173. No requiere instalaciones; fuentes e imágenes es
 - **B · Teclas reales:** las teclas HELLO de Dany caen y vuelan en curva hasta su letra.
 - **D · Revelado:** la L naranja hace de Enter y un círculo abre el hero.
 - **E · HELLO de derecha a izquierda y la O se convierte en el teclado**, con tres transiciones:
-  - **E1 · Zoom:** la cámara se acerca a la O, la letra se funde con la O del teclado de la foto (alineadas por la letra) y la cámara se aleja.
+  - **E1 · Zoom:** mientras la cámara se acerca a la O, el teclado de la foto va apareciendo a su alrededor: el fondo se abre desde la O hacia fuera y la foto se mueve en sincronía, con su O siempre bajo la letra de la tecla. Al final la tecla se funde con la del teclado y la cámara se aleja hasta el hero.
   - **E2 · Portal:** H-E-L-L siguen hacia la izquierda, la O se pulsa y su cara se abre como una ventana que crece hasta mostrar el escritorio mientras la cámara se aleja.
   - **E3 · La O cae:** H-E-L-L siguen hacia la izquierda, aparece el escritorio y la O vuela en curva hasta encajar en su tecla.
 

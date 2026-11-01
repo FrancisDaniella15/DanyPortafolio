@@ -1,5 +1,17 @@
 /* Página de pruebas del HELLO. Se apoya en ../site.css para que el hero sea el real. */
 
+@property --mx {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --my {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
 @property --r {
   syntax: '<length>';
   inherits: false;
@@ -73,6 +85,10 @@
 .overlay { position: fixed; inset: 0; z-index: 80; display: none; place-items: center; }
 .overlay.is-on { display: grid; }
 .overlay__bg { position: absolute; inset: 0; background: var(--bg); }
+.overlay__bg--hole {
+  -webkit-mask-image: radial-gradient(circle at var(--mx) var(--my), transparent var(--r), #000 calc(var(--r) + 90px));
+  mask-image: radial-gradient(circle at var(--mx) var(--my), transparent var(--r), #000 calc(var(--r) + 90px));
+}
 .overlay--mask {
   -webkit-mask-image: radial-gradient(circle at var(--cx, 50%) var(--cy, 50%), transparent var(--r), #000 calc(var(--r) + 1px));
   mask-image: radial-gradient(circle at var(--cx, 50%) var(--cy, 50%), transparent var(--r), #000 calc(var(--r) + 1px));
