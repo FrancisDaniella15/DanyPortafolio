@@ -443,3 +443,5 @@ La versión de girasoles se archivó en `../_descartado/web-girasoles/`. La pág
 ## Hero con las fotos de Dany · 1 de noviembre de 2026
 
 A petición de Dany, el escritorio dibujado en código se sustituyó por sus fotos, mejoradas para web (escalado a 3072 px y WebP en tres tamaños). El HELLO pasa a salir en cada carga. La versión en código queda en `../_descartado/web-escritorio-codigo/`.
+
+Las fotos del hero se volvieron a escalar con IA (Real-ESRGAN ×4, autorizado por Dany): letras, logos y bordes más nítidos que con el escalado clásico, y archivos más ligeros.
