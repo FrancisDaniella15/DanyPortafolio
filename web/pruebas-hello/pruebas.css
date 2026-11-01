@@ -32,6 +32,24 @@
 }
 .photo-key.is-lit { box-shadow: 0 0 0 1px rgba(239, 106, 33, .35), 0 0 12px 2px rgba(239, 106, 33, .28); }
 
+/* E: capa de detalle (IA ×16) alrededor de la O para el primer plano */
+.detail-o {
+  position: absolute;
+  left: 790px;
+  top: 630px;
+  z-index: 1;
+  width: 280px;
+  height: 170px;
+  max-width: none;
+  opacity: 0;
+  transition: opacity .4s ease;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent), linear-gradient(transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent), linear-gradient(transparent, #000 8%, #000 92%, transparent);
+  mask-composite: intersect;
+}
+.detail-o.is-on { opacity: 1; transition-duration: 0s; }
+
 /* A: texto tecleado */
 .typed {
   position: fixed;

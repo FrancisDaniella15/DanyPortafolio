@@ -1,4 +1,4 @@
-// Tres formas de entrar al hero: A (cámara), B (teclas reales) y D (revelado).
+// Formas de entrar al hero: A (cámara), B (teclas reales), D (revelado) y E (zoom en la O).
 (function () {
   'use strict';
 
@@ -11,14 +11,21 @@
   const overlayBg = overlay.querySelector('.overlay__bg');
   const realKeys = Array.from(overlay.querySelectorAll('.real-key'));
   const note = document.getElementById('note');
+  const keyRow = document.getElementById('real-keys');
+  const detailO = document.getElementById('detail-o');
   const PHOTO_W = 1536;
   const PHOTO_H = 1024;
   const KEYBOARD = { x0: 455, x1: 1150, cx: 802, cy: 737 };
+  // Letra O en la foto (px de la imagen original) y en la tecla HELLO (fracción de la imagen),
+  // para que el cruce alinee las letras y no los bordes de las teclas.
+  const PHOTO_O = { cx: 929.8, cy: 708.85, glyph: 9.5 };
+  const HELLO_O = { cx: .5, cy: .46, glyph: .2888 };
 
   const NOTES = {
     a: 'A · Primer plano del teclado de la foto: se pulsan H-E-L-L-O y la cámara se aleja hasta el hero.',
     b: 'B · Tus teclas HELLO reales caen, esperan y vuelan en curva hasta su letra del teclado.',
-    d: 'D · Tus teclas HELLO aparecen, la L naranja hace de Enter y un círculo abre el hero desde ella.'
+    d: 'D · Tus teclas HELLO aparecen, la L naranja hace de Enter y un círculo abre el hero desde ella.',
+    e: 'E · HELLO entra de derecha a izquierda, la cámara se acerca a la O, se funde con la O del teclado y se aleja hasta el hero.'
   };
 
   let running = [];
@@ -41,6 +48,7 @@
     typed.classList.remove('is-on');
     typedText.textContent = '';
     overlay.classList.remove('is-on', 'overlay--mask');
+    detailO.classList.remove('is-on');
     realKeys.forEach(function (key) { key.style.opacity = ''; });
     window.scrollTo(0, 0);
   }
@@ -230,9 +238,74 @@
     opening.cancel();
   }
 
+  // ---------- E · Zoom en la O que se convierte en el teclado ----------
+
+  async function playE() {
+    root.dataset.intro = 'play';
+    const end = finalView();
+    applyView(end);
+    setRealKeySources();
+    const theme = root.dataset.theme === 'claro' ? 'claro' : 'calido';
+    const keyO = realKeys[4];
+    keyO.src = '../assets/hello/' + theme + '-o-grande.webp';
+    detailO.src = '../assets/hero/escritorio-' + theme + '-detalle-o.webp';
+    detailO.classList.add('is-on');
+    overlay.classList.add('is-on');
+
+    // 1. HELLO entra desde la derecha, la H primero.
+    const width = window.innerWidth;
+    const slides = realKeys.map(function (key, i) {
+      const distance = width - key.getBoundingClientRect().left + 40;
+      return track(key.animate([
+        { opacity: 1, transform: 'translateX(' + distance + 'px)' },
+        { opacity: 1, transform: 'translateX(-3%)', offset: .82 },
+        { opacity: 1, transform: 'translateX(0)' }
+      ], { duration: 820, delay: 150 + i * 95, easing: 'cubic-bezier(.2,.75,.25,1)', fill: 'forwards' })).finished;
+    });
+    try { await Promise.all(slides); } catch (error) { return; }
+    await wait(300);
+
+    // 2. La cámara se acerca a la O hasta el tamaño de la O del teclado en primer plano.
+    const height = window.innerHeight;
+    const target = Math.min(width * .3, height * .42);
+    const o = keyO.getBoundingClientRect();
+    const row = keyRow.getBoundingClientRect();
+    const k = target / o.width;
+    const ox = o.left + o.width * HELLO_O.cx;
+    const oy = o.top + o.height * HELLO_O.cy;
+    const tx = width / 2 - row.left - (ox - row.left) * k;
+    const ty = height / 2 - row.top - (oy - row.top) * k;
+    keyRow.style.transformOrigin = '0 0';
+    realKeys.slice(0, 4).forEach(function (key) {
+      track(key.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 450, delay: 120, easing: 'ease', fill: 'forwards' }));
+    });
+    const zoomIn = track(keyRow.animate([
+      { transform: 'translate(0, 0) scale(1)' },
+      { transform: 'translate(' + tx + 'px, ' + ty + 'px) scale(' + k + ')' }
+    ], { duration: 850, easing: 'cubic-bezier(.7,0,.3,1)', fill: 'forwards' }));
+    try { await zoomIn.finished; } catch (error) { return; }
+
+    // 3. La O se funde con la O del teclado (misma posición y tamaño) y la cámara se aleja.
+    const s = target * HELLO_O.glyph / PHOTO_O.glyph;
+    const close = { s: s, tx: width / 2 - PHOTO_O.cx * s, ty: height / 2 - PHOTO_O.cy * s };
+    stage.style.transform = toTransform(close);
+    track(overlay.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 420, easing: 'ease', fill: 'forwards' }));
+    await wait(160);
+    revealHero();
+    const zoomOut = track(stage.animate([
+      { transform: toTransform(close) },
+      { transform: toTransform(end) }
+    ], { duration: 1650, easing: 'cubic-bezier(.6,0,.2,1)', fill: 'forwards' }));
+    try { await zoomOut.finished; } catch (error) { return; }
+    stage.style.transform = '';
+    zoomOut.cancel();
+    overlay.classList.remove('is-on');
+    detailO.classList.remove('is-on');
+  }
+
   // ---------- Controles ----------
 
-  const variants = { a: playA, b: playB, d: playD };
+  const variants = { a: playA, b: playB, d: playD, e: playE };
 
   function play(name) {
     reset();
