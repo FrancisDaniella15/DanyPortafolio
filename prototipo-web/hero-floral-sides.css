@@ -1,0 +1,39 @@
+/* Jardín bajo: ocho girasoles por lado y cuatro pequeños en el centro. */
+body.palette-d #dany-portfolio .hero.hero--floral-sides {
+  --sky-0: #B9DCE9;
+  --sky-1: #D9EAF0;
+  --sky-2: #EDF3EE;
+  --sky-3: #FBF8EF;
+  height: 1040px;
+  min-height: 0;
+  padding: 148px 24px 100px;
+  background: linear-gradient(#B9DCE9, #D9EAF0 48%, #EDF3EE 80%, #FBF8EF);
+}
+body.palette-d #dany-portfolio .hero--floral-sides .sunflower-art {
+  position: absolute;
+  inset: 0;
+  top: auto;
+  z-index: 0;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+}
+body.palette-d #dany-portfolio .hero--floral-sides .sunflower-sky { opacity: 1; }
+body.palette-d #dany-portfolio .hero--floral-sides .hero-content { width: 70vw; max-width: 980px; }
+body.palette-d #dany-portfolio .hero--floral-sides h1 { font-size: clamp(52px, 6.2vw, 96px); }
+body.palette-d #dany-portfolio .hero--floral-sides .hero-scene-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 24px;
+  right: 24px;
+  margin: 0;
+}
+@media (max-width: 850px) {
+  body.palette-d #dany-portfolio .hero.hero--floral-sides { height: auto; min-height: 0; padding: 112px 24px 370px; }
+  body.palette-d #dany-portfolio .hero--floral-sides .hero-content { width: 100%; }
+  body.palette-d #dany-portfolio .hero--floral-sides h1 { font-size: clamp(44px, 7.6vw, 76px); }
+  body.palette-d #dany-portfolio .hero--floral-sides .sunflower-art { top: auto; height: 330px; }
+}
+@media (max-width: 480px) {
+  body.palette-d #dany-portfolio .hero.hero--floral-sides { padding-left: 20px; padding-right: 20px; }
+}

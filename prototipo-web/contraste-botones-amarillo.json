@@ -1,0 +1,120 @@
+[
+  {
+    "propuesta": "Crema y coral",
+    "resultados": [
+      {
+        "uso": "Texto principal",
+        "texto": "#253C31",
+        "fondo": "#FAF6EA",
+        "contraste": 10.98
+      },
+      {
+        "uso": "Texto secundario",
+        "texto": "#586459",
+        "fondo": "#FAF6EA",
+        "contraste": 5.75
+      },
+      {
+        "uso": "Botón principal",
+        "texto": "#C82F25",
+        "fondo": "#FAF6EA",
+        "contraste": 5.0
+      },
+      {
+        "uso": "Botón principal hover",
+        "texto": "#C82F25",
+        "fondo": "#FFF9EE",
+        "contraste": 5.15
+      },
+      {
+        "uso": "Botón secundario y navegación",
+        "texto": "#C82F25",
+        "fondo": "#FAF6EA",
+        "contraste": 5.0
+      },
+      {
+        "uso": "Texto sobre amarillo",
+        "texto": "#253C31",
+        "fondo": "#EBD6A4",
+        "contraste": 8.3
+      },
+      {
+        "uso": "Texto sobre rosa",
+        "texto": "#253C31",
+        "fondo": "#E5B9BE",
+        "contraste": 6.79
+      },
+      {
+        "uso": "Texto sobre lila",
+        "texto": "#253C31",
+        "fondo": "#D8D2E8",
+        "contraste": 8.08
+      },
+      {
+        "uso": "Texto en superficie",
+        "texto": "#253C31",
+        "fondo": "#F0E8D8",
+        "contraste": 9.74
+      }
+    ]
+  },
+  {
+    "propuesta": "Mantequilla y oliva",
+    "resultados": [
+      {
+        "uso": "Texto principal",
+        "texto": "#304737",
+        "fondo": "#FBF8EF",
+        "contraste": 9.5
+      },
+      {
+        "uso": "Texto secundario",
+        "texto": "#5B6657",
+        "fondo": "#FBF8EF",
+        "contraste": 5.68
+      },
+      {
+        "uso": "Botón principal",
+        "texto": "#304737",
+        "fondo": "#F0DCA4",
+        "contraste": 7.43
+      },
+      {
+        "uso": "Botón principal hover",
+        "texto": "#304737",
+        "fondo": "#F6E6BE",
+        "contraste": 8.16
+      },
+      {
+        "uso": "Botón secundario y navegación",
+        "texto": "#304737",
+        "fondo": "#FBF8EF",
+        "contraste": 9.5
+      },
+      {
+        "uso": "Texto sobre amarillo",
+        "texto": "#304737",
+        "fondo": "#F0DCA4",
+        "contraste": 7.43
+      },
+      {
+        "uso": "Texto sobre rosa",
+        "texto": "#304737",
+        "fondo": "#EBC9CD",
+        "contraste": 6.61
+      },
+      {
+        "uso": "Texto sobre lila",
+        "texto": "#304737",
+        "fondo": "#DDD5EA",
+        "contraste": 7.1
+      },
+      {
+        "uso": "Texto en superficie",
+        "texto": "#304737",
+        "fondo": "#F3E9C9",
+        "contraste": 8.31
+      }
+    ]
+  }
+]

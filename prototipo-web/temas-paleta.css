@@ -1,0 +1,103 @@
+/* Paletas de prueba: datos fuente en paletas.json. */
+body.palette-a, body.palette-a #dany-portfolio {
+  --palette-paper: #F7F6EE;
+  --palette-ink: #153D2E;
+  --palette-muted: #4E6255;
+  --palette-soft: #EDF0E3;
+  --palette-line: #BDC8B5;
+  --palette-lime: #D9F697;
+  --palette-pink: #F1C7D7;
+  --palette-lavender: #D8CBED;
+  --palette-header: #F7F6EEF2;
+  --palette-header-hover: #E6EED6;
+  --palette-primary: #153D2E;
+  --palette-primary-text: #F7F6EE;
+  --palette-primary-hover: #234E3B;
+  --palette-secondary-hover: #E6EED6;
+  --palette-radius: 999px;
+  --palette-shadow: none;
+  --palette-hover-shadow: none;
+  --palette-emphasis: #F1C7D7;
+  --palette-button-border: 1px;
+  --sky-0: #DAE8E7;
+  --sky-1: #EAF0E5;
+  --sky-2: #F4F4E8;
+  --sky-3: #F7F6EE;
+}
+body.palette-b, body.palette-b #dany-portfolio {
+  --palette-paper: #F8F6ED;
+  --palette-ink: #15372B;
+  --palette-muted: #4D6153;
+  --palette-soft: #EDF1E3;
+  --palette-line: #B5C1A9;
+  --palette-lime: #CFFF6C;
+  --palette-pink: #F2BCD6;
+  --palette-lavender: #C8B6EB;
+  --palette-header: #F8F6EDF2;
+  --palette-header-hover: #DFF5B4;
+  --palette-primary: #CFFF6C;
+  --palette-primary-text: #15372B;
+  --palette-primary-hover: #DFFF9A;
+  --palette-secondary-hover: #F2BCD6;
+  --palette-radius: 12px;
+  --palette-shadow: 3px 3px 0 #C8B6EB;
+  --palette-hover-shadow: 4px 4px 0 #C8B6EB;
+  --palette-emphasis: #CFFF6C;
+  --palette-button-border: 1.5px;
+  --sky-0: #DDE9E2;
+  --sky-1: #EFF1DD;
+  --sky-2: #F7F5E7;
+  --sky-3: #F8F6ED;
+}
+body.palette-c, body.palette-c #dany-portfolio {
+  --palette-paper: #FAF6EA;
+  --palette-ink: #253C31;
+  --palette-muted: #586459;
+  --palette-soft: #F0E8D8;
+  --palette-line: #CECAB9;
+  --palette-lime: #EBD6A4;
+  --palette-pink: #E5B9BE;
+  --palette-lavender: #D8D2E8;
+  --palette-header: #FAF6EAF2;
+  --palette-header-hover: #FAF6EA;
+  --palette-primary: #FAF6EA;
+  --palette-primary-text: #C82F25;
+  --palette-primary-hover: #FFF9EE;
+  --palette-secondary-hover: #FAF6EA;
+  --palette-radius: 999px;
+  --palette-shadow: none;
+  --palette-hover-shadow: -3px 5px 0 #C82F25;
+  --palette-action: #C82F25;
+  --palette-emphasis: #E5B9BE;
+  --palette-button-border: 1px;
+  --sky-0: #DFEAE4;
+  --sky-1: #F5F1E3;
+  --sky-2: #FAF6EA;
+  --sky-3: #FAF6EA;
+}
+body.palette-d, body.palette-d #dany-portfolio {
+  --palette-paper: #FBF8EF;
+  --palette-ink: #304737;
+  --palette-muted: #5B6657;
+  --palette-soft: #F3E9C9;
+  --palette-line: #CFC9B5;
+  --palette-lime: #F0DCA4;
+  --palette-pink: #EBC9CD;
+  --palette-lavender: #DDD5EA;
+  --palette-header: #FBF8EFF2;
+  --palette-header-hover: #F0DCA4;
+  --palette-primary: #F0DCA4;
+  --palette-primary-text: #304737;
+  --palette-primary-hover: #F6E6BE;
+  --palette-secondary-hover: #FBF8EF;
+  --palette-radius: 999px;
+  --palette-shadow: none;
+  --palette-hover-shadow: -3px 5px 0 #304737;
+  --palette-action: #304737;
+  --palette-emphasis: #F0DCA4;
+  --palette-button-border: 1px;
+  --sky-0: #E3EADF;
+  --sky-1: #F3EED8;
+  --sky-2: #F8F2E1;
+  --sky-3: #FBF8EF;
+}

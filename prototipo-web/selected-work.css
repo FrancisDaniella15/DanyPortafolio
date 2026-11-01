@@ -1,0 +1,144 @@
+/* Portadas editoriales provisionales; no son capturas del producto. */
+body.palette-d #dany-portfolio #wf-proyectos {
+  padding: clamp(48px, 7vw, 104px) clamp(24px, 4.5vw, 72px);
+}
+body.palette-d #dany-portfolio #wf-work-title {
+  margin-bottom: clamp(30px, 4vw, 52px);
+  font-size: clamp(38px, 4.6vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -.025em;
+}
+body.palette-d #dany-portfolio .wf-project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 64px 32px;
+  max-width: 1440px;
+  margin: 0 auto;
+  align-items: start;
+}
+body.palette-d #dany-portfolio .wf-project {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  min-width: 0;
+}
+body.palette-d #dany-portfolio .wf-project--featured { grid-column: 1 / -1; }
+body.palette-d #dany-portfolio .wf-project--portalfi { margin-top: 76px; }
+body.palette-d #dany-portfolio .work-card {
+  display: block;
+  border-radius: 16px;
+  text-decoration: none;
+}
+body.palette-d #dany-portfolio .work-card:hover { text-decoration: none; }
+body.palette-d #dany-portfolio .work-cover {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  isolation: isolate;
+  aspect-ratio: 1.25;
+  border: 1px solid var(--palette-line);
+  border-radius: 16px;
+  background: var(--palette-lavender);
+}
+body.palette-d #dany-portfolio .wf-project--featured .work-cover {
+  aspect-ratio: 2.35;
+  background: var(--palette-ink);
+  border-color: var(--palette-ink);
+}
+body.palette-d #dany-portfolio .wf-project--portalfi .work-cover {
+  aspect-ratio: 1.4;
+  background: var(--palette-soft);
+}
+body.palette-d #dany-portfolio .work-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 450ms ease;
+}
+body.palette-d #dany-portfolio .work-placeholder-label {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  padding: 5px 10px;
+  border: 1px solid var(--palette-line);
+  border-radius: 999px;
+  background: var(--palette-paper);
+  color: var(--palette-muted);
+  font: 400 11px/1.4 'Host Grotesk', Arial, sans-serif;
+}
+body.palette-d #dany-portfolio .work-card-meta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 10px 20px;
+  padding: 24px 2px 0;
+}
+body.palette-d #dany-portfolio .wf-project h3 {
+  margin: 0 0 8px;
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -.015em;
+}
+body.palette-d #dany-portfolio .wf-project .wf-product-type {
+  max-width: 42ch;
+  color: var(--palette-muted);
+  font-size: 14px;
+}
+body.palette-d #dany-portfolio .wf-project .work-description {
+  grid-column: 1 / -1;
+  max-width: 66ch;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--palette-ink);
+}
+body.palette-d #dany-portfolio .work-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 5px;
+  white-space: nowrap;
+  font: 400 14px/1.4 'Instrument Sans', Arial, sans-serif;
+}
+body.palette-d #dany-portfolio .work-open span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--palette-ink);
+  border-radius: 50%;
+  background: var(--palette-primary);
+}
+body.palette-d #dany-portfolio .work-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  grid-column: 1 / -1;
+  margin: 5px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--palette-muted);
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+@media (hover: hover) {
+  body.palette-d #dany-portfolio .work-card:hover .work-cover img { transform: scale(1.025); }
+  body.palette-d #dany-portfolio .work-card:hover .work-open { text-decoration: underline; text-underline-offset: 4px; }
+}
+@media (max-width: 900px) {
+  body.palette-d #dany-portfolio .work-open { font-size: 0; gap: 0; }
+  body.palette-d #dany-portfolio .work-open span { font-size: 18px; }
+}
+@media (max-width: 720px) {
+  body.palette-d #dany-portfolio .wf-project-grid { grid-template-columns: 1fr; gap: 40px; }
+  body.palette-d #dany-portfolio .wf-project--portalfi { margin-top: 0; }
+  body.palette-d #dany-portfolio .wf-project--featured .work-cover { aspect-ratio: 1.4; }
+  body.palette-d #dany-portfolio .work-card-meta { padding-top: 20px; }
+  body.palette-d #dany-portfolio .work-placeholder-label { left: 12px; bottom: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.palette-d #dany-portfolio .work-cover img { transition: none; }
+  body.palette-d #dany-portfolio .work-card:hover .work-cover img { transform: none; }
+}

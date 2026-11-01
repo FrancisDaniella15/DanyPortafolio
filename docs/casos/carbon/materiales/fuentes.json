@@ -1,0 +1,58 @@
+[
+  {
+    "archivo": "01-guia-categorias-estados-qa.png",
+    "titulo": "Guía de categorías y estados de QA",
+    "origen": "/var/folders/gl/bhx96zms2536vxn1yzg_0d_w0000gn/T/codex-clipboard-86609f52-e3c9-4c83-8165-fd337bd53737.png",
+    "sha256": "0f465b97aff4d55e96a6fc5bab78d944123e6764f98b9aeeb4dbd8988ba20998",
+    "duplicado_exacto_de": null,
+    "nota": "Clasificación de incidencias, plantillas numeradas y estados de seguimiento."
+  },
+  {
+    "archivo": "02-reporte-figma-produccion.png",
+    "titulo": "Comparación Figma y producción",
+    "origen": "/var/folders/gl/bhx96zms2536vxn1yzg_0d_w0000gn/T/codex-clipboard-ed36f1ed-39fd-455e-82c3-59b8cf305ddf.png",
+    "sha256": "2dfb638bcf1551e2e8988dff5fdfbf55d30a1671734d637052a50e7fd2fb7d94",
+    "duplicado_exacto_de": null,
+    "nota": "Capturas comparadas, anotaciones, estados y recomendaciones en desktop y móvil. La captura está marcada Outdated."
+  },
+  {
+    "archivo": "03-plan-global-reskin.png",
+    "titulo": "Plan por secciones para el reskin",
+    "origen": "/var/folders/gl/bhx96zms2536vxn1yzg_0d_w0000gn/T/codex-clipboard-23a8b5ee-ae0a-44f9-99e8-e1e7de8e9306.png",
+    "sha256": "f3797691a19344fd8246c8107f9efa2e21decb754dc868b9bd4a6cde385c96b0",
+    "duplicado_exacto_de": null,
+    "nota": "Metodología, etapas y entregables propuestos; incluye una estimación de 14 a 18 días, no un plazo cumplido."
+  },
+  {
+    "archivo": "04-auditoria-benchmarking.png",
+    "titulo": "Auditoría de producto y benchmarking",
+    "origen": "/var/folders/gl/bhx96zms2536vxn1yzg_0d_w0000gn/T/codex-clipboard-baad5f53-a800-45e8-8e1c-144c202de344.png",
+    "sha256": "be0161325142567d9e0881a574fabcbaac540e388b80bf455da1fc8b93fa4430",
+    "duplicado_exacto_de": null,
+    "nota": "Problemas actuales, propuestas, beneficios esperados y referencias organizadas por secciones."
+  },
+  {
+    "archivo": "05-reporte-estrategia-sistema.png",
+    "titulo": "Reporte de estado y evolución del sistema",
+    "origen": "/var/folders/gl/bhx96zms2536vxn1yzg_0d_w0000gn/T/codex-clipboard-48dde9e9-41d8-47ad-b07a-2e469a31262f.png",
+    "sha256": "54c10cee8558068db74ad38dc717da297795d1ee3c59dca18cb0ea22ba9cda43",
+    "duplicado_exacto_de": null,
+    "nota": "Resumen de evolución, recursos, requisitos y hoja de ruta. Las fases futuras no se dan por ejecutadas."
+  },
+  {
+    "archivo": "06-reporte-figma-produccion-adjunto-2.png",
+    "titulo": "Comparación Figma y producción — segundo adjunto",
+    "origen": "/var/folders/gl/bhx96zms2536vxn1yzg_0d_w0000gn/T/codex-clipboard-b7712493-c40d-44e8-ae58-5f195b55282e.png",
+    "sha256": "2dfb638bcf1551e2e8988dff5fdfbf55d30a1671734d637052a50e7fd2fb7d94",
+    "duplicado_exacto_de": "02-reporte-figma-produccion.png",
+    "nota": "Segunda captura compartida de la comparación de QA."
+  },
+  {
+    "archivo": "07-guia-qa-adjunto-2.png",
+    "titulo": "Guía de QA — segundo adjunto",
+    "origen": "/var/folders/gl/bhx96zms2536vxn1yzg_0d_w0000gn/T/codex-clipboard-4eba143d-1744-4757-ae21-cf577b540e16.png",
+    "sha256": "0f465b97aff4d55e96a6fc5bab78d944123e6764f98b9aeeb4dbd8988ba20998",
+    "duplicado_exacto_de": "01-guia-categorias-estados-qa.png",
+    "nota": "Segunda captura compartida de la guía de categorías y estados."
+  }
+]

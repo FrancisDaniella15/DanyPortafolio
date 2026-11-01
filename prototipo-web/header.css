@@ -1,0 +1,187 @@
+/* Prueba local: cápsula flotante inspirada en leomarlowe.framer.website.
+   La paleta de esta revisión es provisional. */
+body.header-preview #dany-portfolio {
+  --header-paper: rgba(244, 242, 238, .92);
+  --header-ink: #1a1917;
+  --header-line: rgba(26, 25, 23, .12);
+  --header-hover: #e6ebe3;
+  font-family: 'Host Grotesk', Arial, sans-serif;
+}
+html:has(body.header-preview) { scroll-padding-top: 104px; }
+.header-preview #dany-portfolio .prototype-review { display: none; }
+.header-preview #dany-portfolio .hero--sunflowers { padding-top: 128px; }
+.header-preview #dany-portfolio .wf-header {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  height: 60px;
+  min-height: 0;
+  max-height: 80px;
+  margin: 0;
+  padding: 5px;
+  gap: 8px;
+  border: 1px solid var(--header-line);
+  border-radius: 999px;
+  background: var(--header-paper);
+  color: var(--header-ink);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .03), 0 12px 32px -22px rgba(0, 0, 0, .28);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  isolation: isolate;
+}
+.header-preview #dany-portfolio .wf-brand {
+  padding: 0 12px 0 9px;
+  border-right: 1px solid var(--header-line);
+  border-radius: 2px;
+}
+.header-preview #dany-portfolio .wf-brand-window { width: 82px; height: 44.746939px; }
+.header-preview #dany-portfolio .wf-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -.01em;
+}
+.header-preview #dany-portfolio .wf-nav > .wf-header-link {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--header-ink);
+  -webkit-tap-highlight-color: transparent;
+}
+.header-preview #dany-portfolio .wf-nav-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 999px;
+  background: var(--header-hover);
+  opacity: 0;
+  transition: transform 300ms cubic-bezier(.22, 1, .36, 1), width 300ms cubic-bezier(.22, 1, .36, 1), height 300ms cubic-bezier(.22, 1, .36, 1), opacity 160ms ease;
+}
+.header-preview #dany-portfolio .wf-nav[data-highlight] .wf-nav-indicator { opacity: 1; }
+.header-preview #dany-portfolio .wf-nav:not([data-hover-ready]) > .wf-header-link:is(:hover, :focus-visible) { background: var(--header-hover); }
+.header-preview #dany-portfolio .wf-nav > .wf-header-link:focus-visible { outline: 2px solid #315b42; outline-offset: 2px; }
+.header-preview #dany-portfolio .wf-nav-label {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  line-height: 1.3em;
+}
+.header-preview #dany-portfolio .wf-nav-label > span {
+  display: block;
+  transition: transform 320ms cubic-bezier(.22, 1, .36, 1);
+}
+.header-preview #dany-portfolio .wf-nav-label > span[aria-hidden] { position: absolute; left: 0; top: 125%; }
+@media (hover: hover) and (pointer: fine) {
+  .header-preview #dany-portfolio .wf-header-link:hover .wf-nav-label > span { transform: translateY(-125%); }
+}
+.header-preview #dany-portfolio .wf-header-link:focus-visible .wf-nav-label > span { transform: translateY(-125%); }
+.header-preview #dany-portfolio .wf-nav .wf-button:disabled {
+  position: relative;
+  padding: 0 12px;
+  min-height: 36px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+  color: #68716b;
+  opacity: .72;
+  white-space: nowrap;
+}
+.header-preview #dany-portfolio .pending-controls {
+  margin-left: 5px;
+  padding-left: 11px;
+  border-left: 1px solid var(--header-line);
+  gap: 5px;
+  font-weight: 400;
+}
+.header-preview #dany-portfolio .pending-controls button {
+  min-height: 32px;
+  padding: 6px;
+  font-family: inherit;
+  border: 0;
+  color: #69746c;
+  opacity: .72;
+}
+.header-preview #dany-portfolio .current-language { font-size: 12px; }
+.header-preview #dany-portfolio .wf-header-menu-toggle { display: none; }
+@media (max-width: 850px) {
+  .header-preview #dany-portfolio .wf-nav { font-size: 13px; }
+  .header-preview #dany-portfolio .wf-nav > .wf-header-link { padding: 0 9px; }
+  .header-preview #dany-portfolio .pending-controls { padding-left: 6px; margin-left: 2px; }
+  .header-preview #dany-portfolio .wf-nav .wf-button:disabled { padding: 0 7px; }
+}
+@media (max-width: 720px) {
+  .header-preview #dany-portfolio .wf-header {
+    top: 12px;
+    width: calc(100% - 32px);
+    max-width: 420px;
+    justify-content: space-between;
+    gap: 6px;
+  }
+  .header-preview #dany-portfolio .wf-brand { padding-right: 9px; border-right: 0; }
+  .header-preview #dany-portfolio .wf-header-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 44px;
+    padding: 0 15px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--header-ink);
+    font: inherit;
+    font-size: 14px;
+  }
+  .header-preview #dany-portfolio .wf-header-menu-toggle svg { transition: transform 200ms ease; }
+  .header-preview #dany-portfolio .wf-header-menu-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+  .header-preview #dany-portfolio .wf-nav {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+    padding: 10px;
+    gap: 4px;
+    border: 1px solid var(--header-line);
+    border-radius: 22px;
+    background: #f4f2ee;
+    box-shadow: 0 12px 32px -22px rgba(0, 0, 0, .28);
+  }
+  .header-preview #dany-portfolio .wf-header.header-menu-ready:not([data-menu-open]) .wf-nav { display: none; }
+  .header-preview #dany-portfolio .wf-nav > .wf-header-link { padding: 0 10px; }
+  .header-preview #dany-portfolio .hero--sunflowers { padding-top: 112px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .header-preview #dany-portfolio .wf-nav-label > span,
+  .header-preview #dany-portfolio .wf-nav-indicator,
+  .header-preview #dany-portfolio .wf-header-menu-toggle svg { transition: none; }
+  .header-preview #dany-portfolio .wf-header-link:is(:hover, :focus-visible) .wf-nav-label > span { transform: none; }
+}

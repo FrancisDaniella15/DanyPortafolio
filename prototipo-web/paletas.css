@@ -1,0 +1,185 @@
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('assets/fonts/InstrumentSans.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+/* Los colores por propuesta están declarados en temas-paleta.css. */
+body.palette-preview { background: var(--palette-paper); }
+body.palette-preview #dany-portfolio {
+  --wf-paper: var(--palette-paper);
+  --wf-ink: var(--palette-ink);
+  --wf-dim: var(--palette-muted);
+  --wf-rule: var(--palette-line);
+  --wf-soft: var(--palette-soft);
+  --wf-contrast: var(--palette-primary);
+  --wf-on-contrast: var(--palette-primary-text);
+  --header-paper: var(--palette-header);
+  --header-ink: var(--palette-ink);
+  --header-line: var(--palette-line);
+  --header-hover: var(--palette-header-hover);
+  font-family: 'Host Grotesk', Arial, sans-serif;
+  background: var(--palette-paper);
+  color: var(--palette-ink);
+}
+body.palette-preview #dany-portfolio :is(h1,h2,h3) {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+  color: var(--palette-ink);
+}
+body.palette-preview #dany-portfolio h2 { font-size: clamp(30px, 3.3vw, 40px); }
+body.palette-preview #dany-portfolio h3 { font-size: 27px; line-height: 1.15; }
+body.palette-preview #dany-portfolio .wf-header,
+body.palette-preview #dany-portfolio :is(.hero-button, .wf-button, .wf-link-button, .hero-scene-controls button) {
+  font-family: 'Instrument Sans', Arial, sans-serif;
+}
+body.palette-preview #dany-portfolio .wf-header {
+  border-color: var(--palette-line);
+  color: var(--palette-ink);
+}
+body.palette-preview #dany-portfolio .wf-nav .wf-button:disabled,
+body.palette-preview #dany-portfolio .pending-controls button {
+  font-family: 'Instrument Sans', Arial, sans-serif;
+  color: var(--palette-muted);
+}
+body.palette-preview #dany-portfolio .wf-nav-label { line-height: 1.35em; }
+body.palette-preview #dany-portfolio .wf-header-menu-toggle { font-family: 'Instrument Sans', Arial, sans-serif; }
+body.palette-preview #dany-portfolio .hero--sunflowers {
+  background: var(--palette-paper);
+  color: var(--palette-ink);
+}
+body.palette-preview #dany-portfolio .hero--sunflowers::after {
+  background: linear-gradient(90deg, var(--palette-paper), transparent 74%);
+  opacity: .26;
+}
+body.palette-preview #dany-portfolio .hero-identity {
+  width: fit-content;
+  max-width: 100%;
+  padding: 7px 12px;
+  border: 1px solid var(--palette-line);
+  border-radius: 999px;
+  background: var(--palette-paper);
+  color: var(--palette-ink);
+  font-size: 13px;
+}
+body.palette-preview #dany-portfolio .hero-description { color: var(--palette-muted); }
+body.palette-preview #dany-portfolio .hero h1 em {
+  color: var(--palette-ink);
+  background: linear-gradient(transparent 70%, var(--palette-emphasis) 70%, var(--palette-emphasis) 94%, transparent 94%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+body.palette-preview #dany-portfolio :is(.hero-button, .wf-button) {
+  min-height: 46px;
+  padding: 12px 20px;
+  gap: 14px;
+  border: var(--palette-button-border, 1px) solid var(--palette-ink);
+  border-radius: var(--palette-radius);
+  background: var(--palette-paper);
+  color: var(--palette-ink);
+  font-family: 'Instrument Sans', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
+  text-decoration: none;
+  box-shadow: var(--palette-shadow);
+  transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+body.palette-preview #dany-portfolio :is(.hero-button-primary, .wf-button-main) {
+  background: var(--palette-primary);
+  color: var(--palette-primary-text);
+}
+body.palette-preview #dany-portfolio :is(.hero-button-primary, .wf-button-main):hover {
+  background: var(--palette-primary-hover);
+  color: var(--palette-primary-text);
+  opacity: 1;
+}
+body.palette-preview #dany-portfolio :is(.hero-button-secondary, .wf-button:not(.wf-button-main)):not(:disabled):hover {
+  background: var(--palette-secondary-hover);
+  color: var(--palette-ink);
+}
+body.palette-preview #dany-portfolio :is(.hero-button, .wf-button):not(:disabled):active { transform: translateY(1px); box-shadow: none; }
+body.palette-preview #dany-portfolio .wf-button:disabled {
+  border-color: var(--palette-line);
+  background: var(--palette-soft);
+  color: var(--palette-muted);
+  box-shadow: none;
+  opacity: .7;
+}
+/* Los controles pendientes del header permanecen pequeños y desactivados. */
+body.palette-preview #dany-portfolio .wf-header .wf-button:disabled {
+  padding: 0 8px;
+  min-height: 36px;
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+}
+body.palette-preview #dany-portfolio :is(a,button):focus-visible {
+  outline: 3px solid var(--palette-ink);
+  outline-offset: 4px;
+}
+body.palette-preview #dany-portfolio .wf-section { border-color: var(--palette-line); }
+body.palette-preview #dany-portfolio .wf-number { color: var(--palette-muted); }
+body.palette-preview #dany-portfolio .wf-project {
+  padding: 24px;
+  gap: 15px;
+  border: 1px solid var(--palette-line);
+  border-top: 4px solid var(--palette-lime);
+  border-radius: 20px;
+  background: var(--palette-paper);
+}
+body.palette-preview #dany-portfolio .wf-project:nth-child(2) { border-top-color: var(--palette-pink); }
+body.palette-preview #dany-portfolio .wf-project:nth-child(3) { border-top-color: var(--palette-lavender); }
+body.palette-preview #dany-portfolio :is(.wf-product-type, .wf-role, .wf-subtle, .wf-mode-note) { color: var(--palette-muted); }
+body.palette-preview #dany-portfolio .wf-career-row { border-color: var(--palette-line); }
+body.palette-preview #dany-portfolio .wf-tool {
+  border-color: var(--palette-line);
+  border-radius: 999px;
+  background: var(--palette-soft);
+  color: var(--palette-ink);
+}
+body.palette-preview #dany-portfolio .wf-tool:nth-child(3n+2) { background: var(--palette-pink); }
+body.palette-preview #dany-portfolio .wf-tool:nth-child(3n) { background: var(--palette-lavender); }
+body.palette-preview #dany-portfolio #wf-contacto { background: var(--palette-soft); }
+body.palette-preview #dany-portfolio .wf-email { color: var(--palette-ink); }
+body.palette-preview #dany-portfolio .wf-footer {
+  background: var(--palette-paper);
+  color: var(--palette-muted);
+  border-top: 1px solid var(--palette-line);
+}
+body.palette-preview #dany-portfolio .wf-case-stage {
+  border-color: var(--palette-line);
+  background: var(--palette-soft);
+  border-radius: 18px;
+}
+body.palette-preview #dany-portfolio .hero-scene-controls { color: var(--palette-ink); }
+body.palette-preview #dany-portfolio .hero-scene-controls > span {
+  background: var(--palette-paper);
+  color: var(--palette-ink);
+  border-radius: 999px;
+}
+body.palette-preview #dany-portfolio .hero-scene-controls button {
+  border-color: var(--palette-ink);
+  background: var(--palette-paper);
+  color: var(--palette-ink);
+  border-radius: var(--palette-radius);
+}
+body.palette-b #dany-portfolio .wf-header {
+  border-color: var(--palette-ink);
+  box-shadow: 3px 3px 0 var(--palette-lavender);
+}
+body.palette-b #dany-portfolio .wf-project { border-color: var(--palette-ink); border-top-width: 4px; border-top-color: var(--palette-lime); border-radius: 14px; }
+body.palette-b #dany-portfolio .wf-project:nth-child(2) { border-top-color: var(--palette-pink); }
+body.palette-b #dany-portfolio .wf-project:nth-child(3) { border-top-color: var(--palette-lavender); }
+@media (hover: hover) and (pointer: fine) {
+  body.palette-preview #dany-portfolio :is(.hero-button,.wf-button):not(:disabled):hover { box-shadow: var(--palette-hover-shadow); transform: translateY(-1px); }
+}
+@media (max-width: 720px) {
+  body.palette-preview #dany-portfolio .wf-header .wf-nav { background: var(--palette-paper); border-color: var(--palette-line); }
+  body.palette-preview #dany-portfolio .hero-identity { border-radius: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.palette-preview #dany-portfolio :is(.hero-button,.wf-button) { transition: none; }
+  body.palette-preview #dany-portfolio :is(.hero-button,.wf-button):not(:disabled):is(:hover,:active) { transform: none; }
+}

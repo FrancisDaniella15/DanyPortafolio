@@ -1,0 +1,326 @@
+#dany-portfolio{color-scheme:light;--wf-paper:light-dark(#fff,#171717);--wf-ink:light-dark(#202020,#ededed);--wf-dim:light-dark(#626262,#b6b6b6);--wf-rule:light-dark(#d1d1d1,#505050);--wf-soft:light-dark(#f4f4f4,#252525);--wf-contrast:light-dark(#202020,#ededed);--wf-on-contrast:light-dark(#fff,#171717);font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color:var(--wf-ink);background:var(--wf-paper);border:1px solid var(--wf-rule);width:100%;box-sizing:border-box;overflow-wrap:anywhere}
+    #dany-portfolio *{box-sizing:border-box}
+    #dany-portfolio [hidden]{display:none!important}
+    #dany-portfolio h1,#dany-portfolio h2,#dany-portfolio h3,#dany-portfolio p{margin:0}
+    #dany-portfolio h1{font-size:34px;line-height:1.2;font-weight:500;max-width:650px;margin:13px 0 18px}
+    #dany-portfolio h2{font-size:23px;line-height:1.3;font-weight:500;margin-bottom:18px}
+    #dany-portfolio h3{font-size:17px;line-height:1.4;font-weight:500;margin-bottom:9px}
+    #dany-portfolio a{color:inherit;text-decoration:none}
+    #dany-portfolio a:hover{text-decoration:underline}
+    #dany-portfolio .wf-topline{padding:9px 28px;background:var(--wf-soft);font-size:12px;color:var(--wf-dim);border-bottom:1px solid var(--wf-rule)}
+    #dany-portfolio .wf-header{padding:20px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--wf-rule)}
+    #dany-portfolio .wf-brand{font-size:17px;font-weight:500;white-space:nowrap}
+    #dany-portfolio .wf-nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap;font-size:13px}
+    #dany-portfolio .wf-section{padding:32px 28px;border-bottom:1px solid var(--wf-rule);scroll-margin-top:12px}
+    #dany-portfolio .wf-section:last-child{border-bottom:0}
+    #dany-portfolio .wf-number{display:block;font-size:11px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--wf-dim);margin-bottom:12px}
+    #dany-portfolio .wf-subtle{color:var(--wf-dim)}
+    #dany-portfolio .wf-description{max-width:660px}
+    #dany-portfolio .wf-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:20px}
+    #dany-portfolio .wf-button{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 14px;border:1px solid var(--wf-ink);border-radius:2px;background:var(--wf-paper);color:var(--wf-ink);font:inherit;font-size:13px;line-height:1.4;text-decoration:none;text-align:center;max-width:100%}
+    #dany-portfolio .wf-button:hover{background:var(--wf-soft);text-decoration:none}
+    #dany-portfolio .wf-button-main{background:var(--wf-contrast);color:var(--wf-on-contrast)}
+    #dany-portfolio .wf-button-main:hover{background:var(--wf-contrast);opacity:.86}
+    #dany-portfolio .wf-button:disabled{border-color:var(--wf-rule);color:var(--wf-dim);background:var(--wf-soft)}
+    #dany-portfolio .wf-project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    #dany-portfolio .wf-project{border:1px solid var(--wf-rule);padding:18px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-width:0}
+    #dany-portfolio .wf-project h3{margin:0}
+    #dany-portfolio .wf-project p{font-size:13px}
+    #dany-portfolio .wf-project .wf-button{margin-top:auto}
+    #dany-portfolio .wf-product-type{color:var(--wf-dim)}
+    #dany-portfolio .wf-about-grid{display:grid;grid-template-columns:1fr 1fr;gap:38px}
+    #dany-portfolio .wf-about-text p+p{margin-top:16px}
+    #dany-portfolio .wf-career-row{padding:12px 0;border-bottom:1px solid var(--wf-rule)}
+    #dany-portfolio .wf-career-row:first-child{padding-top:0}
+    #dany-portfolio .wf-company{display:flex;gap:12px;justify-content:space-between;font-weight:500}
+    #dany-portfolio .wf-role{font-size:12px;color:var(--wf-dim);margin-top:2px}
+    #dany-portfolio .wf-career-actions{display:flex;align-items:flex-start;flex-direction:column;gap:13px;margin-top:16px}
+    #dany-portfolio .wf-link-button{border:0;padding:0;background:none;color:var(--wf-ink);font:inherit;font-size:13px;text-decoration:underline;text-underline-offset:3px;min-height:30px}
+    #dany-portfolio .wf-tools{display:flex;flex-wrap:wrap;gap:9px}
+    #dany-portfolio .wf-tool{border:1px solid var(--wf-rule);padding:9px 15px;background:var(--wf-soft);font-size:13px}
+    #dany-portfolio .wf-email{display:inline-block;margin-top:16px;font-weight:500}
+    #dany-portfolio .wf-footer{padding:16px 28px;background:var(--wf-soft);display:flex;gap:14px;justify-content:space-between;flex-wrap:wrap;font-size:12px;color:var(--wf-dim)}
+    #dany-portfolio .wf-mode-note{font-size:12px;color:var(--wf-dim)}
+    #dany-portfolio .wf-notice{margin-top:12px;min-height:20px;font-size:12px;color:var(--wf-dim)}
+    #dany-portfolio .wf-case-intro{max-width:700px}
+    #dany-portfolio .wf-case-list{margin:0;padding-left:20px}
+    #dany-portfolio .wf-case-list li+li{margin-top:8px}
+    #dany-portfolio .wf-case-intro p+p{margin-top:16px}
+    #dany-portfolio .wf-case-stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    #dany-portfolio .wf-case-stage{padding:16px;border:1px solid var(--wf-rule)}
+    #dany-portfolio .wf-case-stage p{font-size:13px}
+    @media(max-width:700px){#dany-portfolio .wf-header{align-items:flex-start;flex-direction:column;gap:12px}#dany-portfolio .wf-project-grid{grid-template-columns:1fr}#dany-portfolio .wf-about-grid{grid-template-columns:1fr;gap:28px}#dany-portfolio .wf-case-stages{grid-template-columns:1fr}#dany-portfolio h1{font-size:29px}#dany-portfolio .wf-section{padding:27px 22px}#dany-portfolio .wf-header,#dany-portfolio .wf-footer{padding:17px 22px}}
+    @media(pointer:coarse){#dany-portfolio .wf-button,#dany-portfolio .wf-link-button,#dany-portfolio .wf-nav a{min-height:44px}#dany-portfolio .wf-nav a{display:inline-flex;align-items:center}}
+
+/* Primera exploración visual: solo la navegación y el hero. */
+:root { color-scheme: light; }
+html { scroll-behavior: auto; }
+body { margin: 0; background: #ffffff; }
+#dany-portfolio { border: 0; max-width: none; }
+#dany-portfolio a, #dany-portfolio button:not(:disabled) { cursor: pointer; }
+#dany-portfolio a:focus-visible, #dany-portfolio button:focus-visible {
+  outline: 3px solid #205641;
+  outline-offset: 5px;
+}
+#dany-portfolio [tabindex="-1"]:focus { outline: none; }
+#dany-portfolio .skip-link {
+  position: absolute; top: 10px; left: 20px; z-index: 10;
+  padding: 10px 18px; background: #ffffff; color: #163d2d;
+  transform: translateY(-160%); border: 1px solid #163d2d;
+}
+#dany-portfolio .skip-link:focus { transform: translateY(0); }
+#dany-portfolio .wf-topline {
+  padding: 8px clamp(24px, 4.5vw, 72px);
+  background: #eef4f1; color: #475c51; border-color: #dce6df;
+}
+#dany-portfolio .wf-header {
+  padding: 22px clamp(24px, 4.5vw, 72px);
+  background: #f6faf9; border-color: #dce6df;
+}
+#dany-portfolio .wf-brand { font-size: 22px; letter-spacing: -.7px; color: #193e30; }
+#dany-portfolio .wf-nav { font-size: 14px; gap: 24px; }
+#dany-portfolio .wf-nav > a { min-height: 36px; display: inline-flex; align-items: center; }
+#dany-portfolio .pending-controls { display: flex; gap: 8px; align-items: center; color: #536259; }
+#dany-portfolio .pending-controls button {
+  font: inherit; font-size: 12px; background: transparent; color: #6b756f;
+  border: 1px solid #c8d3cd; border-radius: 3px; padding: 6px 9px; min-height: 32px;
+}
+#dany-portfolio .current-language { font-size: 12px; padding: 6px 3px; }
+#dany-portfolio .wf-nav .wf-button:disabled { background: transparent; border-color: #c8d3cd; }
+
+#dany-portfolio .hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: 860px; padding: 64px clamp(24px, 4.5vw, 72px) 330px;
+  background: #e7f0f3; color: #19392c; scroll-margin-top: 12px;
+}
+#dany-portfolio .hero-landscape { position: absolute; inset: 0; z-index: -2; }
+#dany-portfolio .hero-landscape img {
+  display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 40%;
+}
+#dany-portfolio .hero-veil {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(237,245,247,.7) 0%, rgba(237,245,247,.35) 22%, rgba(237,245,247,0) 46%),
+              linear-gradient(90deg, rgba(237,245,247,.5) 0%, rgba(237,245,247,.18) 35%, rgba(237,245,247,0) 60%);
+}
+#dany-portfolio .hero-content { max-width: 660px; }
+#dany-portfolio .hero-identity {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  font-size: 14px; font-weight: 500; line-height: 1.5; letter-spacing: .01em;
+}
+#dany-portfolio .hero-identity > span:last-child { font-weight: 400; }
+#dany-portfolio .hero h1 {
+  font-size: clamp(44px, 4.25vw, 64px); line-height: 1.04; letter-spacing: -.045em;
+  font-weight: 500; max-width: 660px; margin: 24px 0 22px;
+  text-wrap: balance;
+}
+#dany-portfolio .hero-description {
+  max-width: 490px; font-size: 17px; line-height: 1.65; color: #29483b;
+}
+#dany-portfolio .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+#dany-portfolio .hero-button {
+  display: inline-flex; justify-content: center; align-items: center; gap: 18px;
+  padding: 13px 21px; min-height: 48px; border: 1px solid #214c38;
+  border-radius: 28px; font-size: 14px; line-height: 1.4; font-weight: 500;
+}
+#dany-portfolio .hero-button:hover { text-decoration: none; }
+#dany-portfolio .hero-button-primary { color: #ffffff; background: #214c38; }
+#dany-portfolio .hero-button-primary:hover { background: #163c2a; }
+#dany-portfolio .hero-button-secondary { background: #edf4f1; color: #214c38; }
+#dany-portfolio .hero-button-secondary:hover { background: #ffffff; }
+#dany-portfolio .hero-reference-note {
+  position: absolute; right: 24px; bottom: 20px; padding: 5px 10px;
+  border-radius: 3px; color: #ffffff; background: #163123;
+  font-size: 11px; line-height: 1.5; letter-spacing: .015em;
+}
+#dany-portfolio .hero.image-unavailable { min-height: 0; padding-bottom: 88px; }
+#dany-portfolio .hero.image-unavailable .hero-landscape,
+#dany-portfolio .hero.image-unavailable .hero-veil,
+#dany-portfolio .hero.image-unavailable .hero-reference-note { display: none; }
+
+/* El resto del recorrido mantiene el boceto sencillo. */
+#dany-portfolio .wf-section { padding: 38px clamp(24px, 4.5vw, 72px); }
+#dany-portfolio .wf-footer { padding: 18px clamp(24px, 4.5vw, 72px); }
+#dany-portfolio .wf-case-heading { margin-top: 20px; }
+
+@media (max-width: 1024px) {
+  #dany-portfolio .wf-nav { gap: 16px; }
+  #dany-portfolio .hero { min-height: 0; padding: 56px 40px 500px; }
+  #dany-portfolio .hero-landscape { top: auto; height: 760px; }
+  #dany-portfolio .hero-veil {
+    background: linear-gradient(180deg, #e7f0f3 0%, rgba(231,240,243,.88) 18%, rgba(231,240,243,.32) 40%, rgba(231,240,243,0) 59%);
+  }
+  #dany-portfolio .hero h1 { font-size: clamp(44px, 5.7vw, 58px); max-width: 650px; }
+}
+@media (max-width: 760px) {
+  #dany-portfolio .wf-header { gap: 12px; flex-direction: column; align-items: flex-start; }
+  #dany-portfolio .wf-nav { gap: 10px 18px; }
+  #dany-portfolio .wf-header, #dany-portfolio .wf-topline { padding-left: 24px; padding-right: 24px; }
+  #dany-portfolio .wf-nav > a { min-height: 40px; }
+}
+@media (max-width: 600px) {
+  #dany-portfolio .wf-topline { padding-top: 7px; padding-bottom: 7px; font-size: 11px; }
+  #dany-portfolio .wf-header { padding-top: 18px; padding-bottom: 18px; }
+  #dany-portfolio .wf-brand { font-size: 21px; }
+  #dany-portfolio .wf-nav { font-size: 13px; gap: 8px 14px; }
+  #dany-portfolio .hero { padding: 44px 24px 440px; }
+  #dany-portfolio .hero-landscape { height: 620px; }
+  #dany-portfolio .hero h1 { font-size: clamp(38px, 10vw, 48px); margin-top: 22px; margin-bottom: 22px; }
+  #dany-portfolio .hero-identity { font-size: 13px; gap: 7px; }
+  #dany-portfolio .hero-description { font-size: 16px; line-height: 1.65; }
+  #dany-portfolio .hero-actions { gap: 10px; margin-top: 24px; }
+  #dany-portfolio .hero-button { padding: 13px 16px; gap: 12px; }
+  #dany-portfolio .hero-veil {
+    background: linear-gradient(180deg, #e7f0f3 0%, #e7f0f3 28%, rgba(231,240,243,.55) 45%, rgba(231,240,243,0) 65%);
+  }
+  #dany-portfolio .hero-reference-note { right: 16px; bottom: 16px; font-size: 11px; }
+  #dany-portfolio .wf-section { padding: 30px 24px; }
+  #dany-portfolio .wf-company { flex-wrap: wrap; gap: 4px 12px; }
+}
+/* Variante 02: flores amarillas. La composición de la laptop se conserva. */
+#dany-portfolio .hero--flowers {
+  min-height: 740px;
+  padding: 80px clamp(24px, 4.5vw, 72px) 180px;
+  background: #e3eef0;
+}
+#dany-portfolio .hero--flowers .hero-landscape { inset: 0; height: auto; }
+#dany-portfolio .hero--flowers .hero-landscape img { object-position: center center; }
+#dany-portfolio .hero--flowers .hero-content { max-width: min(600px, 49vw); }
+#dany-portfolio .hero--flowers h1 { font-size: clamp(44px, 4.25vw, 64px); }
+#dany-portfolio .hero--flowers .hero-description { max-width: 460px; }
+#dany-portfolio .hero--flowers .hero-veil {
+  background: linear-gradient(90deg, rgba(239,246,242,.72), rgba(239,246,242,.25) 46%, transparent 69%);
+}
+@media (max-width: 900px) {
+  #dany-portfolio .hero--flowers { min-height: 0; padding: 52px 40px 400px; }
+  #dany-portfolio .hero--flowers .hero-content { max-width: 580px; }
+  #dany-portfolio .hero--flowers h1 { font-size: clamp(44px, 6.2vw, 56px); }
+  #dany-portfolio .hero--flowers .hero-landscape { top: auto; height: 560px; }
+  #dany-portfolio .hero--flowers .hero-veil {
+    background: linear-gradient(180deg, #e3eef0 0%, rgba(227,238,240,.95) 32%, rgba(227,238,240,.5) 48%, transparent 67%);
+  }
+}
+@media (max-width: 600px) {
+  #dany-portfolio .hero--flowers { padding: 42px 24px 330px; }
+  #dany-portfolio .hero--flowers .hero-content { max-width: 100%; }
+  #dany-portfolio .hero--flowers h1 { font-size: clamp(36px, 9.7vw, 48px); }
+  #dany-portfolio .hero--flowers .hero-landscape { height: 410px; }
+  #dany-portfolio .hero--flowers .hero-landscape img { object-position: 70% center; }
+  #dany-portfolio .hero--flowers .hero-veil {
+    background: linear-gradient(180deg, #e3eef0 0%, #e3eef0 52%, rgba(227,238,240,.7) 62%, transparent 76%);
+  }
+}
+#dany-portfolio .hero--flowers.image-unavailable { min-height: 0; padding-bottom: 88px; }
+@font-face { font-family: 'Host Grotesk'; src: url('assets/fonts/HostGrotesk.ttf') format('truetype'); font-style: normal; font-weight: 300 800; font-display: swap; }
+@font-face { font-family: 'Instrument Serif'; src: url('assets/fonts/InstrumentSerif-Regular.ttf') format('truetype'); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Instrument Serif'; src: url('assets/fonts/InstrumentSerif-Italic.ttf') format('truetype'); font-style: italic; font-weight: 400; font-display: swap; }
+body.type-host #dany-portfolio h1, body.type-host #dany-portfolio h2, body.type-host #dany-portfolio h3 { font-family: 'Host Grotesk', Arial, sans-serif; }
+body.type-serif #dany-portfolio h1, body.type-serif #dany-portfolio h2, body.type-serif #dany-portfolio h3 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; }
+#dany-portfolio .prototype-review { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; background: #f5f1e9; color: #543d2b; }
+#dany-portfolio .prototype-review nav { display: flex; gap: 18px; }
+#dany-portfolio .prototype-review a { text-decoration: underline; text-underline-offset: 4px; min-height: 32px; display: inline-flex; align-items: center; }
+#dany-portfolio .prototype-review a[aria-current] { font-weight: 700; text-decoration-thickness: 2px; }
+#dany-portfolio .hero--bloom { background: #f3e8d2; color: #342d23; min-height: 720px; }
+#dany-portfolio .hero--bloom .hero-landscape { inset: -44px; height: auto; }
+#dany-portfolio .hero--bloom .hero-landscape img { object-position: center; transform-origin: 70% 100%; animation: flowers-breeze 5.8s ease-in-out infinite alternate; }
+@keyframes flowers-breeze { from { transform: translate3d(-10px, -26px, 0) rotate(-1deg) scale(1.09); } to { transform: translate3d(10px, 26px, 0) rotate(1deg) scale(1.09); } }
+#dany-portfolio .hero--bloom .hero-veil { background: linear-gradient(90deg, rgba(246,249,238,.88) 0%, rgba(246,249,238,.64) 34%, rgba(246,249,238,.12) 58%, transparent 74%); }
+#dany-portfolio .hero--bloom .hero-content { max-width: 630px; }
+#dany-portfolio .hero--bloom .hero-button-primary { background: #433f2b; border-color: #433f2b; }
+#dany-portfolio .hero--bloom .hero-button-primary:hover { background: #282719; }
+#dany-portfolio .hero--bloom .hero-button-secondary { background: #faf6eccc; border-color: #433f2b; color: #433f2b; }
+#dany-portfolio .hero-scene-controls { position: absolute; right: 28px; bottom: 22px; left: 28px; display: flex; justify-content: space-between; gap: 12px; align-items: center; color: #342d23; font-size: 11px; }
+#dany-portfolio .hero-scene-controls > span { background: #fbf7eced; padding: 7px 10px; border-radius: 4px; }
+#dany-portfolio .hero-scene-controls button { background: #fbf7eced; color: #342d23; border: 1px solid #726548; border-radius: 24px; min-height: 44px; padding: 10px 16px; font: inherit; font-size: 12px; }
+#dany-portfolio .hero--bloom.motion-paused .hero-landscape img { animation-play-state: paused; }
+body.type-serif #dany-portfolio .hero--bloom h1 { font-size: clamp(54px, 5.5vw, 82px); line-height: .98; letter-spacing: -.025em; }
+body.type-serif #dany-portfolio .hero--bloom h1 em { font-weight: 400; }
+@media (max-width: 900px) {
+  #dany-portfolio .hero--bloom { padding-bottom: 220px; }
+  #dany-portfolio .hero--bloom .hero-content { max-width: 610px; }
+}
+@media (max-width: 600px) {
+  #dany-portfolio .hero--bloom { min-height: 0; padding-bottom: 230px; }
+  #dany-portfolio .hero--bloom .hero-veil { background: linear-gradient(180deg, rgba(251,247,236,.94), rgba(251,247,236,.88) 50%, rgba(251,247,236,.3) 77%, rgba(251,247,236,.1)); }
+  #dany-portfolio .hero--bloom .hero-landscape img { object-position: 60% center; }
+  #dany-portfolio .hero-scene-controls { left: 24px; right: 24px; bottom: 20px; flex-wrap: wrap; }
+  body.type-serif #dany-portfolio .hero--bloom h1 { font-size: clamp(47px, 12.4vw, 66px); }
+}
+@media (prefers-reduced-motion: reduce) { #dany-portfolio .hero--bloom .hero-landscape img { animation: none; transform: scale(1.07); } }
+#dany-portfolio .hero--bloom.image-unavailable .hero-scene-controls { display: none; }
+/* Girasoles articulados: la textura afecta únicamente a la pieza floral. */
+#dany-portfolio .hero--sunflowers {
+  background: linear-gradient(#b9dce9, #edf3ee 80%, #f7f5e9);
+  min-height: 760px; padding-bottom: 170px;
+}
+#dany-portfolio .sunflower-sky { position: absolute; inset: -8px; z-index: -2; pointer-events: none; }
+#dany-portfolio #sunflower-sky { display: block; width: 100%; height: 100%; filter: url('#sunflower-glass'); }
+#dany-portfolio .hero--sunflowers::after { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(90deg, rgba(248,248,236,.33), transparent 64%); }
+#dany-portfolio .floral-filter-defs { position: absolute; pointer-events: none; }
+#dany-portfolio .sunflower-art { position: absolute; z-index: -1; width: 59%; top: 0; right: -28px; bottom: -25px; overflow: hidden; pointer-events: none; }
+#dany-portfolio #sunflower-canvas { width: 100%; height: 100%; display: block; filter: url('#sunflower-glass'); opacity: 0; }
+#dany-portfolio .sunflowers-ready #sunflower-canvas { opacity: 1; }
+#dany-portfolio .hero--sunflowers .hero-content { max-width: min(620px, 49vw); }
+#dany-portfolio .hero--sunflowers .type-word { display: inline-block; white-space: nowrap; }
+#dany-portfolio .hero--sunflowers .type-character { opacity: 0; }
+#dany-portfolio .hero--sunflowers .type-character.is-written { opacity: 1; }
+#dany-portfolio .hero--sunflowers .type-character.is-writing { border-right: 1px solid currentColor; margin-right: -1px; }
+#dany-portfolio .hero--sunflowers.image-unavailable .sunflower-art { display: none; }
+#dany-portfolio .hint-touch { display: none; }
+@media (hover: none) {
+  #dany-portfolio .hint-touch { display: inline; }
+  #dany-portfolio .hint-pointer { display: none; }
+}
+@media (max-width: 1050px) and (min-width: 701px) {
+  #dany-portfolio .hero--sunflowers .hero-content { max-width: 53vw; }
+  body.type-serif #dany-portfolio .hero--sunflowers h1 { font-size: clamp(54px, 6.2vw, 68px); }
+  #dany-portfolio .hero--sunflowers .sunflower-art { width: 52%; right: -45px; }
+}
+@media (max-width: 700px) {
+  #dany-portfolio .hero--sunflowers { min-height: 0; padding: 42px 24px 430px; }
+  #dany-portfolio .hero--sunflowers .hero-content { max-width: 100%; }
+  #dany-portfolio .hero--sunflowers .sunflower-art { width: 100%; top: auto; height: 410px; right: 0; bottom: 0; }
+  #dany-portfolio .hero--sunflowers .hero-scene-controls { bottom: 16px; left: 20px; right: 20px; }
+  body.type-serif #dany-portfolio .hero--sunflowers h1 { font-size: clamp(47px, 11vw, 66px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #dany-portfolio .hero--sunflowers .type-character { opacity: 1; }
+  #dany-portfolio .floral-hint { display: none; }
+}
+@media print {
+  #dany-portfolio .sunflower-sky { display: none; }
+  #dany-portfolio .hero--sunflowers .sunflower-art { display: none; }
+  #dany-portfolio .hero--sunflowers .type-character { opacity: 1; }
+  #dany-portfolio .hero-scene-controls { display: none; }
+  #dany-portfolio .wf-topline, #dany-portfolio .pending-controls { display: none; }
+  #dany-portfolio .hero { min-height: 0; padding: 30px 24px; }
+  #dany-portfolio .hero-landscape, #dany-portfolio .hero-veil, #dany-portfolio .hero-reference-note { display: none; }
+}
+
+/* Logo provisional 3A: mostrar solo la zona seleccionada de la lámina original.
+   El recorte ocurre en la presentación; no se redibujan ni modifican las letras. */
+#dany-portfolio .wf-brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-height: 44px;
+  mix-blend-mode: multiply;
+}
+#dany-portfolio .wf-brand-window {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 130px;
+  height: 71px;
+}
+#dany-portfolio .wf-brand-art {
+  display: block;
+  position: absolute;
+  max-width: none;
+  width: 219.428571%;
+  height: auto;
+  left: -7.428571%;
+  top: -87.958115%;
+}
+@media (max-width: 600px) {
+  #dany-portfolio .wf-brand-window { width: 116px; height: 63.354286px; }
+}

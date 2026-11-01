@@ -1,0 +1,37 @@
+/* Regreso a los botones redondeados con sombra sólida y desplazamiento leve. */
+body.palette-d.header-split #dany-portfolio :is(.wf-header[data-static-links] .wf-header-cta,.hero--editorial .hero-button,.wf-button):not(:disabled) {
+  border: 2px solid var(--palette-ink);
+  border-radius: 999px;
+  background: var(--round-bg, var(--palette-paper));
+  color: var(--round-ink, var(--palette-ink));
+  box-shadow: none;
+  transform: none;
+  font-family: 'Instrument Sans', Arial, sans-serif;
+  text-decoration: none;
+  transition: box-shadow 160ms ease-out, transform 160ms ease-out, background-color 160ms ease-out;
+}
+body.palette-d #dany-portfolio :is(.wf-header-cta,.hero-button-primary,.wf-button-main) {
+  --round-bg: var(--palette-ink);
+  --round-ink: var(--palette-paper);
+}
+body.palette-d.header-split #dany-portfolio :is(.wf-header[data-static-links] .wf-header-cta,.hero--editorial .hero-button,.wf-button):not(:disabled):focus-visible {
+  outline: 2px solid var(--palette-ink);
+  outline-offset: 5px;
+  box-shadow: -3px 5px 0 var(--palette-ink);
+}
+@media (hover: hover) and (pointer: fine) {
+  body.palette-d.header-split #dany-portfolio :is(.wf-header[data-static-links] .wf-header-cta,.hero--editorial .hero-button,.wf-button):not(:disabled):hover {
+    background: var(--round-bg, var(--palette-paper));
+    color: var(--round-ink, var(--palette-ink));
+    box-shadow: -3px 5px 0 var(--palette-ink);
+    transform: translate(1px,-2px);
+  }
+}
+body.palette-d.header-split #dany-portfolio :is(.wf-header[data-static-links] .wf-header-cta,.hero--editorial .hero-button,.wf-button):not(:disabled):active {
+  box-shadow: -1px 2px 0 var(--palette-ink);
+  transform: translateY(1px);
+}
+@media (prefers-reduced-motion: reduce) {
+  body.palette-d.header-split #dany-portfolio :is(.wf-header[data-static-links] .wf-header-cta,.hero--editorial .hero-button,.wf-button):not(:disabled) { transition: none; }
+  body.palette-d.header-split #dany-portfolio :is(.wf-header[data-static-links] .wf-header-cta,.hero--editorial .hero-button,.wf-button):not(:disabled):is(:hover,:focus-visible,:active) { transform: none; }
+}

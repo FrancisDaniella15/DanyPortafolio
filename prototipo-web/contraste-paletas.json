@@ -1,0 +1,132 @@
+[
+  {
+    "propuesta": "Jardín editorial",
+    "resultados": [
+      {
+        "uso": "Texto principal",
+        "texto": "#153D2E",
+        "fondo": "#F7F6EE",
+        "contraste": 11.14
+      },
+      {
+        "uso": "Texto secundario",
+        "texto": "#4E6255",
+        "fondo": "#F7F6EE",
+        "contraste": 6.05
+      },
+      {
+        "uso": "Texto en superficie",
+        "texto": "#153D2E",
+        "fondo": "#EDF0E3",
+        "contraste": 10.45
+      },
+      {
+        "uso": "Botón principal",
+        "texto": "#F7F6EE",
+        "fondo": "#153D2E",
+        "contraste": 11.14
+      },
+      {
+        "uso": "Botón principal hover",
+        "texto": "#F7F6EE",
+        "fondo": "#234E3B",
+        "contraste": 8.71
+      },
+      {
+        "uso": "Botón secundario hover",
+        "texto": "#153D2E",
+        "fondo": "#E6EED6",
+        "contraste": 10.1
+      },
+      {
+        "uso": "Header hover",
+        "texto": "#153D2E",
+        "fondo": "#E6EED6",
+        "contraste": 10.1
+      },
+      {
+        "uso": "Texto sobre rosa",
+        "texto": "#153D2E",
+        "fondo": "#F1C7D7",
+        "contraste": 7.99
+      },
+      {
+        "uso": "Texto sobre lila",
+        "texto": "#153D2E",
+        "fondo": "#D8CBED",
+        "contraste": 7.87
+      },
+      {
+        "uso": "Texto sobre lima",
+        "texto": "#153D2E",
+        "fondo": "#D9F697",
+        "contraste": 10.11
+      }
+    ]
+  },
+  {
+    "propuesta": "Lima y tinta",
+    "resultados": [
+      {
+        "uso": "Texto principal",
+        "texto": "#15372B",
+        "fondo": "#F8F6ED",
+        "contraste": 12.02
+      },
+      {
+        "uso": "Texto secundario",
+        "texto": "#4D6153",
+        "fondo": "#F8F6ED",
+        "contraste": 6.16
+      },
+      {
+        "uso": "Texto en superficie",
+        "texto": "#15372B",
+        "fondo": "#EDF1E3",
+        "contraste": 11.34
+      },
+      {
+        "uso": "Botón principal",
+        "texto": "#15372B",
+        "fondo": "#CFFF6C",
+        "contraste": 11.27
+      },
+      {
+        "uso": "Botón principal hover",
+        "texto": "#15372B",
+        "fondo": "#DFFF9A",
+        "contraste": 11.72
+      },
+      {
+        "uso": "Botón secundario hover",
+        "texto": "#15372B",
+        "fondo": "#F2BCD6",
+        "contraste": 8.02
+      },
+      {
+        "uso": "Header hover",
+        "texto": "#15372B",
+        "fondo": "#DFF5B4",
+        "contraste": 11.07
+      },
+      {
+        "uso": "Texto sobre rosa",
+        "texto": "#15372B",
+        "fondo": "#F2BCD6",
+        "contraste": 8.02
+      },
+      {
+        "uso": "Texto sobre lila",
+        "texto": "#15372B",
+        "fondo": "#C8B6EB",
+        "contraste": 7.03
+      },
+      {
+        "uso": "Texto sobre lima",
+        "texto": "#15372B",
+        "fondo": "#CFFF6C",
+        "contraste": 11.27
+      }
+    ]
+  }
+]

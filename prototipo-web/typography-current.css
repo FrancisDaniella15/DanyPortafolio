@@ -1,0 +1,24 @@
+/* Elección tipográfica vigente: Instrument Sans para lectura y controles;
+   Instrument Serif para titulares. Las variantes archivadas conservan sus fuentes. */
+body.palette-d #dany-portfolio,
+body.palette-d.header-split #dany-portfolio .wf-footer-options,
+body.palette-d #dany-portfolio .work-placeholder-label,
+body.palette-d #dany-portfolio .hero.hero--centered :is(.hero-description,.hero-identity) {
+  font-family: 'Instrument Sans', Arial, sans-serif;
+}
+
+/* Rol sin cápsula, nombre duplicado ni fondo. */
+body.palette-d #dany-portfolio .hero.hero--centered .hero-identity {
+  display: block;
+  width: auto;
+  margin: 0 auto 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--palette-muted);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}

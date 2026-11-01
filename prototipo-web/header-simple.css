@@ -1,0 +1,172 @@
+/* Header abierto: marca a la izquierda, enlaces a la derecha.
+   Enlaces de texto en Instrument Sans y una sola acción principal: Book a call. */
+html:has(body.header-split) { scroll-padding-top: 72px; }
+body.header-split #dany-portfolio .skip-link { position: fixed; z-index: 40; }
+body.header-split #dany-portfolio #wf-case { padding-top: 60px; }
+body.header-split #dany-portfolio #wf-case-title { scroll-margin-top: 12px; }
+body.header-split #dany-portfolio .wf-header[data-static-links] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: none;
+  height: 60px;
+  max-height: 80px;
+  margin: 0;
+  padding: 0 clamp(20px, 3.5vw, 56px);
+  gap: 24px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  border-bottom: 0;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  isolation: auto;
+  transition: background-color 220ms ease, box-shadow 220ms ease;
+}
+/* Crema de la referencia al 50 %: la transparencia solo afecta al fondo. */
+body.header-split #dany-portfolio .wf-header[data-static-links][data-scrolled] {
+  background: #F2EDDE;
+  border-bottom: 1px solid rgba(48, 71, 55, .14);
+  box-shadow: 0 4px 24px rgba(48, 71, 55, .07);
+}
+@supports ((backdrop-filter: blur(14px)) or (-webkit-backdrop-filter: blur(14px))) {
+  body.header-split #dany-portfolio .wf-header[data-static-links][data-scrolled] {
+    background: rgba(242, 237, 222, .5);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.header-split #dany-portfolio .wf-header[data-static-links] { transition: none; }
+}
+body.header-split #dany-portfolio .wf-header[data-static-links] .wf-brand { padding: 0; border: 0; }
+body.header-split #dany-portfolio .wf-header[data-static-links] .wf-brand-window { width: 80px; height: 44px; }
+body.header-split #dany-portfolio .wf-header[data-static-links] .wf-nav {
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+  flex-wrap: nowrap;
+}
+body.header-split #dany-portfolio .wf-header[data-static-links] :is(.wf-header-link,.wf-header-menu-toggle),
+body.header-split #dany-portfolio .wf-header[data-static-links] :is(.wf-header-link,.wf-header-menu-toggle):is(:hover,:active,:focus-visible) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 3px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--palette-ink);
+  box-shadow: none;
+  transform: none;
+  transition: none;
+  animation: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font: 500 12px/1.3 'Instrument Sans', Arial, sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+body.header-split #dany-portfolio .wf-header[data-static-links] :is(.wf-header-link,.wf-header-menu-toggle):focus-visible {
+  outline: 2px solid var(--palette-ink);
+  outline-offset: 4px;
+}
+body.header-split #dany-portfolio .wf-header[data-static-links] .wf-header-menu-toggle,
+body.header-split #dany-portfolio .wf-header[data-static-links] .wf-header-menu-toggle:is(:hover,:active,:focus-visible) { display: none; font-family: 'Instrument Sans', Arial, sans-serif; }
+body.header-split #dany-portfolio .wf-footer-options {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: 'Host Grotesk', Arial, sans-serif;
+  font-size: 12px;
+}
+body.header-split #dany-portfolio .wf-footer-options button:disabled {
+  padding: 6px 0;
+  min-height: 32px;
+  border: 0;
+  background: none;
+  color: var(--palette-muted);
+  box-shadow: none;
+  font: inherit;
+  opacity: .65;
+}
+@media (max-width:720px) {
+  body.header-split #dany-portfolio .wf-header[data-static-links] { top: 0; gap: 16px; }
+  body.header-split #dany-portfolio .wf-header[data-static-links] .wf-header-menu-toggle,
+  body.header-split #dany-portfolio .wf-header[data-static-links] .wf-header-menu-toggle:is(:hover,:active,:focus-visible) { display: inline-flex; gap: 7px; padding: 0 17px; }
+  body.header-split #dany-portfolio .wf-header[data-static-links] .wf-nav {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: auto;
+    right: 20px;
+    width: max-content;
+    max-width: calc(100% - 40px);
+    padding: 18px;
+    gap: 12px;
+    flex-wrap: wrap;
+    border: 1px solid var(--palette-line);
+    border-radius: 22px;
+    background: var(--palette-paper);
+    box-shadow: none;
+  }
+  body.header-split #dany-portfolio .wf-header[data-static-links].header-menu-ready:not([data-menu-open]) .wf-nav { display: none; }
+  body.header-split #dany-portfolio .wf-footer-options { width: 100%; }
+}
+@media (max-width:390px) {
+  body.header-split #dany-portfolio .wf-header[data-static-links] .wf-nav { flex-direction: column; align-items: stretch; }
+}
+
+/* El logo activo es un PNG con alfa real, no una ventana sobre la lámina blanca. */
+body.header-split #dany-portfolio .wf-header[data-static-links] .wf-brand { mix-blend-mode: normal; }
+body.header-split #dany-portfolio .wf-header[data-static-links] .wf-brand-window { background: transparent; }
+body.header-split #dany-portfolio .wf-header[data-static-links] .wf-brand-art {
+  position: static;
+  display: block;
+  left: auto;
+  top: auto;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: transparent;
+}
+
+/* Único CTA principal del header. El resto son enlaces sin tratamiento de botón. */
+body.header-split #dany-portfolio .wf-header[data-static-links] { font-family: 'Instrument Sans', Arial, sans-serif; }
+body.header-split #dany-portfolio .wf-header[data-static-links] .wf-header-cta,
+body.header-split #dany-portfolio .wf-header[data-static-links] .wf-header-cta:is(:hover,:active,:focus-visible) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 16px;
+  border: 1px solid var(--palette-ink);
+  border-radius: 999px;
+  background: var(--palette-ink);
+  color: var(--palette-paper);
+  box-shadow: none;
+  transform: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font: 400 13px/1.2 'Instrument Sans', Arial, sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+body.header-split #dany-portfolio .wf-header[data-static-links] .wf-header-cta:focus-visible { outline: 2px solid var(--palette-ink); outline-offset: 4px; }
+@media (max-width:720px) {
+  body.header-split #dany-portfolio .wf-header[data-static-links] .wf-nav { gap: 12px 22px; }
+  body.header-split #dany-portfolio .wf-header[data-static-links] .wf-header-cta { width: 100%; }
+}
+@media (pointer: coarse) {
+  body.header-split #dany-portfolio .wf-header[data-static-links] .wf-header-cta,
+  body.header-split #dany-portfolio .wf-header[data-static-links] .wf-header-cta:is(:hover,:active,:focus-visible) { min-height: 44px; }
+}

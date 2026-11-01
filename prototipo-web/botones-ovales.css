@@ -1,0 +1,80 @@
+/* Variantes C y D: óvalos con contorno y sombra sólida en hover.
+   La referencia es estática; la transición de 160 ms es una interpretación. */
+body:is(.palette-c,.palette-d) #dany-portfolio :is(.hero-button,.wf-button,.wf-header-link,.wf-header-menu-toggle,.hero-scene-controls button):not(:disabled) {
+  border: 2px solid var(--palette-action);
+  border-radius: 999px;
+  background: var(--palette-paper);
+  color: var(--palette-action);
+  box-shadow: none;
+  font-family: 'Instrument Sans', Arial, sans-serif;
+  font-weight: 400;
+  transition: box-shadow 160ms ease-out, transform 160ms ease-out, background-color 160ms ease-out;
+}
+body:is(.palette-c,.palette-d) #dany-portfolio :is(.hero-button-primary,.wf-button-main):not(:disabled) {
+  background: var(--palette-primary);
+  color: var(--palette-primary-text);
+}
+body:is(.palette-c,.palette-d) #dany-portfolio :is(.hero-button,.wf-button):not(:disabled) { min-height: 48px; padding: 11px 23px; }
+body:is(.palette-c,.palette-d) #dany-portfolio .wf-nav {
+  gap: 8px;
+  padding: 1px 3px 5px;
+}
+body:is(.palette-c,.palette-d) #dany-portfolio .wf-nav > .wf-header-link { min-height: 40px; padding: 0 15px; }
+body:is(.palette-c,.palette-d) #dany-portfolio .wf-nav-indicator { display: none; }
+/* In these directions the outline and shadow carry the interaction. */
+body:is(.palette-c,.palette-d) #dany-portfolio .wf-header-link:is(:hover,:focus-visible) .wf-nav-label > span { transform: none; }
+body:is(.palette-c,.palette-d) #dany-portfolio .wf-nav-label > span { transition: none; }
+body:is(.palette-c,.palette-d) #dany-portfolio .wf-header { box-shadow: 0 12px 32px -24px #273e3329; }
+body:is(.palette-c,.palette-d) #dany-portfolio :is(.hero-button,.wf-button,.wf-header-link,.wf-header-menu-toggle,.hero-scene-controls button):not(:disabled):focus-visible {
+  outline: 2px solid var(--palette-ink);
+  outline-offset: 5px;
+  box-shadow: -3px 5px 0 var(--palette-action);
+}
+@media (hover: hover) and (pointer: fine) {
+  body:is(.palette-c,.palette-d) #dany-portfolio :is(.hero-button,.wf-button,.wf-header-link,.wf-header-menu-toggle,.hero-scene-controls button):not(:disabled):hover {
+    background: var(--palette-paper);
+    color: var(--palette-action);
+    box-shadow: -3px 5px 0 var(--palette-action);
+    transform: translate(1px,-2px);
+    text-decoration: none;
+  }
+  body:is(.palette-c,.palette-d) #dany-portfolio :is(.hero-button-primary,.wf-button-main):not(:disabled):hover {
+    background: var(--palette-primary-hover);
+    color: var(--palette-primary-text);
+  }
+}
+body:is(.palette-c,.palette-d) #dany-portfolio :is(.hero-button,.wf-button,.wf-header-link,.wf-header-menu-toggle,.hero-scene-controls button):not(:disabled):active {
+  background: var(--palette-primary-hover);
+  color: var(--palette-action);
+  box-shadow: -1px 2px 0 var(--palette-action);
+  transform: translate(0,1px);
+}
+@media (max-width:850px) {
+  body:is(.palette-c,.palette-d) #dany-portfolio .wf-nav { gap: 6px; }
+  body:is(.palette-c,.palette-d) #dany-portfolio .wf-nav > .wf-header-link { padding: 0 10px; }
+}
+@media (max-width:720px) {
+  body:is(.palette-c,.palette-d) #dany-portfolio .wf-nav { padding: 14px; gap: 12px 8px; }
+  body:is(.palette-c,.palette-d) #dany-portfolio .wf-nav > .wf-header-link { min-height: 44px; }
+  body:is(.palette-c,.palette-d) #dany-portfolio .wf-header-menu-toggle { min-height: 40px; padding: 0 16px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  body:is(.palette-c,.palette-d) #dany-portfolio :is(.hero-button,.wf-button,.wf-header-link,.wf-header-menu-toggle,.hero-scene-controls button):not(:disabled) { transition: none; }
+  body:is(.palette-c,.palette-d) #dany-portfolio :is(.hero-button,.wf-button,.wf-header-link,.wf-header-menu-toggle,.hero-scene-controls button):not(:disabled):is(:hover,:active) { transform: none; }
+}
+
+/* Revisión activa D: acciones más compactas, con Instrument Sans. */
+body.palette-d #dany-portfolio :is(.hero-button,.wf-button):not(:disabled) {
+  min-height: 40px;
+  padding: 8px 16px;
+  gap: 10px;
+  font: 400 13px/1.35 'Instrument Sans', Arial, sans-serif;
+}
+body.palette-d #dany-portfolio .hero-scene-controls button {
+  min-height: 32px;
+  padding: 6px 12px;
+  font: 400 12px/1.35 'Instrument Sans', Arial, sans-serif;
+}
+@media (pointer: coarse) {
+  body.palette-d #dany-portfolio :is(.hero-button,.wf-button,.hero-scene-controls button):not(:disabled) { min-height: 44px; }
+}

@@ -1,0 +1,48 @@
+/* Adaptación propia del gesto elástico Jellybelly de Tiny Mighty Buttons,
+   Eduard Bodak. Se anima el fondo; el texto permanece quieto y legible. */
+body.palette-d #dany-portfolio :is(.wf-header[data-static-links] .wf-header-cta,.hero--editorial .hero-button-primary,.wf-button).mighty-button:not(:disabled),
+body.palette-d #dany-portfolio :is(.wf-header[data-static-links] .wf-header-cta,.hero--editorial .hero-button-primary,.wf-button).mighty-button:not(:disabled):is(:hover,:active,:focus-visible) {
+  --mighty-background: var(--palette-paper);
+  --mighty-foreground: var(--palette-ink);
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--mighty-foreground);
+  box-shadow: none;
+  transform: none;
+  transition: none;
+  text-decoration: none;
+  font-family: 'Instrument Sans', Arial, sans-serif;
+}
+body.palette-d #dany-portfolio .mighty-button::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border: 1px solid var(--palette-ink);
+  border-radius: 5px;
+  background: var(--mighty-background);
+  transform-origin: 50% 50%;
+  transition: transform 450ms cubic-bezier(.34,1.8,.64,1), border-radius 450ms ease;
+  pointer-events: none;
+}
+body.palette-d #dany-portfolio :is(.wf-header[data-static-links] .wf-header-cta,.hero--editorial .hero-button-primary,.wf-button).mighty-button--primary:not(:disabled),
+body.palette-d #dany-portfolio :is(.wf-header[data-static-links] .wf-header-cta,.hero--editorial .hero-button-primary,.wf-button).mighty-button--primary:not(:disabled):is(:hover,:active,:focus-visible) {
+  --mighty-background: var(--palette-ink);
+  --mighty-foreground: var(--palette-paper);
+}
+body.palette-d #dany-portfolio .mighty-button:not(:disabled):focus-visible { outline: 2px solid var(--palette-ink); outline-offset: 6px; }
+@media (hover: hover) and (pointer: fine) {
+  body.palette-d #dany-portfolio .mighty-button:not(:disabled):is(:hover,:focus-visible)::before {
+    border-radius: 7px 4px 8px 4px;
+    transform: perspective(500px) rotateX(10deg) rotateY(-5deg) rotateZ(-2deg) scale(1.04,1.06);
+  }
+}
+body.palette-d #dany-portfolio .mighty-button:not(:disabled):active::before { transform: scale(.97); }
+@media (prefers-reduced-motion: reduce) {
+  body.palette-d #dany-portfolio .mighty-button::before { transition: none; }
+  body.palette-d #dany-portfolio .mighty-button:not(:disabled):is(:hover,:focus-visible,:active)::before { transform: none; }
+}

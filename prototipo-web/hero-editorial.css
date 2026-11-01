@@ -1,0 +1,120 @@
+/* Presentación más breve y tipografía protagonista, inspirada en las capturas
+   compartidas el 30 de octubre. Solo modifica el hero de la variante activa. */
+body.palette-d #dany-portfolio .hero.hero--editorial {
+  min-height: clamp(740px, 91svh, 980px);
+  padding: clamp(140px, 12vw, 180px) clamp(24px, 4.5vw, 72px) 140px;
+}
+body.palette-d #dany-portfolio .hero--editorial .hero-content {
+  position: relative;
+  z-index: 1;
+  width: 56vw;
+  max-width: 1020px;
+}
+body.palette-d #dany-portfolio .hero--editorial .hero-identity {
+  display: flex;
+  gap: 8px 12px;
+  width: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--palette-ink);
+  font: 400 13px/1.5 'Host Grotesk', Arial, sans-serif;
+  letter-spacing: .015em;
+  margin-bottom: 24px;
+}
+body.palette-d #dany-portfolio .hero--editorial .hero-identity > span:last-child { color: var(--palette-muted); }
+body.palette-d #dany-portfolio .hero--editorial h1 {
+  max-width: none;
+  margin: 0 0 24px;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(64px, 7.6vw, 132px);
+  line-height: 1.01;
+  letter-spacing: -.035em;
+  text-wrap: initial;
+}
+body.palette-d #dany-portfolio .hero--editorial .hero-title-line { display: block; }
+body.palette-d #dany-portfolio .hero--editorial h1 em {
+  background: none;
+  color: var(--palette-ink);
+  font-weight: 400;
+}
+body.palette-d #dany-portfolio .hero--editorial .hero-description {
+  max-width: 40ch;
+  color: var(--palette-muted);
+  font: 400 clamp(15px, 1.25vw, 18px)/1.5 'Host Grotesk', Arial, sans-serif;
+}
+body.palette-d #dany-portfolio .hero--editorial .hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+  margin-top: 34px;
+}
+body.palette-d #dany-portfolio .hero--editorial .hero-button-primary:not(:disabled),
+body.palette-d #dany-portfolio .hero--editorial .hero-button-primary:not(:disabled):is(:hover,:active,:focus-visible) {
+  min-height: 44px;
+  padding: 11px 20px;
+  gap: 18px;
+  border: 1px solid var(--palette-ink);
+  border-radius: 999px;
+  background: var(--palette-ink);
+  color: var(--palette-paper);
+  box-shadow: none;
+  transform: none;
+  font: 400 14px/1.35 'Instrument Sans', Arial, sans-serif;
+}
+body.palette-d #dany-portfolio .hero--editorial .hero-work-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0;
+  color: var(--palette-ink);
+  font: 400 14px/1.35 'Instrument Sans', Arial, sans-serif;
+  text-underline-offset: 5px;
+}
+body.palette-d #dany-portfolio .hero--editorial .sunflower-art {
+  width: 44%;
+  top: 0;
+  right: -18px;
+  bottom: -25px;
+  height: auto;
+}
+body.palette-d #dany-portfolio .hero--editorial .hero-scene-controls {
+  left: clamp(24px, 4.5vw, 72px);
+  right: clamp(24px, 4.5vw, 72px);
+  bottom: 24px;
+}
+body.palette-d #dany-portfolio .hero--editorial .hero-scene-controls > span {
+  background: transparent;
+  padding: 0;
+  color: var(--palette-muted);
+}
+@media (hover: hover) and (pointer: fine) {
+  body.palette-d #dany-portfolio .hero--editorial .hero-button-primary:not(:disabled):hover { background: #24392B; }
+}
+@media (max-width: 850px) {
+  body.palette-d #dany-portfolio .hero.hero--editorial {
+    min-height: 0;
+    padding: 120px 24px 440px;
+  }
+  body.palette-d #dany-portfolio .hero--editorial .hero-content { width: 100%; max-width: none; }
+  body.palette-d #dany-portfolio .hero--editorial h1 { font-size: clamp(46px, 10vw, 82px); }
+  body.palette-d #dany-portfolio .hero--editorial .sunflower-art {
+    top: auto;
+    bottom: 0;
+    right: 0;
+    height: 410px;
+    width: 100%;
+  }
+  body.palette-d #dany-portfolio .hero--editorial .hero-scene-controls { left: 24px; right: 24px; bottom: 16px; }
+}
+@media (max-width: 480px) {
+  body.palette-d #dany-portfolio .hero.hero--editorial { padding-top: 112px; padding-bottom: 380px; }
+  body.palette-d #dany-portfolio .hero--editorial h1 { letter-spacing: -.025em; }
+  body.palette-d #dany-portfolio .hero--editorial .hero-actions { gap: 12px 22px; margin-top: 26px; }
+  body.palette-d #dany-portfolio .hero--editorial .sunflower-art { height: 350px; }
+  body.palette-d #dany-portfolio .hero--editorial .floral-hint { max-width: 130px; font-size: 10px; }
+}

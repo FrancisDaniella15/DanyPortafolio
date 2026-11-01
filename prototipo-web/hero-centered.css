@@ -1,0 +1,132 @@
+/* Prueba centrada a partir de la captura de Leo Marlowe. */
+body.palette-d #dany-portfolio .hero.hero--centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100svh;
+  padding: 108px 24px 32px;
+  text-align: center;
+  background: var(--palette-paper);
+}
+body.palette-d #dany-portfolio .hero--centered::before {
+  content: none;
+}
+body.palette-d #dany-portfolio .hero--centered::after { display: none; }
+body.palette-d #dany-portfolio .hero--centered .sunflower-sky { opacity: .2; }
+body.palette-d #dany-portfolio .hero--centered .hero-floral-portrait {
+  position: relative;
+  flex: 0 0 auto;
+  width: 180px;
+  height: 180px;
+  margin-bottom: 28px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #E6E8D8;
+  box-shadow: 0 0 64px 20px rgba(221,213,234,.38);
+}
+body.palette-d #dany-portfolio .hero--centered .sunflower-art {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+body.palette-d #dany-portfolio .hero--centered .hero-content {
+  width: 100%;
+  max-width: 1180px;
+}
+body.palette-d #dany-portfolio .hero--centered .hero-identity {
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: fit-content;
+  max-width: 100%;
+  gap: 8px 14px;
+  margin: 0 auto 28px;
+  padding: 10px 18px;
+  border: 1px solid var(--palette-line);
+  border-radius: 999px;
+  background: rgba(251,248,239,.7);
+  box-shadow: 0 6px 18px rgba(48,71,55,.04);
+  font: 400 14px/1.4 'Instrument Sans', Arial, sans-serif;
+}
+body.palette-d #dany-portfolio .hero--centered h1 {
+  margin: 0 0 24px;
+  font-size: clamp(48px, 7.6vw, 112px);
+  line-height: 1.04;
+  letter-spacing: -.04em;
+}
+body.palette-d #dany-portfolio .hero--centered h1 em { color: #526642; }
+body.palette-d #dany-portfolio .hero--centered .hero-description {
+  max-width: none;
+  margin: 0 auto;
+  font-size: clamp(14px, 1.55vw, 20px);
+}
+body.palette-d #dany-portfolio .hero--centered .hero-actions { justify-content: center; margin-top: 26px; }
+body.palette-d #dany-portfolio .hero--centered .hero-work-shortcuts { margin-top: 36px; }
+body.palette-d #dany-portfolio .hero--centered .hero-dock-label {
+  margin-bottom: 14px;
+  color: var(--palette-muted);
+  font: 400 10px/1.4 'Instrument Sans', Arial, sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+body.palette-d #dany-portfolio .hero--centered .hero-project-dock {
+  display: inline-flex;
+  justify-content: center;
+  gap: 12px;
+  max-width: 100%;
+  padding: 12px;
+  border: 1px solid var(--palette-line);
+  border-radius: 26px;
+  background: rgba(251,248,239,.8);
+  box-shadow: 0 10px 24px rgba(48,71,55,.07);
+}
+body.palette-d #dany-portfolio .hero--centered .hero-dock-project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  min-width: 72px;
+  border-radius: 16px;
+  text-decoration: none;
+  font: 400 11px/1.4 'Instrument Sans', Arial, sans-serif;
+}
+body.palette-d #dany-portfolio .hero--centered .hero-dock-mark {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 1px solid rgba(48,71,55,.16);
+  border-radius: 18px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 3px 6px rgba(48,71,55,.07);
+  font: 400 34px/1 'Instrument Serif', Georgia, serif;
+  transition: transform 220ms ease;
+}
+body.palette-d #dany-portfolio .hero--centered .hero-dock-mark--carbon { background: #304737; color: #FBF8EF; }
+body.palette-d #dany-portfolio .hero--centered .hero-dock-mark--sozialens { background: #DDD5EA; color: #304737; }
+body.palette-d #dany-portfolio .hero--centered .hero-dock-mark--portalfi { background: #9BA98A; color: #1E3324; }
+body.palette-d #dany-portfolio .hero--centered .hero-scene-controls {
+  position: static;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+body.palette-d #dany-portfolio .hero--centered.image-unavailable .hero-floral-portrait { display: none; }
+@media (hover: hover) and (pointer: fine) {
+  body.palette-d #dany-portfolio .hero--centered .hero-dock-project:hover .hero-dock-mark { transform: translateY(-4px); }
+}
+@media (max-width: 480px) {
+  body.palette-d #dany-portfolio .hero.hero--centered { padding: 100px 20px 28px; }
+  body.palette-d #dany-portfolio .hero--centered .hero-floral-portrait { width: 148px; height: 148px; margin-bottom: 24px; }
+  body.palette-d #dany-portfolio .hero--centered .hero-identity { gap: 5px 8px; padding: 9px 13px; font-size: 12px; border-radius: 20px; }
+  body.palette-d #dany-portfolio .hero--centered h1 { font-size: clamp(44px, 10vw, 54px); }
+  body.palette-d #dany-portfolio .hero--centered .hero-description { max-width: 30ch; }
+  body.palette-d #dany-portfolio .hero--centered .hero-project-dock { gap: 6px; padding: 10px; }
+  body.palette-d #dany-portfolio .hero--centered .hero-dock-project { min-width: 68px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.palette-d #dany-portfolio .hero--centered .hero-dock-mark { transition: none; }
+  body.palette-d #dany-portfolio .hero--centered .hero-dock-project:hover .hero-dock-mark { transform: none; }
+}

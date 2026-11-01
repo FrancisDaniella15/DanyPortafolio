@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dany Cova, Senior Product Designer. Prototipo de portfolio de productos financieros, aplicaciones móviles y sistemas de diseño.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Dany Design — Primer prototipo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="content.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="hero-motion.js" defer></script>
+</head>
+<body class="type-host">
+<div id="dany-portfolio">
+  
+
+  <div class="wf-topline prototype-review"><span>Prueba del hero · Tipografía</span><nav aria-label="Comparar propuestas tipográficas"><a href="index.html" aria-current="page">Host Grotesk</a><a href="index-serif.html">Serif editorial</a></nav></div>
+  <a class="skip-link" href="#wf-inicio" data-home-target="wf-inicio">Saltar al contenido</a>
+  <header class="wf-header">
+    <a class="wf-brand cursor-interaction" href="#wf-inicio" data-home-target="wf-inicio">Dany Design</a>
+    <nav class="wf-nav" aria-label="Navegación principal">
+      <a class="cursor-interaction" href="#wf-proyectos" data-home-target="wf-proyectos">Proyectos</a>
+      <a class="cursor-interaction" href="#wf-sobre-mi" data-home-target="wf-sobre-mi">Sobre mí</a>
+      <a class="cursor-interaction" href="#wf-contacto" data-home-target="wf-contacto">Contacto</a>
+      <button class="wf-button" type="button" disabled aria-label="CV en PDF, archivo pendiente">CV en PDF</button>
+      <div class="pending-controls" aria-label="Opciones pendientes del prototipo"><span class="current-language" lang="es" aria-label="Idioma actual: español">ES</span><button type="button" disabled aria-label="English, próximamente">EN</button><button type="button" disabled aria-label="Selector visual, pendiente">Vista</button></div>
+    </nav>
+  </header>
+
+  <main id="wf-home">
+    <section class="hero hero--flowers hero--bloom" id="wf-inicio" aria-labelledby="hero-title" tabindex="-1">
+      <div class="hero-landscape" aria-hidden="true">
+        <img id="hero-image" src="assets/flores-abstractas-referencia.png" alt="" width="736" height="736" fetchpriority="high" decoding="async">
+      </div>
+      <div class="hero-veil" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="hero-identity">Dany Cova <span aria-hidden="true">·</span> <span>Senior Product Designer</span></p>
+        <h1 id="hero-title">Diseño plataformas financieras y apps para el día a día.</h1>
+        <p class="hero-description">Trabajo en FinTech, DeFi y sistemas de diseño. Defino flujos, diseño interfaces y reviso su implementación junto al equipo de desarrollo.</p>
+        <div class="hero-actions">
+          <a class="hero-button hero-button-primary" href="#wf-proyectos" data-home-target="wf-proyectos">Ver proyectos <span aria-hidden="true">↓</span></a>
+          <a class="hero-button hero-button-secondary" href="#wf-contacto" data-home-target="wf-contacto">Contacto</a>
+        </div>
+      </div>
+      <div class="hero-scene-controls"><span>Flores · Exploración visual</span><button type="button" id="hero-motion-toggle" aria-pressed="false">Pausar fondo</button></div>
+    </section>
+
+    <section class="wf-section" id="wf-proyectos" tabindex="-1" aria-labelledby="wf-work-title">
+      <span class="wf-number">02 · Trabajo</span>
+      <h2 id="wf-work-title">Proyectos seleccionados</h2>
+      <div class="wf-project-grid">
+        <article class="wf-project">
+          <h3>IntentX → Carbon</h3>
+          <p class="wf-product-type">Plataforma de trading DeFi.</p>
+          <p>Durante tres años trabajé en flujos e interfaces, co-creé el sistema de diseño y realicé auditorías para su evolución visual.</p>
+          <a class="wf-button cursor-interaction" data-project="carbon" aria-label="Ver proyecto IntentX y Carbon" href="#proyecto-carbon">Ver proyecto</a>
+        </article>
+        <article class="wf-project">
+          <h3>Sozialens</h3>
+          <p class="wf-product-type">Plataforma para buscar creadores de contenido y organizar campañas.</p>
+          <p>Organicé la navegación, diseñé pantallas y co-creé el sistema de diseño. También revisé la implementación junto al equipo de desarrollo.</p>
+          <a class="wf-button cursor-interaction" data-project="sozialens" aria-label="Ver proyecto Sozialens" href="#proyecto-sozialens">Ver proyecto</a>
+        </article>
+        <article class="wf-project">
+          <h3>PortalFi</h3>
+          <p class="wf-product-type">Neobanca con tecnología DeFi.</p>
+          <p>Apoyé la creación del sistema de diseño, preparé prototipos de navegación y revisé las diferencias entre Figma y la interfaz implementada.</p>
+          <a class="wf-button cursor-interaction" data-project="portalfi" aria-label="Ver proyecto PortalFi" href="#proyecto-portalfi">Ver proyecto</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="wf-section" aria-labelledby="wf-apps-title">
+      <span class="wf-number">03 · Trabajo reciente</span>
+      <h2 id="wf-apps-title">Apps móviles con apoyo de IA</h2>
+      <p class="wf-description">Diseñé propuestas de interfaz y sistemas de diseño para tres apps móviles. Partí de las indicaciones del cliente y usé Figma Agents para generar pantallas y explorar alternativas.</p>
+    </section>
+
+    <section class="wf-section" id="wf-sobre-mi" tabindex="-1" aria-labelledby="wf-about-title">
+      <span class="wf-number">04 · Perfil</span>
+      <div class="wf-about-grid">
+        <div class="wf-about-text">
+          <h2 id="wf-about-title">Sobre mí</h2>
+          <p>Soy Dany. Me gusta entender cómo funciona un producto antes de diseñar sus pantallas. Investigo, hago preguntas y uso IA para explorar mejoras y desarrollar propuestas.</p>
+          <p>Amo la música, los colores y la naturaleza. Quise traer un poco de todo eso a este espacio.</p>
+        </div>
+        <div>
+          <h3>Mi trayectoria</h3>
+          <div class="wf-career-row"><div class="wf-company"><span>Esthetiqo Studio</span><span>2023–2026</span></div><div class="wf-role">Lead Product Designer &amp; UX/UI Systems</div></div>
+          <div class="wf-career-row"><div class="wf-company"><span>Indexceed</span><span>2023</span></div><div class="wf-role">Product Designer &amp; UX Specialist</div></div>
+          <div class="wf-career-row"><div class="wf-company"><span>edunam</span><span>2023</span></div><div class="wf-role">Product Designer</div></div>
+          <div id="wf-more-career" hidden>
+            <div class="wf-career-row"><div class="wf-company"><span>Global Logistics Group LLC</span><span>2022</span></div><div class="wf-role">Product Designer</div></div>
+            <div class="wf-career-row"><div class="wf-company"><span>Invita</span><span>2022</span></div><div class="wf-role">UI Designer</div></div>
+            <div class="wf-career-row"><div class="wf-company"><span>Duxura Health</span><span>2022</span></div><div class="wf-role">UI Designer</div></div>
+            <div class="wf-career-row"><div class="wf-company"><span>Holis</span><span>2021–2022</span></div><div class="wf-role">UI Designer</div></div>
+            <div class="wf-career-row"><div class="wf-company"><span>GaluApps</span><span>2019–2021</span></div><div class="wf-role">Visual Designer</div></div>
+          </div>
+          <div class="wf-career-actions">
+            <button id="wf-career-toggle" class="wf-button cursor-interaction" type="button" aria-expanded="false" aria-controls="wf-more-career">Ver toda mi trayectoria</button>
+            <a class="wf-link-button cursor-interaction" href="https://www.linkedin.com/in/danycovadesign" target="_blank" rel="noopener noreferrer">Ver perfil en LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wf-section" aria-labelledby="wf-tools-title">
+      <span class="wf-number">05 · Herramientas</span>
+      <h2 id="wf-tools-title">Mis herramientas</h2>
+      <div class="wf-tools" aria-label="Herramientas de trabajo"><span class="wf-tool">Figma</span><span class="wf-tool">Notion</span><span class="wf-tool">ChatGPT</span><span class="wf-tool">Claude</span><span class="wf-tool">Gemini</span><span class="wf-tool">Stitch</span><span class="wf-tool">Banani</span></div>
+    </section>
+
+    <section class="wf-section" id="wf-contacto" tabindex="-1" aria-labelledby="wf-contact-title">
+      <span class="wf-number">06 · Contacto</span>
+      <h2 id="wf-contact-title">¿Buscas una diseñadora de producto para tu equipo?</h2>
+      <p>Cuéntame sobre el producto y el rol que necesitan cubrir.</p>
+      <a class="wf-email cursor-interaction" href="mailto:cova.francis15@gmail.com">cova.francis15@gmail.com</a>
+      <div class="wf-actions">
+        <a class="wf-button wf-button-main cursor-interaction" href="mailto:cova.francis15@gmail.com">Escríbeme por correo</a>
+        <button id="wf-copy" class="wf-button cursor-interaction" type="button">Copiar correo</button>
+      </div>
+      <p id="wf-copy-status" class="wf-notice" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <main id="wf-case" hidden aria-labelledby="wf-case-title">
+    <section class="wf-section">
+      <button class="wf-link-button cursor-interaction" type="button" data-back>← Volver a proyectos</button>
+      <span class="wf-number" style="margin-top:20px">Página de proyecto · Esquema de contenido</span>
+      <h1 id="wf-case-title" tabindex="-1"></h1>
+      <div class="wf-case-intro"><p id="wf-case-description"></p><p id="wf-case-summary"></p></div>
+    </section>
+    <section class="wf-section">
+      <h2>Mi aportación</h2>
+      <ul class="wf-case-list" id="wf-case-contributions"></ul>
+    </section>
+    <section class="wf-section">
+      <h2>El trabajo, paso a paso</h2>
+      <div class="wf-case-stages" id="wf-case-stages"></div>
+    </section>
+    <section class="wf-section">
+      <h2 id="wf-case-delivery-title">Qué se entregó</h2>
+      <p class="wf-description" id="wf-case-delivery"></p>
+      <div class="wf-actions">
+        <button class="wf-button cursor-interaction" type="button" data-back>Volver a proyectos</button>
+        <button class="wf-button wf-button-main cursor-interaction" type="button" id="wf-next-project"></button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wf-footer"><span>Dany Design · Portfolio</span><a href="https://www.linkedin.com/in/danycovadesign" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></footer>
+
+  
+</div>
+</body>
+</html>
