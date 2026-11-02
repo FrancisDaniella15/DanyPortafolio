@@ -23,7 +23,7 @@
   const NOTES = {
     b: 'B · Tus teclas HELLO reales caen, esperan y vuelan en curva hasta su letra del teclado.',
     e: 'E1 · Zoom: HELLO entra de derecha a izquierda; mientras la cámara se acerca a la O, el teclado va apareciendo a su alrededor. Luego la cámara se aleja hasta el hero.',
-    e3: 'E3 · La O cae: HELLO se detiene con la O encima de su tecla, H-E-L-L siguen hacia la izquierda y la O baja suave hasta encajar en la O del teclado.'
+    e3: 'E3 · La O cae: HELLO se detiene con la O encima de su tecla, H-E-L-L siguen hacia la izquierda y la O cae hacia abajo con gravedad, rebota y encaja en la O del teclado.'
   };
 
   let running = [];
@@ -271,7 +271,7 @@
 
   // ---------- E3 · La O cae sobre su tecla ----------
   // HELLO se detiene con la O justo encima de su tecla. H-E-L-L siguen hacia la
-  // izquierda, aparece el escritorio y la O baja en vertical con una caída suave.
+  // izquierda, aparece el escritorio y la O cae en 2D (eje Y) con gravedad y rebota.
 
   // Centro de la letra O del teclado de la foto, en pantalla.
   function photoGlyph(view) {
@@ -282,9 +282,9 @@
     const view = finalView();
     const target = photoGlyph(view);
     const height = window.innerHeight;
-    // Teclas de HELLO al doble del tamaño de la tecla de la foto.
-    const keyWidth = Math.round(PHOTO_KEY_W * view.s * 2);
-    // La O flota en la misma vertical que su tecla, a un tercio de la altura.
+    // Teclas de HELLO del mismo tamaño que las del teclado: la O cae sin cambiar de tamaño.
+    const keyWidth = Math.round(PHOTO_KEY_W * view.s);
+    // La O espera en la misma vertical que su tecla, a un tercio de la altura.
     const hoverY = Math.max(140, Math.min(height * .3, target.y - 200));
     let setup;
     try {
@@ -307,36 +307,32 @@
     function at(scale, x, y) {
       return 'translate(' + (x - o.left - px * scale).toFixed(2) + 'px, ' + (y - o.top - py * scale).toFixed(2) + 'px) scale(' + scale.toFixed(4) + ')';
     }
-    function shadow(dx, dy, blur, alpha) {
-      return 'drop-shadow(' + (o.width * dx).toFixed(1) + 'px ' + (o.width * dy).toFixed(1) + 'px ' + (o.width * blur).toFixed(1) + 'px rgba(55, 35, 15, ' + alpha + '))';
-    }
-    // Aterrizaje: misma anchura que la tecla de la foto y la letra sobre la letra.
+    // Ajuste fino para que la tecla mida exactamente lo mismo que la de la foto.
     const k = PHOTO_KEY_W * end.s / o.width;
     const gx = target.x;
     const gy = target.y;
     const fall = gy - glyph.y;
-    const duration = 1900;
-    const landing = .66;
-    later(function () {
-      pressPhotoKey('o', false);
-      revealHero();
-    }, duration * landing);
+
+    // Tiempos (ms): caída y dos rebotes que pierden altura, como un objeto real.
+    const T = { fall: 760, up1: 210, down1: 210, up2: 105, down2: 105 };
+    const total = T.fall + T.up1 + T.down1 + T.up2 + T.down2;
+    let elapsed = 0;
+    function mark(ms) { elapsed += ms; return elapsed / total; }
+    const gravity = 'cubic-bezier(.55,.085,.68,.53)';   // acelera (caída)
+    const rise = 'cubic-bezier(.25,.46,.45,.94)';       // frena (subida)
+    later(function () { pressPhotoKey('o', false); revealHero(); }, T.fall);
 
     const drop = track(keyO.animate([
-      // 1. Se eleva apenas, como quien toma impulso.
-      { transform: at(1, gx, glyph.y), filter: shadow(.05, .22, .2, .2), easing: 'cubic-bezier(.3,.6,.4,1)' },
-      { transform: at(1.04, gx, glyph.y - fall * .04), filter: shadow(.07, .28, .24, .18), offset: .16, easing: 'cubic-bezier(.42,0,.78,.55)' },
-      // 2. Cae en vertical acelerando con suavidad; se encoge y la sombra se le acerca.
-      { transform: at(k, gx, gy), filter: shadow(0, .03, .04, .36), offset: landing, easing: 'cubic-bezier(.25,.7,.4,1)' },
-      // 3. Rebote corto y amortiguado.
-      { transform: at(k, gx, gy - fall * .045), filter: shadow(.01, .06, .07, .3), offset: .78, easing: 'cubic-bezier(.5,0,.75,.5)' },
-      { transform: at(k, gx, gy), filter: shadow(0, .03, .04, .36), offset: .87, easing: 'cubic-bezier(.25,.7,.4,1)' },
-      { transform: at(k, gx, gy - fall * .012), filter: shadow(0, .04, .05, .34), offset: .93, easing: 'ease-in' },
-      { transform: at(k, gx, gy), filter: shadow(0, .03, .04, .36) }
-    ], { duration: duration, fill: 'forwards' }));
+      { transform: at(1, gx, glyph.y), easing: gravity },
+      { transform: at(k, gx, gy), offset: mark(T.fall), easing: rise },
+      { transform: at(k, gx, gy - fall * .1), offset: mark(T.up1), easing: gravity },
+      { transform: at(k, gx, gy), offset: mark(T.down1), easing: rise },
+      { transform: at(k, gx, gy - fall * .025), offset: mark(T.up2), easing: gravity },
+      { transform: at(k, gx, gy) }
+    ], { duration: total, fill: 'forwards' }));
     try { await drop.finished; } catch (error) { return; }
 
-    // 4. La tecla HELLO se funde con la del teclado.
+    // La tecla HELLO se funde con la del teclado.
     const melt = track(keyO.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 350, easing: 'ease', fill: 'forwards' }));
     try { await melt.finished; } catch (error) { return; }
     overlay.classList.remove('is-on');
