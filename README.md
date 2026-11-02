@@ -13,6 +13,7 @@ Portfolio de Francis Daniella (Dany Cova), Product Designer. Lanzamiento objetiv
 | [`estrategia/`](estrategia/) | Documento de trabajo, brief, plan, estructura de la web, wireframe y método. |
 | [`identidad/`](identidad/logo-francis-daniella/LEEME.md) | Logo elegido (3A y 3B) y sus referencias. |
 | [`referencias/`](referencias/referencias-visuales.md) | Referencias visuales y de redacción compartidas por Dany. Las del hero nuevo están en `referencias/hero-hello/`. |
+| [`exploracion-hero/`](exploracion-hero/README.md) | Exploración visual y prototipo de transición del hero (propuestas, recursos y estado). |
 | [`_descartado/`](_descartado/LEEME.md) | Material que ya no se usa, guardado por si hace falta recuperarlo. |
 
 ## Por dónde empezar
@@ -38,3 +39,7 @@ Portfolio de Francis Daniella (Dany Cova), Product Designer. Lanzamiento objetiv
 ## Pendiente importante
 
 Varias imágenes PNG antiguas están cortadas a 700 000 bytes y no se ven completas, entre ellas la lámina del logo 3A. La web ya no depende de ellas, pero hace falta el archivo original del logo.
+
+## Exploración del hero
+
+La [exploración visual y prototipo de transición](exploracion-hero/README.md) recoge las propuestas, recursos y estado actual del hero.
