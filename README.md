@@ -2,6 +2,8 @@
 
 Portfolio de Francis Daniella (Dany Cova), Product Designer. Lanzamiento objetivo: 20 de noviembre de 2026.
 
+> **Última actualización:** [ACTUALIZACION.md](ACTUALIZACION.md) resume qué se hizo, cómo probarlo y qué queda pendiente.
+
 ## Estructura
 
 | Carpeta | Qué contiene |
