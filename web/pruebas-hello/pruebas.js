@@ -23,7 +23,8 @@
   const NOTES = {
     b: 'B · Tus teclas HELLO reales caen, esperan y vuelan en curva hasta su letra del teclado.',
     e: 'E1 · Zoom: HELLO entra de derecha a izquierda; mientras la cámara se acerca a la O, el teclado va apareciendo a su alrededor. Luego la cámara se aleja hasta el hero.',
-    e3: 'E3 · La O cae: HELLO se detiene con la O encima de su tecla, H-E-L-L siguen hacia la izquierda y, mientras la O cae y rebota hasta su tecla, la escena va apareciendo desde ahí.'
+    e3: 'E3 · Y (2D): HELLO se detiene con la O en la vertical de su tecla; H-E-L-L se disuelven mientras la O baja por la pantalla, rebota y encaja, y la escena aparece desde ahí.',
+    e3z: 'E3 · Z (3D): la O flota justo sobre su tecla, más cerca de la cámara; H-E-L-L se disuelven mientras cae hacia el escritorio encogiéndose, con su sombra acercándose, y encaja.'
   };
 
   let running = [];
@@ -172,14 +173,23 @@
     const width = window.innerWidth;
     const slides = realKeys.map(function (key, i) {
       const distance = width - key.getBoundingClientRect().left + 40;
-      return track(key.animate([
-        { opacity: 1, transform: 'translateX(' + distance + 'px)' },
-        { opacity: 1, transform: 'translateX(-3%)', offset: .82 },
-        { opacity: 1, transform: 'translateX(0)' }
-      ], { duration: 820, delay: 150 + i * 95, easing: 'cubic-bezier(.2,.75,.25,1)', fill: 'forwards' })).finished;
+      const frames = settings.smooth
+        ? [
+            { opacity: 0, transform: 'translateX(' + distance * .55 + 'px)' },
+            { opacity: 1, transform: 'translateX(' + distance * .12 + 'px)', offset: .4 },
+            { opacity: 1, transform: 'translateX(0)' }
+          ]
+        : [
+            { opacity: 1, transform: 'translateX(' + distance + 'px)' },
+            { opacity: 1, transform: 'translateX(-3%)', offset: .82 },
+            { opacity: 1, transform: 'translateX(0)' }
+          ];
+      return track(key.animate(frames, settings.smooth
+        ? { duration: 1000, delay: 120 + i * 70, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'forwards' }
+        : { duration: 820, delay: 150 + i * 95, easing: 'cubic-bezier(.2,.75,.25,1)', fill: 'forwards' })).finished;
     });
     await Promise.all(slides);
-    await wait(280);
+    await wait(settings.hold === undefined ? 280 : settings.hold);
     return { end: view, keyO: keyO, width: width, height: window.innerHeight };
   }
 
@@ -279,24 +289,34 @@
     return { x: view.tx + PHOTO_O.cx * view.s, y: view.ty + PHOTO_O.cy * view.s };
   }
 
-  async function playE3() {
+  // axis 'y': caída 2D por la pantalla, sin cambiar de tamaño.
+  // axis 'z': caída 3D hacia el escritorio (cámara cenital): la O flota justo sobre su
+  // tecla, más grande por estar más cerca de la cámara, y se encoge al caer.
+  async function playE3(axis) {
+    const depth = axis === 'z';
     const view = finalView();
     const target = photoGlyph(view);
     const height = window.innerHeight;
-    // Teclas de HELLO del mismo tamaño que las del teclado: la O cae sin cambiar de tamaño.
-    const keyWidth = Math.round(PHOTO_KEY_W * view.s);
-    // La O espera en la misma vertical que su tecla, a un tercio de la altura.
-    const hoverY = Math.max(140, Math.min(height * .3, target.y - 200));
+    const keyWidth = Math.round(PHOTO_KEY_W * view.s * (depth ? 2.2 : 1));
+    // Y: la O espera en la vertical de su tecla, a un tercio de la altura.
+    // Z: la O espera exactamente encima de su tecla.
+    const hoverY = depth ? target.y : Math.max(140, Math.min(height * .3, target.y - 200));
     let setup;
     try {
-      setup = await slideHello({ keyWidth: keyWidth, anchorO: function () { return { x: target.x, y: hoverY }; } });
+      setup = await slideHello({ smooth: true, hold: 220, keyWidth: keyWidth, anchorO: function () { return { x: target.x, y: hoverY }; } });
     } catch (error) { return; }
     const keyO = setup.keyO;
     const end = setup.end;
 
-    // Las demás letras siguen su camino; el escritorio aún no se ve.
-    sweepOthersLeft();
-    await wait(800);
+    // Un solo movimiento: H-E-L-L se disuelven en su sitio, en onda desde la O hacia
+    // fuera, y la O empieza a caer casi a la vez.
+    realKeys.slice(0, 4).forEach(function (key, i) {
+      track(key.animate([
+        { opacity: 1, transform: 'translateY(0) scale(1)', filter: 'blur(0px)' },
+        { opacity: 0, transform: 'translateY(-10px) scale(.96)', filter: 'blur(5px)' }
+      ], { duration: 480, delay: (3 - i) * 60, easing: 'cubic-bezier(.4,0,.2,1)', fill: 'forwards' }));
+    });
+    await wait(90);
 
     const glyph = helloGlyph(keyO);
     const o = glyph.rect;
@@ -306,14 +326,18 @@
     function at(scale, x, y) {
       return 'translate(' + (x - o.left - px * scale).toFixed(2) + 'px, ' + (y - o.top - py * scale).toFixed(2) + 'px) scale(' + scale.toFixed(4) + ')';
     }
+    // Sombra en fracciones del ancho de la tecla (se escala con ella).
+    function shadow(dx, dy, blur, alpha) {
+      return 'drop-shadow(' + (o.width * dx).toFixed(1) + 'px ' + (o.width * dy).toFixed(1) + 'px ' + (o.width * blur).toFixed(1) + 'px rgba(55, 35, 15, ' + alpha + '))';
+    }
     // Ajuste fino para que la tecla mida exactamente lo mismo que la de la foto.
     const k = PHOTO_KEY_W * end.s / o.width;
     const gx = target.x;
     const gy = target.y;
     const fall = gy - glyph.y;
 
-    // Tiempos (ms): caída y dos rebotes que pierden altura, como un objeto real.
-    const T = { fall: 760, up1: 210, down1: 210, up2: 105, down2: 105 };
+    // Tiempos (ms): caída y dos rebotes cortos que pierden altura, como un objeto real.
+    const T = { fall: 720, up1: 190, down1: 190, up2: 95, down2: 95 };
     const total = T.fall + T.up1 + T.down1 + T.up2 + T.down2;
     let elapsed = 0;
     function mark(ms) { elapsed += ms; return elapsed / total; }
@@ -330,27 +354,44 @@
     track(overlayBg.animate([
       { '--mx': gx + 'px', '--my': gy + 'px', '--r': -feather * .45 + 'px' },
       { '--mx': gx + 'px', '--my': gy + 'px', '--r': reach + 'px' }
-    ], { duration: T.fall + 380, easing: 'cubic-bezier(.3,0,.5,1)', fill: 'forwards' }));
+    ], { duration: T.fall + 320, easing: 'cubic-bezier(.3,0,.5,1)', fill: 'forwards' }));
 
-    const drop = track(keyO.animate([
-      { transform: at(1, gx, glyph.y), easing: gravity },
-      { transform: at(k, gx, gy), offset: mark(T.fall), easing: rise },
-      { transform: at(k, gx, gy - fall * .1), offset: mark(T.up1), easing: gravity },
-      { transform: at(k, gx, gy), offset: mark(T.down1), easing: rise },
-      { transform: at(k, gx, gy - fall * .025), offset: mark(T.up2), easing: gravity },
-      { transform: at(k, gx, gy) }
-    ], { duration: total, fill: 'forwards' }));
-    try { await drop.finished; } catch (error) { return; }
-
-    // La tecla HELLO se funde con la del teclado.
-    const melt = track(keyO.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 350, easing: 'ease', fill: 'forwards' }));
-    try { await melt.finished; } catch (error) { return; }
+    const frames = depth
+      ? [
+          // Z: se encoge en su sitio mientras baja; la sombra se acerca y se endurece.
+          { transform: at(1, gx, gy), filter: shadow(.07, .3, .26, .2), easing: gravity },
+          { transform: at(k, gx, gy), filter: shadow(0, .03, .04, .38), offset: mark(T.fall), easing: rise },
+          { transform: at(k * 1.07, gx, gy), filter: shadow(.01, .07, .08, .32), offset: mark(T.up1), easing: gravity },
+          { transform: at(k, gx, gy), filter: shadow(0, .03, .04, .38), offset: mark(T.down1), easing: rise },
+          { transform: at(k * 1.018, gx, gy), filter: shadow(0, .04, .05, .36), offset: mark(T.up2), easing: gravity },
+          { transform: at(k, gx, gy), filter: shadow(0, .03, .04, .38) }
+        ]
+      : [
+          // Y: baja por la pantalla con el mismo tamaño.
+          { transform: at(1, gx, glyph.y), easing: gravity },
+          { transform: at(k, gx, gy), offset: mark(T.fall), easing: rise },
+          { transform: at(k, gx, gy - fall * .07), offset: mark(T.up1), easing: gravity },
+          { transform: at(k, gx, gy), offset: mark(T.down1), easing: rise },
+          { transform: at(k, gx, gy - fall * .018), offset: mark(T.up2), easing: gravity },
+          { transform: at(k, gx, gy) }
+        ];
+    const drop = track(keyO.animate(frames, { duration: total, fill: 'forwards' }));
+    // La tecla HELLO se funde con la del teclado durante el último rebote, sin esperar.
+    const melt = track(keyO.animate([{ opacity: 1 }, { opacity: 0 }], {
+      duration: 320, delay: T.fall + T.up1 + T.down1, easing: 'ease', fill: 'forwards'
+    }));
+    try { await Promise.all([drop.finished, melt.finished]); } catch (error) { return; }
     overlay.classList.remove('is-on');
   }
 
   // ---------- Controles ----------
 
-  const variants = { b: playB, e: playE, e3: playE3 };
+  const variants = {
+    b: playB,
+    e: playE,
+    e3: function () { return playE3('y'); },
+    e3z: function () { return playE3('z'); }
+  };
 
   function play(name) {
     reset();
