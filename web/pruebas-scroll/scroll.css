@@ -67,7 +67,8 @@ html.v-mesa .projects {
   background: var(--bg);
   box-shadow: 0 -30px 60px -30px var(--shadow);
 }
-html.v-mesa .screen__site { display: none; }
+/* En la mesa se usa solo la foto real: sin pantalla dibujada. */
+html.v-mesa .screen { display: none; }
 
 /* Sin movimiento: página normal. */
 html.reduce .scrolly { height: auto; }
