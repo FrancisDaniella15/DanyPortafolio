@@ -12,12 +12,6 @@
   initial-value: 0px;
 }
 
-@property --m {
-  syntax: '<number>';
-  inherits: true;
-  initial-value: 1;
-}
-
 @property --r {
   syntax: '<length>';
   inherits: false;
@@ -68,54 +62,13 @@
 }
 .detail-o.is-on { opacity: 1; transition-duration: 0s; }
 
-/* A: texto tecleado */
-.typed {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 15vh;
-  z-index: 60;
-  margin: 0;
-  text-align: center;
-  color: var(--ink);
-  font: italic 400 clamp(64px, 10vw, 150px)/1 var(--serif);
-  letter-spacing: -.01em;
-  pointer-events: none;
-  opacity: 0;
-}
-.typed.is-on { opacity: 1; }
-.typed__caret { display: inline-block; width: .06em; height: .78em; margin-left: .06em; vertical-align: -.04em; background: var(--accent); animation: caret 1s steps(1) infinite; }
-@keyframes caret { 50% { opacity: 0; } }
-
-/* B y D: capa con las teclas reales */
+/* Capa con las teclas reales */
 .overlay { position: fixed; inset: 0; z-index: 80; display: none; place-items: center; }
 .overlay.is-on { display: grid; }
 .overlay__bg { position: absolute; inset: 0; background: var(--bg); }
 .overlay__bg--hole {
   -webkit-mask-image: radial-gradient(circle at var(--mx) var(--my), transparent var(--r), #000 calc(var(--r) + 90px));
   mask-image: radial-gradient(circle at var(--mx) var(--my), transparent var(--r), #000 calc(var(--r) + 90px));
-}
-/* E4: anillo vectorial de la O y ventana en su hueco */
-.o-ring { display: none; }
-.overlay--ring .o-ring {
-  position: absolute;
-  left: calc(var(--ox) - var(--m) * var(--b) * .145);
-  top: calc(var(--oy) - var(--m) * var(--b) * .149);
-  display: block;
-  width: calc(var(--m) * var(--b) * .29);
-  height: calc(var(--m) * var(--b) * .2975);
-  border: solid #2E2D2F;
-  border-width: calc(var(--m) * var(--b) * .0625) calc(var(--m) * var(--b) * .0688);
-  border-radius: 50%;
-  pointer-events: none;
-}
-.overlay__bg--ring {
-  -webkit-mask-image: radial-gradient(calc(var(--m) * var(--b) * .0763 + 1px) calc(var(--m) * var(--b) * .0863 + 1px) at var(--ox) var(--oy), transparent 98%, #000 100%);
-  mask-image: radial-gradient(calc(var(--m) * var(--b) * .0763 + 1px) calc(var(--m) * var(--b) * .0863 + 1px) at var(--ox) var(--oy), transparent 98%, #000 100%);
-}
-.overlay--mask {
-  -webkit-mask-image: radial-gradient(circle at var(--cx, 50%) var(--cy, 50%), transparent var(--r), #000 calc(var(--r) + 1px));
-  mask-image: radial-gradient(circle at var(--cx, 50%) var(--cy, 50%), transparent var(--r), #000 calc(var(--r) + 1px));
 }
 .real-keys { position: relative; display: flex; gap: calc(var(--k) * .26); --k: clamp(62px, 11.5vw, 156px); }
 .real-key {

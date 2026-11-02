@@ -1,12 +1,10 @@
-// Formas de entrar al hero: A (cámara), B (teclas reales), D (revelado) y E (zoom en la O).
+// Formas de entrar al hero: B (teclas reales), E1 (zoom en la O) y E3 (la O cae).
 (function () {
   'use strict';
 
   const root = document.documentElement;
   const hero = document.getElementById('inicio');
   const stage = document.getElementById('desk-stage');
-  const typed = document.getElementById('typed');
-  const typedText = typed.querySelector('.typed__text');
   const overlay = document.getElementById('overlay');
   const overlayBg = overlay.querySelector('.overlay__bg');
   const realKeys = Array.from(overlay.querySelectorAll('.real-key'));
@@ -15,27 +13,22 @@
   const detailO = document.getElementById('detail-o');
   const PHOTO_W = 1536;
   const PHOTO_H = 1024;
-  const KEYBOARD = { x0: 455, x1: 1150, cx: 802, cy: 737 };
   // Letra O en la foto (px de la imagen original) y en la tecla HELLO (fracción de la imagen),
   // para que el cruce alinee las letras y no los bordes de las teclas.
   const PHOTO_O = { cx: 929.8, cy: 708.85, glyph: 9.5 };
   const HELLO_O = { cx: .5, cy: .46, glyph: .2888 };
-  // Medidas de la letra O de la tecla grande, como fracción del ancho de la tecla.
-  const RING = { outerX: .145, outerY: .149, innerX: .0763, innerY: .0863 };
+  // Ancho de la tecla O en la foto (px de la imagen original), para que la O aterrice a su tamaño.
+  const PHOTO_KEY_W = 45;
 
   const NOTES = {
-    a: 'A · Primer plano del teclado de la foto: se pulsan H-E-L-L-O y la cámara se aleja hasta el hero.',
     b: 'B · Tus teclas HELLO reales caen, esperan y vuelan en curva hasta su letra del teclado.',
-    d: 'D · Tus teclas HELLO aparecen, la L naranja hace de Enter y un círculo abre el hero desde ella.',
     e: 'E1 · Zoom: HELLO entra de derecha a izquierda; mientras la cámara se acerca a la O, el teclado va apareciendo a su alrededor. Luego la cámara se aleja hasta el hero.',
-    e2: 'E2 · Portal: las demás letras siguen hacia la izquierda y la cara de la O se abre como una ventana que crece hasta ser el escritorio.',
-    e4: 'E4 · A través de la O: las demás letras siguen hacia la izquierda, la O se centra y la cámara la atraviesa; dentro está el escritorio.',
-    e3: 'E3 · La O cae: las demás letras siguen hacia la izquierda, aparece el escritorio y la O vuela hasta encajar en su tecla.'
+    e3: 'E3 · La O cae: H-E-L-L siguen hacia la izquierda, la O se eleva y cae por gravedad justo sobre la O del teclado.'
   };
 
   let running = [];
   let timers = [];
-  let current = 'a';
+  let current = 'e3';
 
   // ---------- Utilidades ----------
 
@@ -50,16 +43,12 @@
     timers = [];
     stage.style.transform = '';
     stage.querySelectorAll('.photo-key').forEach(function (key) { key.className = 'photo-key'; });
-    typed.classList.remove('is-on');
-    typedText.textContent = '';
-    overlay.classList.remove('is-on', 'overlay--mask');
-    overlayBg.classList.remove('overlay__bg--hole', 'overlay__bg--ring');
-    overlay.classList.remove('overlay--ring');
+    overlay.classList.remove('is-on');
+    overlayBg.classList.remove('overlay__bg--hole');
     stage.parentElement.style.filter = '';
     detailO.classList.remove('is-on');
-    stage.parentElement.style.clipPath = '';
-    hero.style.zIndex = '';
     realKeys.forEach(function (key) { key.style.opacity = ''; });
+    stage.parentElement.getAnimations().forEach(function (animation) { animation.cancel(); });
     window.scrollTo(0, 0);
   }
 
@@ -68,13 +57,6 @@
     const height = hero.clientHeight;
     const s = Math.max(width / PHOTO_W, height / PHOTO_H);
     return { s: s, tx: (width - PHOTO_W * s) / 2, ty: height - PHOTO_H * s };
-  }
-
-  function closeView() {
-    const width = hero.clientWidth;
-    const height = hero.clientHeight;
-    const s = Math.min(width * .94 / (KEYBOARD.x1 - KEYBOARD.x0), height * 1.35 / 300);
-    return { s: s, tx: width / 2 - KEYBOARD.cx * s, ty: height * .64 - KEYBOARD.cy * s };
   }
 
   function toTransform(view) {
@@ -114,62 +96,17 @@
     later(function () { delete root.dataset.intro; }, 1900);
   }
 
-  // ---------- A · Cámara desde el teclado ----------
-
-  async function playA() {
-    root.dataset.intro = 'play';
-    const close = closeView();
-    const end = finalView();
-    applyView(end);
-    stage.style.transform = toTransform(close);
-    typed.classList.add('is-on');
-    track(typed.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, fill: 'forwards' }));
-    await wait(450);
-
-    for (const letter of 'hello') {
-      pressPhotoKey(letter, true);
-      typedText.textContent += letter;
-      await wait(200);
-    }
-    await wait(380);
-
-    revealHero();
-    track(typed.animate([
-      { opacity: 1, transform: 'translateY(0) scale(1)' },
-      { opacity: 0, transform: 'translateY(-30px) scale(.9)' }
-    ], { duration: 520, easing: 'ease-in', fill: 'forwards' }));
-    const zoom = track(stage.animate([
-      { transform: toTransform(close) },
-      { transform: toTransform(end) }
-    ], { duration: 1500, easing: 'cubic-bezier(.65,0,.2,1)', fill: 'forwards' }));
-    later(function () {
-      stage.querySelectorAll('.photo-key').forEach(function (key) { key.classList.remove('is-lit'); });
-    }, 900);
-    try { await zoom.finished; } catch (error) { return; }
-    stage.style.transform = '';
-    zoom.cancel();
-    typed.classList.remove('is-on');
-  }
-
   // ---------- B · Teclas reales que vuelan ----------
 
-  async function dropKeys(fast) {
+  async function dropKeys() {
     const drops = realKeys.map(function (key, i) {
       const tilt = [-5, 3, -2, 4, -3][i];
-      const frames = fast
-        ? [{ opacity: 0, transform: 'translateY(18%)' }, { opacity: 1, transform: 'translateY(0)' }]
-        : [
-            { opacity: 0, transform: 'translateY(-130%) rotate(' + tilt + 'deg)' },
-            { opacity: 1, transform: 'translateY(4%) rotate(0deg) scaleY(.96)', offset: .68 },
-            { opacity: 1, transform: 'translateY(-4%) scaleY(1.01)', offset: .84 },
-            { opacity: 1, transform: 'translateY(0) scaleY(1)' }
-          ];
-      return track(key.animate(frames, {
-        duration: fast ? 420 : 640,
-        delay: 200 + i * (fast ? 90 : 130),
-        easing: fast ? 'cubic-bezier(.2,.7,.2,1)' : 'cubic-bezier(.3,.6,.3,1)',
-        fill: 'forwards'
-      })).finished;
+      return track(key.animate([
+        { opacity: 0, transform: 'translateY(-130%) rotate(' + tilt + 'deg)' },
+        { opacity: 1, transform: 'translateY(4%) rotate(0deg) scaleY(.96)', offset: .68 },
+        { opacity: 1, transform: 'translateY(-4%) scaleY(1.01)', offset: .84 },
+        { opacity: 1, transform: 'translateY(0) scaleY(1)' }
+      ], { duration: 640, delay: 200 + i * 130, easing: 'cubic-bezier(.3,.6,.3,1)', fill: 'forwards' })).finished;
     });
     await Promise.all(drops);
   }
@@ -179,7 +116,7 @@
     applyView(finalView());
     setRealKeySources();
     overlay.classList.add('is-on');
-    try { await dropKeys(false); } catch (error) { return; }
+    try { await dropKeys(); } catch (error) { return; }
     await wait(450);
 
     revealHero();
@@ -205,47 +142,6 @@
     });
     try { await Promise.all(flights); } catch (error) { return; }
     overlay.classList.remove('is-on');
-  }
-
-  // ---------- D · Revelado desde la L naranja ----------
-
-  async function playD() {
-    root.dataset.intro = 'play';
-    const end = finalView();
-    applyView(end);
-    setRealKeySources();
-    overlay.classList.add('is-on');
-    try { await dropKeys(true); } catch (error) { return; }
-    await wait(420);
-
-    const accent = realKeys[2];
-    try {
-      await track(accent.animate([
-        { transform: 'translateY(0) scale(1)', filter: 'brightness(1)' },
-        { transform: 'translateY(5%) scale(.97)', filter: 'brightness(.92)', offset: .45 },
-        { transform: 'translateY(0) scale(1)', filter: 'brightness(1)' }
-      ], { duration: 260, easing: 'ease-out' })).finished;
-    } catch (error) { return; }
-
-    const rect = accent.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const radius = Math.hypot(Math.max(cx, window.innerWidth - cx), Math.max(cy, window.innerHeight - cy)) + 40;
-    overlay.style.setProperty('--cx', cx + 'px');
-    overlay.style.setProperty('--cy', cy + 'px');
-    overlay.classList.add('overlay--mask');
-    revealHero();
-    track(stage.animate([
-      { transform: 'translate(' + (end.tx - (cx - end.tx) * .06) + 'px, ' + (end.ty - (cy - end.ty) * .06) + 'px) scale(' + end.s * 1.06 + ')' },
-      { transform: toTransform(end) }
-    ], { duration: 1400, easing: 'cubic-bezier(.2,.7,.2,1)' }));
-    realKeys.forEach(function (key) {
-      track(key.animate([{ opacity: 1, transform: 'scale(1)' }, { opacity: 0, transform: 'scale(1.06)' }], { duration: 500, easing: 'ease-in', fill: 'forwards' }));
-    });
-    const opening = track(overlay.animate([{ '--r': '0px' }, { '--r': radius + 'px' }], { duration: 1150, easing: 'cubic-bezier(.7,0,.2,1)', fill: 'forwards' }));
-    try { await opening.finished; } catch (error) { return; }
-    overlay.classList.remove('is-on', 'overlay--mask');
-    opening.cancel();
   }
 
   // ---------- E · Zoom en la O que se convierte en el teclado ----------
@@ -362,62 +258,9 @@
     detailO.classList.remove('is-on');
   }
 
-  // ---------- E2 · La cara de la O se abre como un portal ----------
-
-  async function playE2() {
-    let setup;
-    try { setup = await slideHello(); } catch (error) { return; }
-    const keyO = setup.keyO;
-    const end = setup.end;
-
-    sweepOthersLeft();
-    try {
-      await track(keyO.animate([
-        { transform: 'translateY(0) scale(1)' },
-        { transform: 'translateY(4%) scale(.97)', offset: .45 },
-        { transform: 'translateY(0) scale(1)' }
-      ], { duration: 240, delay: 120, easing: 'ease-out' })).finished;
-    } catch (error) { return; }
-
-    // La foto se coloca detrás de la O con su letra exactamente debajo.
-    const glyph = helloGlyph(keyO);
-    const s = glyph.rect.width * HELLO_O.glyph / PHOTO_O.glyph;
-    const close = { s: s, tx: glyph.x - PHOTO_O.cx * s, ty: glyph.y - PHOTO_O.cy * s };
-    stage.style.transform = toTransform(close);
-    detailO.classList.add('is-on');
-
-    const deskEl = stage.parentElement;
-    const box = deskEl.getBoundingClientRect();
-    const o = glyph.rect;
-    const from = 'inset(' +
-      (o.top - box.top + o.height * .07) + 'px ' +
-      (box.right - o.right + o.width * .11) + 'px ' +
-      (box.bottom - o.bottom + o.height * .2) + 'px ' +
-      (o.left - box.left + o.width * .11) + 'px round ' + (o.width * .16) + 'px)';
-    hero.style.zIndex = '90';
-    deskEl.style.clipPath = from;
-    later(revealHero, 650);
-    // La ventana se abre antes de que la cámara empiece a alejarse, para que la O
-    // no se desplace dentro de una ventana todavía pequeña.
-    const opening = track(deskEl.animate([
-      { clipPath: from },
-      { clipPath: 'inset(0px 0px 0px 0px round 0px)' }
-    ], { duration: 1050, easing: 'cubic-bezier(.55,0,.15,1)', fill: 'forwards' }));
-    const zoomOut = track(stage.animate([
-      { transform: toTransform(close) },
-      { transform: toTransform(end) }
-    ], { duration: 1500, delay: 220, easing: 'cubic-bezier(.6,0,.2,1)', fill: 'both' }));
-    try { await zoomOut.finished; } catch (error) { return; }
-    overlay.classList.remove('is-on');
-    deskEl.style.clipPath = '';
-    hero.style.zIndex = '';
-    stage.style.transform = '';
-    opening.cancel();
-    zoomOut.cancel();
-    detailO.classList.remove('is-on');
-  }
-
-  // ---------- E3 · La O vuela hasta encajar en su tecla ----------
+  // ---------- E3 · La O cae por gravedad sobre su tecla ----------
+  // Cámara cenital: caer es acercarse al escritorio, así que la O se encoge acelerando
+  // mientras su sombra se junta con ella, y aterriza con un pequeño rebote.
 
   async function playE3() {
     let setup;
@@ -426,93 +269,60 @@
     const end = setup.end;
 
     sweepOthersLeft();
-    await wait(480);
+    await wait(380);
     revealHero();
-    track(overlayBg.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 750, easing: 'ease', fill: 'forwards' }));
+    track(overlayBg.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 700, easing: 'ease', fill: 'forwards' }));
+    await wait(250);
 
     const glyph = helloGlyph(keyO);
     const o = glyph.rect;
-    const k = PHOTO_O.glyph * end.s / (HELLO_O.glyph * o.width);
+    const px = o.width * HELLO_O.cx;
+    const py = o.height * HELLO_O.cy;
+    // Coloca el centro de la letra en (x, y) con la escala indicada.
+    function at(scale, x, y) {
+      return 'translate(' + (x - o.left - px * scale).toFixed(2) + 'px, ' + (y - o.top - py * scale).toFixed(2) + 'px) scale(' + scale.toFixed(4) + ')';
+    }
+    function shadow(dx, dy, blur, alpha) {
+      return 'drop-shadow(' + (o.width * dx).toFixed(1) + 'px ' + (o.width * dy).toFixed(1) + 'px ' + (o.width * blur).toFixed(1) + 'px rgba(55, 35, 15, ' + alpha + '))';
+    }
+    // Aterrizaje: misma anchura que la tecla de la foto y la letra sobre la letra.
+    const k = PHOTO_KEY_W * end.s / o.width;
     const gx = end.tx + PHOTO_O.cx * end.s;
     const gy = end.ty + PHOTO_O.cy * end.s;
-    const dx = gx - o.left - o.width * HELLO_O.cx * k;
-    const dy = gy - o.top - o.height * HELLO_O.cy * k;
-    const lift = -Math.min(140, Math.abs(dy) * .5);
-    const duration = 1200;
-    later(function () { pressPhotoKey('o', false); }, duration * .86);
-    const flight = track(keyO.animate([
-      { transform: 'translate(0, 0) scale(1) rotate(0deg)', opacity: 1 },
-      { transform: 'translate(' + dx * .4 + 'px, ' + (dy * .4 + lift) + 'px) scale(' + (1 + k) / 2 + ') rotate(-6deg)', opacity: 1, offset: .45 },
-      { transform: 'translate(' + dx + 'px, ' + dy + 'px) scale(' + k + ') rotate(0deg)', opacity: 1, offset: .86 },
-      { transform: 'translate(' + dx + 'px, ' + dy + 'px) scale(' + k + ') rotate(0deg)', opacity: 0 }
-    ], { duration: duration, easing: 'cubic-bezier(.45,0,.25,1)', fill: 'forwards' }));
-    try { await flight.finished; } catch (error) { return; }
-    overlay.classList.remove('is-on');
-  }
-
-  // ---------- E4 · La cámara atraviesa la O ----------
-  // La O se redibuja como un anillo vectorial (nítido a cualquier tamaño) y su hueco
-  // interior es una ventana al escritorio, que crece hasta ocupar la pantalla.
-
-  async function playE4() {
-    let setup;
-    try { setup = await slideHello(); } catch (error) { return; }
-    const keyO = setup.keyO;
-    const end = setup.end;
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-
-    // 1. Las demás letras siguen su camino y la O se centra y crece un poco.
-    sweepOthersLeft();
-    const glyph = helloGlyph(keyO);
-    const row = keyRow.getBoundingClientRect();
-    const k = Math.min(1.9, (width * .34) / glyph.rect.width);
-    const tx = width / 2 - row.left - (glyph.x - row.left) * k;
-    const ty = height / 2 - row.top - (glyph.y - row.top) * k;
-    keyRow.style.transformOrigin = '0 0';
-    const center = track(keyRow.animate([
-      { transform: 'translate(0, 0) scale(1)' },
-      { transform: 'translate(' + tx + 'px, ' + ty + 'px) scale(' + k + ')' }
-    ], { duration: 750, easing: 'cubic-bezier(.6,0,.3,1)', fill: 'forwards' }));
-    try { await center.finished; } catch (error) { return; }
-
-    // 2. Anillo vectorial exactamente sobre la letra y ventana en su hueco.
-    const keyWidth = keyO.getBoundingClientRect().width;
-    const diagonal = Math.hypot(width, height);
-    const grow = diagonal / (RING.innerX * keyWidth) * 1.15;
-    overlay.style.setProperty('--b', keyWidth + 'px');
-    overlay.style.setProperty('--ox', width / 2 + 'px');
-    overlay.style.setProperty('--oy', height / 2 + 'px');
-    overlay.style.setProperty('--m', '1');
-    overlay.classList.add('overlay--ring');
-    overlayBg.classList.add('overlay__bg--ring');
-    track(keyO.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260, easing: 'ease', fill: 'forwards' }));
-
-    // 3. La cámara atraviesa la O: el anillo crece y detrás aparece el escritorio.
-    const pivotX = width / 2;
-    const pivotY = height / 2;
-    const from = { s: end.s * 1.18, tx: pivotX - (pivotX - end.tx) * 1.18, ty: pivotY - (pivotY - end.ty) * 1.18 };
-    stage.style.transform = toTransform(from);
-    later(revealHero, 650);
     const duration = 1250;
-    track(stage.animate([
-      { transform: toTransform(from) },
-      { transform: toTransform(end) }
-    ], { duration: duration + 500, delay: 150, easing: 'cubic-bezier(.2,.6,.2,1)', fill: 'both' }));
-    const dive = track(overlay.animate([
-      { '--m': 1 },
-      { '--m': grow }
-    ], { duration: duration, delay: 150, easing: 'cubic-bezier(.65,0,.85,.45)', fill: 'forwards' }));
-    try { await dive.finished; } catch (error) { return; }
-    overlay.classList.remove('is-on', 'overlay--ring');
-    overlayBg.classList.remove('overlay__bg--ring');
-    await wait(500);
-    stage.style.transform = '';
+    const landing = .76;
+    later(function () {
+      pressPhotoKey('o', false);
+      track(stage.animate([
+        { transform: toTransform(end) },
+        { transform: toTransform({ s: end.s, tx: end.tx + 1, ty: end.ty + 2 }) },
+        { transform: toTransform({ s: end.s, tx: end.tx - 1, ty: end.ty - 1 }) },
+        { transform: toTransform(end) }
+      ], { duration: 180, easing: 'ease-out' }));
+    }, duration * landing);
+
+    const fall = track(keyO.animate([
+      // 1. Se eleva un poco: crece y la sombra se separa.
+      { transform: at(1, glyph.x, glyph.y), filter: shadow(0, .12, .12, .22), easing: 'cubic-bezier(.2,.7,.3,1)' },
+      { transform: at(1.1, glyph.x, glyph.y - o.height * .04), filter: shadow(.06, .24, .22, .2), offset: .2, easing: 'cubic-bezier(.55,0,.9,.45)' },
+      // 2. Cae acelerando hasta su tecla; la sombra se junta con la tecla.
+      { transform: at(k, gx, gy), filter: shadow(0, .03, .04, .38), offset: landing, easing: 'cubic-bezier(.2,.8,.4,1)' },
+      // 3. Rebote corto al tocar el teclado.
+      { transform: at(k * .92, gx, gy), filter: shadow(0, .02, .03, .4), offset: .84, easing: 'cubic-bezier(.3,.6,.4,1)' },
+      { transform: at(k * 1.03, gx, gy), filter: shadow(0, .03, .05, .36), offset: .92, easing: 'ease-in-out' },
+      { transform: at(k, gx, gy), filter: shadow(0, .03, .04, .38) }
+    ], { duration: duration, fill: 'forwards' }));
+    try { await fall.finished; } catch (error) { return; }
+
+    // 4. La tecla HELLO se funde con la del teclado.
+    const melt = track(keyO.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300, easing: 'ease', fill: 'forwards' }));
+    try { await melt.finished; } catch (error) { return; }
+    overlay.classList.remove('is-on');
   }
 
   // ---------- Controles ----------
 
-  const variants = { a: playA, b: playB, d: playD, e: playE, e2: playE2, e3: playE3, e4: playE4 };
+  const variants = { b: playB, e: playE, e3: playE3 };
 
   function play(name) {
     reset();
@@ -554,6 +364,6 @@
     return img.decode ? img.decode().catch(function () {}) : null;
   });
   Promise.all([document.fonts ? document.fonts.ready : null].concat(photos)).then(function () {
-    play(variants[requested] ? requested : 'a');
+    play(variants[requested] ? requested : 'e3');
   });
 })();

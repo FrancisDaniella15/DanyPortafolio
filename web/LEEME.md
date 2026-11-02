@@ -37,21 +37,16 @@ y abrir http://localhost:4173. No requiere instalaciones; fuentes e imágenes es
 
 ## Pruebas del HELLO
 
-`pruebas-hello/index.html` compara varias entradas al hero en el hero real, con los botones de la barra inferior:
-- **A · Cámara:** primer plano del teclado de la foto, se pulsan H-E-L-L-O y la cámara se aleja.
-- **B · Teclas reales:** las teclas HELLO de Dany caen y vuelan en curva hasta su letra.
-- **D · Revelado:** la L naranja hace de Enter y un círculo abre el hero.
-- **E · HELLO de derecha a izquierda y la O se convierte en el teclado**, con tres transiciones:
-  - **E1 · Zoom:** mientras la cámara se acerca a la O (con la tecla enfocada y el teclado algo desenfocado), el teclado de la foto va apareciendo a su alrededor: el fondo se abre desde la O hacia fuera y la foto se mueve en sincronía, con su O siempre bajo la letra de la tecla. Al final la tecla se funde con la del teclado y la cámara se aleja hasta el hero.
-  - **E2 · Portal:** H-E-L-L siguen hacia la izquierda, la O se pulsa y su cara se abre como una ventana que crece hasta mostrar el escritorio mientras la cámara se aleja.
-  - **E4 · A través de la O:** H-E-L-L siguen hacia la izquierda, la O se centra y se redibuja como un anillo vectorial (nítido a cualquier tamaño). Su hueco es una ventana al escritorio y la cámara la atraviesa.
-  - **E3 · La O cae:** H-E-L-L siguen hacia la izquierda, aparece el escritorio y la O vuela en curva hasta encajar en su tecla.
+`pruebas-hello/index.html` compara tres entradas al hero sobre el hero real, con la barra inferior (también cambia entre Claro y Cálido):
+- **B · Teclas reales:** las teclas HELLO de Dany caen y vuelan en curva hasta su letra del teclado.
+- **E1 · Zoom:** HELLO entra de derecha a izquierda; mientras la cámara se acerca a la O (tecla enfocada, teclado algo desenfocado), el teclado de la foto aparece a su alrededor. Luego la tecla se funde con la del teclado y la cámara se aleja.
+- **E3 · La O cae** (opción por defecto): HELLO entra de derecha a izquierda y H-E-L-L siguen y salen por la izquierda. Aparece el escritorio, la O se eleva un poco y cae por gravedad: se encoge acelerando, como en una cámara cenital, mientras su sombra se junta con ella. Aterriza exactamente sobre la tecla O de la foto (misma anchura y letra sobre letra), con un rebote corto, la tecla de la foto se hunde y la imagen tiembla un instante.
 
-  **Límite de calidad:** en la foto original cada tecla mide unos 42 px. Por eso E1 limita el zoom a unos 6 px de pantalla por px original y usa un desenfoque de cámara intencional; E3 y E4 no necesitan primeros planos de la foto. Para un primer plano real de la O haría falta una foto del teclado generada a más resolución (4096 px o más), o un escalado generativo que añada detalle.
+Las teclas HELLO están recortadas de las imágenes de Dany, mejoradas con Real-ESRGAN y con fondo transparente (`assets/hello/`). E1 usa además la foto en 4608 px y una capa de detalle alrededor de la O (`assets/hero/`).
 
-  Para los primeros planos hay una capa de detalle alrededor de la O escalada dos veces con IA (`assets/hero/*-detalle-o.webp`) y una O grande (`assets/hello/*-o-grande.webp`).
+**Límite de calidad:** en la foto original cada tecla mide unos 45 px. Por eso E1 limita el zoom a unos 6 px de pantalla por px original y usa un desenfoque de cámara. E3 y B no necesitan primeros planos de la foto. Para un primer plano nítido de verdad haría falta una foto generada a más resolución (4096 px o más), o un escalado generativo que añada detalle.
 
-Las teclas HELLO reales están recortadas de las imágenes de Dany, mejoradas con Real-ESRGAN y con fondo transparente (`assets/hello/`). La foto en 4608 px (`assets/hero/*-4608.webp`) permite el primer plano de A. La página está pensada para escritorio; la versión elegida se ajustará también a móvil al pasarla a `index.html`.
+La página está pensada para escritorio; la versión elegida se ajustará a móvil al pasarla a `index.html`.
 
 ## Pendientes
 
