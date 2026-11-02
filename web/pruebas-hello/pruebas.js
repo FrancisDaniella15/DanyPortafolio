@@ -23,7 +23,8 @@
   const NOTES = {
     b: 'B · Tus teclas HELLO reales caen, esperan y vuelan en curva hasta su letra del teclado.',
     e: 'E1 · Zoom: HELLO entra de derecha a izquierda; mientras la cámara se acerca a la O, el teclado va apareciendo a su alrededor. Luego la cámara se aleja hasta el hero.',
-    e3: 'E3 · Y (2D): HELLO aparece centrado; H-E-L-L se disuelven y la O cae en un arco suave hasta su tecla, da un rebote y encaja, mientras toda la escena aparece de desenfocada a nítida.',
+    e3: 'E3 · Y centrado: HELLO aparece centrado; H-E-L-L se disuelven y la O cae en un arco suave hasta su tecla, da un rebote y encaja, mientras toda la escena aparece de desenfocada a nítida.',
+    e3c: 'E3 · Y sobre la tecla: HELLO se detiene con la O en la vertical de su tecla; H-E-L-L se disuelven y la O cae recta, da un rebote y encaja, mientras toda la escena aparece de desenfocada a nítida.',
     e3z: 'E3 · Z (3D): HELLO aparece centrado y cerca de la cámara; H-E-L-L se disuelven y la O baja hasta su tecla encogiéndose, con su sombra acercándose, mientras la escena se abre desde ahí.'
   };
 
@@ -292,7 +293,9 @@
   // axis 'y': caída 2D por la pantalla, sin cambiar de tamaño.
   // axis 'z': caída 3D hacia el escritorio (cámara cenital): la O flota justo sobre su
   // tecla, más grande por estar más cerca de la cámara, y se encoge al caer.
-  async function playE3(axis) {
+  // layout (solo Y): 'centro' = HELLO centrado y la O cae en arco; 'tecla' = HELLO
+  // desplazado para que la O quede en la vertical de su tecla y caiga recta.
+  async function playE3(axis, layout) {
     const depth = axis === 'z';
     const view = finalView();
     const target = photoGlyph(view);
@@ -300,7 +303,9 @@
     const keyWidth = Math.round(PHOTO_KEY_W * view.s * (depth ? 2.2 : 1));
     // Y: HELLO centrado en horizontal y en el centro óptico (algo por encima del centro).
     // Z: HELLO centrado en la pantalla, cerca de la cámara.
-    const anchorO = depth ? null : function (v, glyph) { return { x: glyph.x, y: Math.min(height * .42, target.y - 150) }; };
+    const anchorO = depth ? null : layout === 'tecla'
+      ? function () { return { x: target.x, y: Math.max(140, Math.min(height * .3, target.y - 200)) }; }
+      : function (v, glyph) { return { x: glyph.x, y: Math.min(height * .42, target.y - 150) }; };
     let setup;
     try {
       setup = await slideHello({ smooth: true, hold: 220, keyWidth: keyWidth, anchorO: anchorO });
@@ -409,7 +414,8 @@
   const variants = {
     b: playB,
     e: playE,
-    e3: function () { return playE3('y'); },
+    e3: function () { return playE3('y', 'centro'); },
+    e3c: function () { return playE3('y', 'tecla'); },
     e3z: function () { return playE3('z'); }
   };
 
