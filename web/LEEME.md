@@ -42,9 +42,12 @@ y abrir http://localhost:4173. No requiere instalaciones; fuentes e imágenes es
 - **B · Teclas reales:** las teclas HELLO de Dany caen y vuelan en curva hasta su letra.
 - **D · Revelado:** la L naranja hace de Enter y un círculo abre el hero.
 - **E · HELLO de derecha a izquierda y la O se convierte en el teclado**, con tres transiciones:
-  - **E1 · Zoom:** mientras la cámara se acerca a la O, el teclado de la foto va apareciendo a su alrededor: el fondo se abre desde la O hacia fuera y la foto se mueve en sincronía, con su O siempre bajo la letra de la tecla. Al final la tecla se funde con la del teclado y la cámara se aleja hasta el hero.
+  - **E1 · Zoom:** mientras la cámara se acerca a la O (con la tecla enfocada y el teclado algo desenfocado), el teclado de la foto va apareciendo a su alrededor: el fondo se abre desde la O hacia fuera y la foto se mueve en sincronía, con su O siempre bajo la letra de la tecla. Al final la tecla se funde con la del teclado y la cámara se aleja hasta el hero.
   - **E2 · Portal:** H-E-L-L siguen hacia la izquierda, la O se pulsa y su cara se abre como una ventana que crece hasta mostrar el escritorio mientras la cámara se aleja.
+  - **E4 · A través de la O:** H-E-L-L siguen hacia la izquierda, la O se centra y se redibuja como un anillo vectorial (nítido a cualquier tamaño). Su hueco es una ventana al escritorio y la cámara la atraviesa.
   - **E3 · La O cae:** H-E-L-L siguen hacia la izquierda, aparece el escritorio y la O vuela en curva hasta encajar en su tecla.
+
+  **Límite de calidad:** en la foto original cada tecla mide unos 42 px. Por eso E1 limita el zoom a unos 6 px de pantalla por px original y usa un desenfoque de cámara intencional; E3 y E4 no necesitan primeros planos de la foto. Para un primer plano real de la O haría falta una foto del teclado generada a más resolución (4096 px o más), o un escalado generativo que añada detalle.
 
   Para los primeros planos hay una capa de detalle alrededor de la O escalada dos veces con IA (`assets/hero/*-detalle-o.webp`) y una O grande (`assets/hello/*-o-grande.webp`).
 

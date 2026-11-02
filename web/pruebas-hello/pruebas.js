@@ -20,6 +20,8 @@
   // para que el cruce alinee las letras y no los bordes de las teclas.
   const PHOTO_O = { cx: 929.8, cy: 708.85, glyph: 9.5 };
   const HELLO_O = { cx: .5, cy: .46, glyph: .2888 };
+  // Medidas de la letra O de la tecla grande, como fracción del ancho de la tecla.
+  const RING = { outerX: .145, outerY: .149, innerX: .0763, innerY: .0863 };
 
   const NOTES = {
     a: 'A · Primer plano del teclado de la foto: se pulsan H-E-L-L-O y la cámara se aleja hasta el hero.',
@@ -27,6 +29,7 @@
     d: 'D · Tus teclas HELLO aparecen, la L naranja hace de Enter y un círculo abre el hero desde ella.',
     e: 'E1 · Zoom: HELLO entra de derecha a izquierda; mientras la cámara se acerca a la O, el teclado va apareciendo a su alrededor. Luego la cámara se aleja hasta el hero.',
     e2: 'E2 · Portal: las demás letras siguen hacia la izquierda y la cara de la O se abre como una ventana que crece hasta ser el escritorio.',
+    e4: 'E4 · A través de la O: las demás letras siguen hacia la izquierda, la O se centra y la cámara la atraviesa; dentro está el escritorio.',
     e3: 'E3 · La O cae: las demás letras siguen hacia la izquierda, aparece el escritorio y la O vuela hasta encajar en su tecla.'
   };
 
@@ -50,7 +53,9 @@
     typed.classList.remove('is-on');
     typedText.textContent = '';
     overlay.classList.remove('is-on', 'overlay--mask');
-    overlayBg.classList.remove('overlay__bg--hole');
+    overlayBg.classList.remove('overlay__bg--hole', 'overlay__bg--ring');
+    overlay.classList.remove('overlay--ring');
+    stage.parentElement.style.filter = '';
     detailO.classList.remove('is-on');
     stage.parentElement.style.clipPath = '';
     hero.style.zIndex = '';
@@ -300,7 +305,9 @@
     //    apareciendo alrededor de ella. La foto se mueve en sincronía con la O
     //    (misma duración y curva), con la letra de la foto siempre bajo la de la tecla.
     const height = window.innerHeight;
-    const target = Math.min(width * .24, height * .36);
+    // Tope: la O de la foto no pasa de ~6 px de pantalla por px de la imagen original,
+    // el máximo que la foto escalada con IA aguanta sin verse pintada.
+    const target = Math.min(width * .24, height * .36, 6 * PHOTO_O.glyph / HELLO_O.glyph);
     const glyph = helloGlyph(keyO);
     const o = glyph.rect;
     const row = keyRow.getBoundingClientRect();
@@ -328,6 +335,9 @@
       { transform: toTransform(photoFrom) },
       { transform: toTransform(photoTo) }
     ], { duration: duration, easing: easing, fill: 'forwards' }));
+    // Profundidad de campo: la tecla HELLO enfocada y el teclado algo desenfocado.
+    const deskEl = stage.parentElement;
+    track(deskEl.animate([{ filter: 'blur(1.5px)' }, { filter: 'blur(3.5px)' }], { duration: duration, easing: easing, fill: 'forwards' }));
     // El fondo se abre desde la O hacia fuera y deja ver el teclado.
     const opening = track(overlayBg.animate([
       { '--mx': glyph.x + 'px', '--my': glyph.y + 'px', '--r': (o.width * .35) + 'px' },
@@ -335,8 +345,9 @@
     ], { duration: duration, easing: 'cubic-bezier(.45,0,.4,1)', fill: 'forwards' }));
     try { await opening.finished; } catch (error) { return; }
 
-    // 3. La tecla HELLO se funde con la O del teclado y la cámara se aleja hasta el hero.
-    track(keyO.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 320, easing: 'ease', fill: 'forwards' }));
+    // 3. Cambio de foco: la tecla HELLO se funde, el teclado se enfoca y la cámara se aleja.
+    track(keyO.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 420, easing: 'ease', fill: 'forwards' }));
+    track(deskEl.animate([{ filter: 'blur(3.5px)' }, { filter: 'blur(0px)' }], { duration: 700, easing: 'ease-out', fill: 'forwards' }));
     await wait(120);
     revealHero();
     const zoomOut = track(stage.animate([
@@ -439,9 +450,69 @@
     overlay.classList.remove('is-on');
   }
 
+  // ---------- E4 · La cámara atraviesa la O ----------
+  // La O se redibuja como un anillo vectorial (nítido a cualquier tamaño) y su hueco
+  // interior es una ventana al escritorio, que crece hasta ocupar la pantalla.
+
+  async function playE4() {
+    let setup;
+    try { setup = await slideHello(); } catch (error) { return; }
+    const keyO = setup.keyO;
+    const end = setup.end;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    // 1. Las demás letras siguen su camino y la O se centra y crece un poco.
+    sweepOthersLeft();
+    const glyph = helloGlyph(keyO);
+    const row = keyRow.getBoundingClientRect();
+    const k = Math.min(1.9, (width * .34) / glyph.rect.width);
+    const tx = width / 2 - row.left - (glyph.x - row.left) * k;
+    const ty = height / 2 - row.top - (glyph.y - row.top) * k;
+    keyRow.style.transformOrigin = '0 0';
+    const center = track(keyRow.animate([
+      { transform: 'translate(0, 0) scale(1)' },
+      { transform: 'translate(' + tx + 'px, ' + ty + 'px) scale(' + k + ')' }
+    ], { duration: 750, easing: 'cubic-bezier(.6,0,.3,1)', fill: 'forwards' }));
+    try { await center.finished; } catch (error) { return; }
+
+    // 2. Anillo vectorial exactamente sobre la letra y ventana en su hueco.
+    const keyWidth = keyO.getBoundingClientRect().width;
+    const diagonal = Math.hypot(width, height);
+    const grow = diagonal / (RING.innerX * keyWidth) * 1.15;
+    overlay.style.setProperty('--b', keyWidth + 'px');
+    overlay.style.setProperty('--ox', width / 2 + 'px');
+    overlay.style.setProperty('--oy', height / 2 + 'px');
+    overlay.style.setProperty('--m', '1');
+    overlay.classList.add('overlay--ring');
+    overlayBg.classList.add('overlay__bg--ring');
+    track(keyO.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260, easing: 'ease', fill: 'forwards' }));
+
+    // 3. La cámara atraviesa la O: el anillo crece y detrás aparece el escritorio.
+    const pivotX = width / 2;
+    const pivotY = height / 2;
+    const from = { s: end.s * 1.18, tx: pivotX - (pivotX - end.tx) * 1.18, ty: pivotY - (pivotY - end.ty) * 1.18 };
+    stage.style.transform = toTransform(from);
+    later(revealHero, 650);
+    const duration = 1250;
+    track(stage.animate([
+      { transform: toTransform(from) },
+      { transform: toTransform(end) }
+    ], { duration: duration + 500, delay: 150, easing: 'cubic-bezier(.2,.6,.2,1)', fill: 'both' }));
+    const dive = track(overlay.animate([
+      { '--m': 1 },
+      { '--m': grow }
+    ], { duration: duration, delay: 150, easing: 'cubic-bezier(.65,0,.85,.45)', fill: 'forwards' }));
+    try { await dive.finished; } catch (error) { return; }
+    overlay.classList.remove('is-on', 'overlay--ring');
+    overlayBg.classList.remove('overlay__bg--ring');
+    await wait(500);
+    stage.style.transform = '';
+  }
+
   // ---------- Controles ----------
 
-  const variants = { a: playA, b: playB, d: playD, e: playE, e2: playE2, e3: playE3 };
+  const variants = { a: playA, b: playB, d: playD, e: playE, e2: playE2, e3: playE3, e4: playE4 };
 
   function play(name) {
     reset();
