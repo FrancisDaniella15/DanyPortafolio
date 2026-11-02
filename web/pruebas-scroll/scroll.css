@@ -29,34 +29,31 @@
 [data-theme="calido"] { --desk-top: #DED2C7; }
 [data-theme="claro"] { --desk-top: #F0F1F4; }
 
-/* Pantalla del monitor extendida hacia arriba, dibujada en código: nítida a cualquier
-   zoom. Los colores continúan las bandas que se ven en la foto. */
-.screen {
+/* Capa final: el espacio vacío de la alfombrilla se funde con el fondo de la web,
+   con la misma cuadrícula, y ahí entran los proyectos. */
+.zoom-fill {
   position: absolute;
-  left: 346px;
-  top: calc(50px - var(--screen-h, 650px));
-  width: 1016px;
-  height: var(--screen-h, 650px);
-  border: solid #1B1C20;
-  border-width: 9px 9px 0;
-  border-radius: 16px 16px 0 0;
-  box-shadow: 0 0 0 7px #CDD0D5, 0 30px 60px -30px rgba(0, 0, 0, .35);
-  overflow: hidden;
-  background:
-    radial-gradient(ellipse 238px 600px at 1035px calc(100% - 300px), #374E69 99.5%, transparent 100%),
-    radial-gradient(ellipse 155px 600px at 875px calc(100% - 300px), #ADB3BC 99.5%, transparent 100%),
-    radial-gradient(ellipse 143px 600px at 785px calc(100% - 300px), #E3D9CF 99.5%, transparent 100%),
-    radial-gradient(ellipse 155px 600px at 680px calc(100% - 300px), #F0B553 99.5%, transparent 100%),
-    radial-gradient(ellipse 179px 600px at 585px calc(100% - 300px), #F56E39 99.5%, transparent 100%),
-    radial-gradient(ellipse 310px 600px at 465px calc(100% - 300px), #5E6D8F 99.5%, transparent 100%),
-    #AEB5C1;
-  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 26px), transparent);
-  mask-image: linear-gradient(to bottom, #000 calc(100% - 26px), transparent);
+  inset: 0;
+  z-index: 1;
+  background-color: var(--bg);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 52px 52px;
+  background-position: center;
+  opacity: 0;
+  pointer-events: none;
 }
-/* La pantalla "se enciende" con el fondo de la web al final del acercamiento. */
-.screen__site { position: absolute; inset: 0; background: var(--bg); opacity: 0; }
+
 /* Sección de proyectos: entra justo cuando la pantalla ya ocupa todo. */
 .projects { position: relative; z-index: 2; margin-top: -35vh; padding-top: 24px; }
+/* La cuadrícula sigue en la sección de proyectos, alineada con la de la capa final. */
+html.v-zoom .projects,
+html.v-zoom .zoom-fill { background-attachment: fixed; }
+html.v-zoom .projects {
+  background-color: var(--bg);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 52px 52px;
+  background-position: center;
+}
 .projects__heading h2 { margin-bottom: 32px; }
 
 /* Variante "la mesa se inclina": la sección sube como una hoja sobre el escritorio. */
@@ -67,8 +64,7 @@ html.v-mesa .projects {
   background: var(--bg);
   box-shadow: 0 -30px 60px -30px var(--shadow);
 }
-/* En la mesa se usa solo la foto real: sin pantalla dibujada. */
-html.v-mesa .screen { display: none; }
+html.v-mesa .zoom-fill { display: none; }
 
 /* Sin movimiento: página normal. */
 html.reduce .scrolly { height: auto; }

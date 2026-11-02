@@ -57,10 +57,10 @@ La página está pensada para escritorio; la versión elegida se ajustará a mó
 ## Prueba de scroll con cambio de perspectiva
 
 `pruebas-scroll/index.html` prueba la transición del hero a Proyectos al hacer scroll, inspirada en un video de Dany (la cámara pasa del escritorio real al monitor y entra en la pantalla). La escena queda fija mientras dura el recorrido y la cámara persigue la posición del scroll con inercia, para que la rueda del ratón no dé saltos.
-- **Hacia el monitor:** la cámara levanta la vista (la mesa toma perspectiva y el monitor baja al centro), se acerca y se endereza hasta que la pantalla llena el visor. La pantalla se enciende con el fondo de la web y entran el título y las tarjetas de proyectos. Como la foto solo muestra el borde inferior del monitor, la pantalla se extiende hacia arriba en código (bisel y fondo de bandas con los colores de la foto), así se ve nítida a cualquier zoom. También se extiende la superficie del escritorio por encima de la foto.
+- **Al espacio en blanco** (opción por defecto): el texto del hero se desvanece y la cámara se acerca al hueco libre de la alfombrilla, entre el monitor y el teclado, con un leve cambio de perspectiva que se endereza al llegar. Cuando el hueco llena la pantalla, se funde con el fondo de la web, que conserva la cuadrícula, y ahí entran el título y las tarjetas de proyectos. Usa solo la foto real.
 - **La mesa se inclina:** el escritorio se tumba hacia atrás en perspectiva y la sección de proyectos sube encima como una hoja. Usa solo la foto real.
 
-**Pendiente:** la pantalla dibujada en código de «Hacia el monitor» no encaja con la perspectiva de la foto. Se rehará con una segunda foto del mismo escritorio vista de frente al monitor, con la pantalla lisa, para pasar de la vista cenital a la frontal y entrar en la pantalla, con la web montada en código dentro.
+La primera prueba, «Hacia el monitor», se descartó: la foto solo muestra el borde del monitor y la pantalla dibujada en código no encajaba con su perspectiva.
 
 Pensada para escritorio; el móvil se definirá aparte.
 

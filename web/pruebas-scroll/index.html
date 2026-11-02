@@ -11,9 +11,9 @@
     if (theme === 'claro' || theme === 'calido') document.documentElement.dataset.theme = theme;
   } catch (error) {}
 </script>
-<link rel="stylesheet" href="../site.css?v=20261101-7">
-<link rel="stylesheet" href="scroll.css?v=20261101-7">
-<script src="scroll.js?v=20261101-7" defer></script>
+<link rel="stylesheet" href="../site.css?v=20261101-9">
+<link rel="stylesheet" href="scroll.css?v=20261101-9">
+<script src="scroll.js?v=20261101-9" defer></script>
 </head>
 <body>
 
@@ -51,13 +51,11 @@
         <span class="desk__key" data-key="l" style="left:920.5px; top:735.5px"></span>
         <span class="desk__key" data-key="o" style="left:907px; top:687px"></span>
         <div class="desk__extend"></div>
-        <!-- Pantalla del monitor extendida hacia arriba (la foto solo muestra su borde inferior) -->
-        <div class="screen" id="screen">
-          <div class="screen__site" id="screen-site"></div>
-        </div>
       </div>
     </div>
       </section>
+      <!-- Al final del acercamiento, la alfombrilla se funde con el fondo de la web -->
+      <div class="zoom-fill" id="zoom-fill" aria-hidden="true"></div>
     </div>
   </div>
 
@@ -126,7 +124,7 @@
 
 <div class="lab" role="region" aria-label="Controles de la prueba">
   <div class="lab__options" role="group" aria-label="Opción">
-    <button type="button" data-variant="monitor">Hacia el monitor</button>
+    <button type="button" data-variant="zoom">Al espacio en blanco</button>
     <button type="button" data-variant="mesa">La mesa se inclina</button>
   </div>
   <div class="lab__theme" role="group" aria-label="Modo">
