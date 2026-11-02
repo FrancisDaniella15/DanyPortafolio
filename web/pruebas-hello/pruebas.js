@@ -23,8 +23,8 @@
   const NOTES = {
     b: 'B · Tus teclas HELLO reales caen, esperan y vuelan en curva hasta su letra del teclado.',
     e: 'E1 · Zoom: HELLO entra de derecha a izquierda; mientras la cámara se acerca a la O, el teclado va apareciendo a su alrededor. Luego la cámara se aleja hasta el hero.',
-    e3: 'E3 · Y (2D): HELLO se detiene con la O en la vertical de su tecla; H-E-L-L se disuelven mientras la O baja por la pantalla, rebota y encaja, y la escena aparece desde ahí.',
-    e3z: 'E3 · Z (3D): la O flota justo sobre su tecla, más cerca de la cámara; H-E-L-L se disuelven mientras cae hacia el escritorio encogiéndose, con su sombra acercándose, y encaja.'
+    e3: 'E3 · Y (2D): HELLO se detiene con la O en la vertical de su tecla; H-E-L-L se disuelven y la O baja por la pantalla arrastrando la escena como una cortina, rebota y encaja.',
+    e3z: 'E3 · Z (3D): HELLO aparece centrado y cerca de la cámara; H-E-L-L se disuelven y la O baja hasta su tecla encogiéndose, con su sombra acercándose, mientras la escena se abre desde ahí.'
   };
 
   let running = [];
@@ -45,7 +45,7 @@
     stage.style.transform = '';
     stage.querySelectorAll('.photo-key').forEach(function (key) { key.className = 'photo-key'; });
     overlay.classList.remove('is-on');
-    overlayBg.classList.remove('overlay__bg--hole');
+    overlayBg.classList.remove('overlay__bg--hole', 'overlay__bg--curtain');
     stage.parentElement.style.filter = '';
     detailO.classList.remove('is-on');
     realKeys.forEach(function (key) { key.style.opacity = ''; });
@@ -299,11 +299,12 @@
     const height = window.innerHeight;
     const keyWidth = Math.round(PHOTO_KEY_W * view.s * (depth ? 2.2 : 1));
     // Y: la O espera en la vertical de su tecla, a un tercio de la altura.
-    // Z: la O espera exactamente encima de su tecla.
-    const hoverY = depth ? target.y : Math.max(140, Math.min(height * .3, target.y - 200));
+    // Z: HELLO queda centrado en la pantalla, cerca de la cámara.
+    const hoverY = Math.max(140, Math.min(height * .3, target.y - 200));
+    const anchorO = depth ? null : function () { return { x: target.x, y: hoverY }; };
     let setup;
     try {
-      setup = await slideHello({ smooth: true, hold: 220, keyWidth: keyWidth, anchorO: function () { return { x: target.x, y: hoverY }; } });
+      setup = await slideHello({ smooth: true, hold: 220, keyWidth: keyWidth, anchorO: anchorO });
     } catch (error) { return; }
     const keyO = setup.keyO;
     const end = setup.end;
@@ -345,21 +346,35 @@
     const rise = 'cubic-bezier(.25,.46,.45,.94)';       // frena (subida)
     later(function () { pressPhotoKey('o', false); revealHero(); }, T.fall);
 
-    // La escena aparece mientras la O cae: se abre desde la tecla de destino con un
-    // borde muy suave y termina de verse justo después del impacto.
-    const feather = Math.round(Math.max(window.innerWidth, height) * .22);
-    const reach = Math.hypot(Math.max(gx, window.innerWidth - gx), Math.max(gy, height - gy)) + feather;
-    overlayBg.style.setProperty('--feather', feather + 'px');
-    overlayBg.classList.add('overlay__bg--hole');
-    track(overlayBg.animate([
-      { '--mx': gx + 'px', '--my': gy + 'px', '--r': -feather * .45 + 'px' },
-      { '--mx': gx + 'px', '--my': gy + 'px', '--r': reach + 'px' }
-    ], { duration: T.fall + 320, easing: 'cubic-bezier(.3,0,.5,1)', fill: 'forwards' }));
+    if (depth) {
+      // Z: la escena se abre desde la tecla de destino con un borde muy suave.
+      const feather = Math.round(Math.max(window.innerWidth, height) * .22);
+      const reach = Math.hypot(Math.max(gx, window.innerWidth - gx), Math.max(gy, height - gy)) + feather;
+      overlayBg.style.setProperty('--feather', feather + 'px');
+      overlayBg.classList.add('overlay__bg--hole');
+      track(overlayBg.animate([
+        { '--mx': gx + 'px', '--my': gy + 'px', '--r': -feather * .45 + 'px' },
+        { '--mx': gx + 'px', '--my': gy + 'px', '--r': reach + 'px' }
+      ], { duration: T.fall + 320, easing: 'cubic-bezier(.3,0,.5,1)', fill: 'forwards' }));
+    } else {
+      // Y: cortina suave de arriba hacia abajo que va detrás de la O: la tecla arrastra
+      // la escena al caer, la descubre hasta el teclado al aterrizar y termina abajo.
+      const feather = Math.round(height * .38);
+      const settle = 460;
+      overlayBg.style.setProperty('--feather', feather + 'px');
+      overlayBg.classList.add('overlay__bg--curtain');
+      track(overlayBg.animate([
+        { '--wy': -feather + 'px', easing: gravity },
+        { '--wy': (gy - feather * .25) + 'px', offset: T.fall / (T.fall + settle), easing: 'cubic-bezier(.2,.6,.3,1)' },
+        { '--wy': height + 'px' }
+      ], { duration: T.fall + settle, fill: 'forwards' }));
+    }
 
     const frames = depth
       ? [
-          // Z: se encoge en su sitio mientras baja; la sombra se acerca y se endurece.
-          { transform: at(1, gx, gy), filter: shadow(.07, .3, .26, .2), easing: gravity },
+          // Z: baja desde el centro, cerca de la cámara, hasta su tecla mientras se encoge;
+          // la sombra se acerca y se endurece.
+          { transform: at(1, glyph.x, glyph.y), filter: shadow(.07, .3, .26, .2), easing: gravity },
           { transform: at(k, gx, gy), filter: shadow(0, .03, .04, .38), offset: mark(T.fall), easing: rise },
           { transform: at(k * 1.07, gx, gy), filter: shadow(.01, .07, .08, .32), offset: mark(T.up1), easing: gravity },
           { transform: at(k, gx, gy), filter: shadow(0, .03, .04, .38), offset: mark(T.down1), easing: rise },
