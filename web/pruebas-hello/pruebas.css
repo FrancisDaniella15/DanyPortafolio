@@ -67,8 +67,8 @@
 .overlay.is-on { display: grid; }
 .overlay__bg { position: absolute; inset: 0; background: var(--bg); }
 .overlay__bg--hole {
-  -webkit-mask-image: radial-gradient(circle at var(--mx) var(--my), transparent var(--r), #000 calc(var(--r) + 90px));
-  mask-image: radial-gradient(circle at var(--mx) var(--my), transparent var(--r), #000 calc(var(--r) + 90px));
+  -webkit-mask-image: radial-gradient(circle at var(--mx) var(--my), transparent var(--r), #000 calc(var(--r) + var(--feather, 90px)));
+  mask-image: radial-gradient(circle at var(--mx) var(--my), transparent var(--r), #000 calc(var(--r) + var(--feather, 90px)));
 }
 .real-keys { position: relative; display: flex; gap: calc(var(--k) * .26); --k: clamp(62px, 11.5vw, 156px); }
 .real-key {

@@ -23,7 +23,7 @@
   const NOTES = {
     b: 'B · Tus teclas HELLO reales caen, esperan y vuelan en curva hasta su letra del teclado.',
     e: 'E1 · Zoom: HELLO entra de derecha a izquierda; mientras la cámara se acerca a la O, el teclado va apareciendo a su alrededor. Luego la cámara se aleja hasta el hero.',
-    e3: 'E3 · La O cae: HELLO se detiene con la O encima de su tecla, H-E-L-L siguen hacia la izquierda y la O cae hacia abajo con gravedad, rebota y encaja en la O del teclado.'
+    e3: 'E3 · La O cae: HELLO se detiene con la O encima de su tecla, H-E-L-L siguen hacia la izquierda y, mientras la O cae y rebota hasta su tecla, la escena va apareciendo desde ahí.'
   };
 
   let running = [];
@@ -50,6 +50,7 @@
     realKeys.forEach(function (key) { key.style.opacity = ''; });
     keyRow.style.transform = '';
     keyRow.style.removeProperty('--k');
+    overlayBg.style.removeProperty('--feather');
     stage.parentElement.getAnimations().forEach(function (animation) { animation.cancel(); });
     window.scrollTo(0, 0);
   }
@@ -293,11 +294,9 @@
     const keyO = setup.keyO;
     const end = setup.end;
 
-    // Aparece el escritorio y las demás letras siguen su camino.
-    track(overlayBg.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 700, easing: 'ease', fill: 'forwards' }));
-    await wait(250);
+    // Las demás letras siguen su camino; el escritorio aún no se ve.
     sweepOthersLeft();
-    await wait(650);
+    await wait(800);
 
     const glyph = helloGlyph(keyO);
     const o = glyph.rect;
@@ -321,6 +320,17 @@
     const gravity = 'cubic-bezier(.55,.085,.68,.53)';   // acelera (caída)
     const rise = 'cubic-bezier(.25,.46,.45,.94)';       // frena (subida)
     later(function () { pressPhotoKey('o', false); revealHero(); }, T.fall);
+
+    // La escena aparece mientras la O cae: se abre desde la tecla de destino con un
+    // borde muy suave y termina de verse justo después del impacto.
+    const feather = Math.round(Math.max(window.innerWidth, height) * .22);
+    const reach = Math.hypot(Math.max(gx, window.innerWidth - gx), Math.max(gy, height - gy)) + feather;
+    overlayBg.style.setProperty('--feather', feather + 'px');
+    overlayBg.classList.add('overlay__bg--hole');
+    track(overlayBg.animate([
+      { '--mx': gx + 'px', '--my': gy + 'px', '--r': -feather * .45 + 'px' },
+      { '--mx': gx + 'px', '--my': gy + 'px', '--r': reach + 'px' }
+    ], { duration: T.fall + 380, easing: 'cubic-bezier(.3,0,.5,1)', fill: 'forwards' }));
 
     const drop = track(keyO.animate([
       { transform: at(1, gx, glyph.y), easing: gravity },
