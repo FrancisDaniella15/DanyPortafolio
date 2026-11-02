@@ -57,7 +57,7 @@ La página está pensada para escritorio; la versión elegida se ajustará a mó
 ## Prueba de scroll con cambio de perspectiva
 
 `pruebas-scroll/index.html` prueba la transición del hero a Proyectos al hacer scroll, inspirada en un video de Dany (la cámara pasa del escritorio real al monitor y entra en la pantalla). La escena queda fija mientras dura el recorrido y la cámara persigue la posición del scroll con inercia, para que la rueda del ratón no dé saltos.
-- **Al espacio en blanco** (opción por defecto): el texto del hero se desvanece y la cámara se acerca al hueco libre de la alfombrilla, entre el monitor y el teclado, con un leve cambio de perspectiva que se endereza al llegar. Cuando el hueco llena la pantalla, se funde con el fondo de la web, que conserva la cuadrícula, y ahí entran el título y las tarjetas de proyectos. Usa solo la foto real.
+- **Al espacio en blanco** (opción por defecto): el texto del hero se desvanece y la cámara se acerca al hueco libre de la alfombrilla, entre el monitor y el teclado, con un leve cambio de perspectiva que se endereza al llegar. Mientras se acerca, el hueco se funde con el fondo de la web, que conserva la cuadrícula, y el título de proyectos ya va entrando. Todo ocurre en aproximadamente un scroll de pantalla: hacia 0,6 pantallas el título está a la vista y hacia 0,9, arriba con la primera tarjeta. Usa solo la foto real.
 - **La mesa se inclina:** el escritorio se tumba hacia atrás en perspectiva y la sección de proyectos sube encima como una hoja. Usa solo la foto real.
 
 La primera prueba, «Hacia el monitor», se descartó: la foto solo muestra el borde del monitor y la pantalla dibujada en código no encajaba con su perspectiva.

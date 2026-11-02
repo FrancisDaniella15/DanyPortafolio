@@ -1,7 +1,7 @@
 /* Prueba de scroll con cambio de perspectiva. Se apoya en ../site.css. */
 
 /* Recorrido: la escena queda fija mientras dura el scroll del contenedor. */
-.scrolly { position: relative; height: 320vh; }
+.scrolly { position: relative; height: 220vh; }
 .scrolly__sticky {
   position: sticky;
   top: 0;
@@ -43,8 +43,9 @@
   pointer-events: none;
 }
 
-/* Sección de proyectos: entra justo cuando la pantalla ya ocupa todo. */
-.projects { position: relative; z-index: 2; margin-top: -35vh; padding-top: 24px; }
+/* Se solapa con la escena: el título entra mientras la cámara aún se acerca y,
+   cuando la escena se suelta, ya está arriba con las tarjetas a la vista. */
+.projects { position: relative; z-index: 2; margin-top: -80vh; padding-top: 0; }
 /* La cuadrícula sigue en la sección de proyectos, alineada con la de la capa final. */
 html.v-zoom .projects,
 html.v-zoom .zoom-fill { background-attachment: fixed; }

@@ -51,7 +51,8 @@
     // Zoom final: el espacio vacío llena el visor.
     const Zf = Math.max(W / (EMPTY.width * s), H / (EMPTY.height * s));
     // Distancia de scroll en la que transcurre la animación.
-    const span = scrolly.offsetHeight - H * 1.35;
+    // Termina un poco antes de que la escena se suelte (con el título ya arriba).
+    const span = scrolly.offsetHeight - H * 1.1;
     geo = { W: W, H: H, s: s, E: E, Zf: Zf, span: span, top: scrolly.offsetTop };
   }
 
@@ -61,7 +62,7 @@
     const g = geo;
     // La cámara se acerca al hueco con un leve cambio de perspectiva que se endereza
     // al llegar; el hueco termina centrado y llenando el visor.
-    const a = phase(p, .04, .9);
+    const a = phase(p, 0, .8);
     const Z = Math.exp(lerp(0, Math.log(g.Zf), a));
     const rot = 9 * Math.sin(Math.PI * a);
     const Sx = lerp(g.E.x, g.W / 2, a);
@@ -70,7 +71,7 @@
     desk.style.transform = 'translate(' + Sx.toFixed(2) + 'px, ' + Sy.toFixed(2) + 'px) rotateX(' + rot.toFixed(3) + 'deg) scale(' + Z.toFixed(4) + ') translate(' + (-g.E.x).toFixed(2) + 'px, ' + (-g.E.y).toFixed(2) + 'px)';
     desk.style.opacity = '';
     // Al final, la alfombrilla se funde con el fondo de la web.
-    fill.style.opacity = phase(p, .74, .98).toFixed(3);
+    fill.style.opacity = phase(p, .3, .72).toFixed(3);
     fadeHeroText(p);
   }
 
