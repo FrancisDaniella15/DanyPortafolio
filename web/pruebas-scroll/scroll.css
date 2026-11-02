@@ -1,0 +1,100 @@
+/* Prueba de scroll con cambio de perspectiva. Se apoya en ../site.css. */
+
+/* Recorrido: la escena queda fija mientras dura el scroll del contenedor. */
+.scrolly { position: relative; height: 320vh; }
+.scrolly__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+}
+/* La perspectiva va en el padre directo del escritorio. */
+.scrolly .hero { height: 100%; min-height: 0; overflow: visible; perspective: 1300px; perspective-origin: 50% 45%; }
+.scrolly .desk { overflow: visible; background: transparent; transform-origin: 0 0; will-change: transform, opacity; }
+.scrolly .hero__content { will-change: transform, opacity; }
+
+/* Escritorio extendido por encima de la foto, para que al inclinar la cámara no
+   aparezcan bordes vacíos. */
+.desk__extend {
+  position: absolute;
+  left: -600px;
+  top: -1600px;
+  width: 2736px;
+  height: 1612px;
+  background: var(--desk-top);
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 14px), transparent);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 14px), transparent);
+}
+[data-theme="calido"] { --desk-top: #DED2C7; }
+[data-theme="claro"] { --desk-top: #F0F1F4; }
+
+/* Pantalla del monitor extendida hacia arriba, dibujada en código: nítida a cualquier
+   zoom. Los colores continúan las bandas que se ven en la foto. */
+.screen {
+  position: absolute;
+  left: 346px;
+  top: calc(50px - var(--screen-h, 650px));
+  width: 1016px;
+  height: var(--screen-h, 650px);
+  border: solid #1B1C20;
+  border-width: 9px 9px 0;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 0 0 7px #CDD0D5, 0 30px 60px -30px rgba(0, 0, 0, .35);
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 238px 600px at 1035px calc(100% - 300px), #374E69 99.5%, transparent 100%),
+    radial-gradient(ellipse 155px 600px at 875px calc(100% - 300px), #ADB3BC 99.5%, transparent 100%),
+    radial-gradient(ellipse 143px 600px at 785px calc(100% - 300px), #E3D9CF 99.5%, transparent 100%),
+    radial-gradient(ellipse 155px 600px at 680px calc(100% - 300px), #F0B553 99.5%, transparent 100%),
+    radial-gradient(ellipse 179px 600px at 585px calc(100% - 300px), #F56E39 99.5%, transparent 100%),
+    radial-gradient(ellipse 310px 600px at 465px calc(100% - 300px), #5E6D8F 99.5%, transparent 100%),
+    #AEB5C1;
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 26px), transparent);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 26px), transparent);
+}
+/* La pantalla "se enciende" con el fondo de la web al final del acercamiento. */
+.screen__site { position: absolute; inset: 0; background: var(--bg); opacity: 0; }
+/* Sección de proyectos: entra justo cuando la pantalla ya ocupa todo. */
+.projects { position: relative; z-index: 2; margin-top: -35vh; padding-top: 24px; }
+.projects__heading h2 { margin-bottom: 32px; }
+
+/* Variante "la mesa se inclina": la sección sube como una hoja sobre el escritorio. */
+html.v-mesa .projects {
+  margin-top: -70vh;
+  padding-top: clamp(56px, 8vw, 96px);
+  border-radius: 32px 32px 0 0;
+  background: var(--bg);
+  box-shadow: 0 -30px 60px -30px var(--shadow);
+}
+html.v-mesa .screen__site { display: none; }
+
+/* Sin movimiento: página normal. */
+html.reduce .scrolly { height: auto; }
+html.reduce .scrolly__sticky { position: relative; height: 100vh; }
+html.reduce .projects { margin-top: 0; padding-top: clamp(80px, 11vw, 150px); }
+
+/* Controles de la prueba, arriba a la derecha para no chocar con el dock. */
+.lab {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 300;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  max-width: calc(100% - 28px);
+  padding: 8px;
+  border-radius: 18px;
+  background: rgba(27, 26, 24, .88);
+  color: #F4F4F2;
+  box-shadow: 0 18px 40px -16px rgba(0, 0, 0, .45);
+  font-size: 13px;
+}
+.lab button { padding: 8px 12px; border: 0; border-radius: 10px; background: transparent; color: inherit; font-weight: 600; cursor: pointer; }
+.lab button:hover { background: rgba(255, 255, 255, .1); }
+.lab button[aria-pressed="true"] { background: #EF6A21; color: #1B1A18; }
+.lab__options, .lab__theme { display: flex; gap: 4px; }
+.lab__theme { padding-left: 10px; border-left: 1px solid rgba(255, 255, 255, .18); }
+.lab__note { flex-basis: 100%; margin: 0; padding: 2px 8px 4px; color: rgba(244, 244, 242, .75); }

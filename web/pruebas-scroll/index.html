@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es" class="js" data-theme="calido">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prueba de scroll — perspectiva</title>
+<meta name="robots" content="noindex, nofollow">
+<script>
+  try {
+    var theme = localStorage.getItem('fd-theme');
+    if (theme === 'claro' || theme === 'calido') document.documentElement.dataset.theme = theme;
+  } catch (error) {}
+</script>
+<link rel="stylesheet" href="../site.css?v=20261101-6">
+<link rel="stylesheet" href="scroll.css?v=20261101-6">
+<script src="scroll.js?v=20261101-6" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="../index.html">francis daniella</a>
+  <nav class="site-nav" aria-label="Navegación de muestra">
+    <a class="site-nav__link" href="#proyectos">Proyectos</a>
+    <a class="site-nav__link" href="../index.html#sobre-mi">Sobre mí</a>
+    <a class="site-nav__link" href="../index.html#contacto">Contacto</a>
+    <span class="button button--primary button--small">Iniciemos un proyecto</span>
+  </nav>
+</header>
+
+<main>
+  <!-- Recorrido de scroll: la escena queda fija mientras la cámara se mueve -->
+  <div class="scrolly" id="scrolly">
+    <div class="scrolly__sticky">
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="hero__content">
+      <p class="hero__eyebrow" style="--i:0">Product Designer</p>
+      <h1 id="hero-title" style="--i:1">Diseño de producto, <em>con IA y criterio propio.</em></h1>
+      <p class="hero__lede" style="--i:2">FinTech · DeFi · Apps · Sistemas de diseño</p>
+      <div class="hero__actions" style="--i:3">
+        <a class="button button--primary" href="#contacto" data-home-target="contacto">Iniciemos un proyecto</a>
+        <a class="button" href="#proyectos" data-home-target="proyectos">Ver proyectos</a>
+      </div>
+    </div>
+
+    <div class="desk" id="desk" aria-hidden="true">
+      <div class="desk__stage" id="desk-stage">
+        <img class="desk__photo desk__photo--calido" src="../assets/hero/escritorio-calido-1920.webp?v=2" srcset="../assets/hero/escritorio-calido-1200.webp?v=2 1200w, ../assets/hero/escritorio-calido-1920.webp?v=2 1920w, ../assets/hero/escritorio-calido-3072.webp?v=2 3072w" sizes="(max-width: 600px) 265vw, (max-width: 1099px) 130vw, 100vw" width="1536" height="1024" alt="" >
+        <img class="desk__photo desk__photo--claro" src="../assets/hero/escritorio-claro-1920.webp?v=2" srcset="../assets/hero/escritorio-claro-1200.webp?v=2 1200w, ../assets/hero/escritorio-claro-1920.webp?v=2 1920w, ../assets/hero/escritorio-claro-3072.webp?v=2 3072w" sizes="(max-width: 600px) 265vw, (max-width: 1099px) 130vw, 100vw" width="1536" height="1024" alt="">
+        <span class="desk__key" data-key="h" style="left:780px; top:736px"></span>
+        <span class="desk__key" data-key="e" style="left:625.5px; top:688px"></span>
+        <span class="desk__key" data-key="l" style="left:920.5px; top:735.5px"></span>
+        <span class="desk__key" data-key="o" style="left:907px; top:687px"></span>
+        <div class="desk__extend"></div>
+        <!-- Pantalla del monitor extendida hacia arriba (la foto solo muestra su borde inferior) -->
+        <div class="screen" id="screen">
+          <div class="screen__site" id="screen-site"></div>
+        </div>
+      </div>
+    </div>
+      </section>
+    </div>
+  </div>
+
+  <section class="section projects" id="proyectos" aria-label="Proyectos seleccionados">
+    <div class="container">
+      <div class="projects__heading">
+        <p class="eyebrow">Proyectos</p>
+        <h2>Proyectos seleccionados</h2>
+      </div>
+      <div class="work-grid">
+        <article class="work work--featured">
+          <a class="work__link" data-project="carbon" href="../index.html#proyecto-carbon" aria-labelledby="work-carbon-name work-carbon-action">
+            <div class="work__cover">
+              <span class="work__mark" aria-hidden="true">Carbon</span>
+              <span class="work__pending">Capturas en preparación</span>
+            </div>
+            <div class="work__meta">
+              <div>
+                <h3 id="work-carbon-name">IntentX → Carbon</h3>
+                <p class="work__type">Plataforma de trading DeFi.</p>
+              </div>
+              <p class="work__description">Durante tres años trabajé en flujos e interfaces, co-creé el sistema de diseño y realicé auditorías para su evolución visual.</p>
+              <ul class="tags" aria-label="Áreas de trabajo"><li>Flujos e interfaces</li><li>Sistema de diseño</li><li>Design QA</li></ul>
+              <span class="work__open" id="work-carbon-action">Ver proyecto <span aria-hidden="true">↗</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="work">
+          <a class="work__link" data-project="sozialens" href="../index.html#proyecto-sozialens" aria-labelledby="work-sozialens-name work-sozialens-action">
+            <div class="work__cover">
+              <span class="work__mark" aria-hidden="true">Sozialens</span>
+              <span class="work__pending">Capturas en preparación</span>
+            </div>
+            <div class="work__meta">
+              <div>
+                <h3 id="work-sozialens-name">Sozialens</h3>
+                <p class="work__type">Creadores de contenido y campañas.</p>
+              </div>
+              <p class="work__description">Organicé la navegación, diseñé pantallas y co-creé el sistema de diseño. También revisé la implementación junto al equipo de desarrollo.</p>
+              <ul class="tags" aria-label="Áreas de trabajo"><li>Arquitectura</li><li>Prototipado</li><li>Design QA</li></ul>
+              <span class="work__open" id="work-sozialens-action">Ver proyecto <span aria-hidden="true">↗</span></span>
+            </div>
+          </a>
+        </article>
+        <article class="work">
+          <a class="work__link" data-project="portalfi" href="../index.html#proyecto-portalfi" aria-labelledby="work-portalfi-name work-portalfi-action">
+            <div class="work__cover">
+              <span class="work__mark" aria-hidden="true">PortalFi</span>
+              <span class="work__pending">Capturas en preparación</span>
+            </div>
+            <div class="work__meta">
+              <div>
+                <h3 id="work-portalfi-name">PortalFi</h3>
+                <p class="work__type">Neobanca con tecnología DeFi.</p>
+              </div>
+              <p class="work__description">Apoyé la creación del sistema de diseño, preparé prototipos de navegación y revisé las diferencias entre Figma y la interfaz implementada.</p>
+              <ul class="tags" aria-label="Áreas de trabajo"><li>Sistema de diseño</li><li>Prototipado</li><li>Design QA</li></ul>
+              <span class="work__open" id="work-portalfi-action">Ver proyecto <span aria-hidden="true">↗</span></span>
+            </div>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="lab" role="region" aria-label="Controles de la prueba">
+  <div class="lab__options" role="group" aria-label="Opción">
+    <button type="button" data-variant="monitor">Hacia el monitor</button>
+    <button type="button" data-variant="mesa">La mesa se inclina</button>
+  </div>
+  <div class="lab__theme" role="group" aria-label="Modo">
+    <button type="button" data-theme-option="claro">Claro</button>
+    <button type="button" data-theme-option="calido">Cálido</button>
+  </div>
+  <p class="lab__note" id="note">Haz scroll hacia abajo.</p>
+</div>
+
+</body>
+</html>

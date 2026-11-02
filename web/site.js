@@ -7,8 +7,6 @@
   const home = document.getElementById('home');
   const caseView = document.getElementById('case');
   const header = document.getElementById('site-header');
-  const nav = document.getElementById('site-nav');
-  const menuToggle = header.querySelector('.menu-toggle');
   const nextButton = document.getElementById('next-project');
   const EMAIL = 'cova.francis15@gmail.com';
   const HOME_TITLE = 'Francis Daniella — Product Designer';
@@ -39,34 +37,14 @@
   });
   applyTheme(root.dataset.theme === 'claro' ? 'claro' : 'calido');
 
-  // ---------- Header y menú móvil ----------
+  // ---------- Header ----------
+  // La firma gana un fondo al desplazarse; la navegación vive en el dock inferior.
 
   function onScroll() {
     header.classList.toggle('is-scrolled', window.scrollY > 12);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-
-  function closeMenu(returnFocus) {
-    if (!nav.classList.contains('is-open')) return;
-    nav.classList.remove('is-open');
-    menuToggle.setAttribute('aria-expanded', 'false');
-    menuToggle.textContent = 'Menú';
-    if (returnFocus) menuToggle.focus();
-  }
-
-  menuToggle.addEventListener('click', function () {
-    const open = !nav.classList.contains('is-open');
-    nav.classList.toggle('is-open', open);
-    menuToggle.setAttribute('aria-expanded', String(open));
-    menuToggle.textContent = open ? 'Cerrar' : 'Menú';
-  });
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') closeMenu(true);
-  });
-  document.addEventListener('click', function (event) {
-    if (!header.contains(event.target)) closeMenu(false);
-  });
 
   // ---------- Inicio y casos de estudio ----------
 
@@ -166,7 +144,6 @@
     link.addEventListener('click', function (event) {
       if (!plainClick(event)) return;
       event.preventDefault();
-      closeMenu(false);
       showHome(link.dataset.homeTarget, { updateHash: true });
     });
   });

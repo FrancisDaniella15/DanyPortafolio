@@ -16,6 +16,8 @@ y abrir http://localhost:4173. No requiere instalaciones; fuentes e imágenes es
 
 **Hero con las fotos del escritorio.** Se usan las fotos de Dany (`../referencias/hero-hello/`), mejoradas para web. Se escalaron ×4 con IA (Real-ESRGAN, modelo realesrgan-x4plus) de 1536 a 6144 px y se redujeron a los tamaños web. Se exportaron a WebP en 1200, 1920 y 3072 px (`assets/hero/`), y el navegador elige el tamaño según la pantalla. El texto cae sobre la parte libre de la alfombrilla. Las posiciones de H, E, L y O en la foto están en `index.html` (`.desk__key`, en píxeles de la imagen original).
 
+**Navegación.** Arriba solo queda la firma, sin barra, para que el monitor de la foto se vea entero; al desplazarse gana un fondo esmerilado. Los enlaces, el selector Claro/Cálido y el CTA viven en un dock flotante abajo al centro. En pantallas estrechas el dock es más compacto y sin CTA (Contacto lleva al mismo sitio); el diseño móvil está pendiente de definir.
+
 **Dos modos.** **Claro** usa la foto blanca y **Cálido** la foto crema; al cambiar de modo, una se funde con la otra. El resto de la página usa los mismos colores. Se eligen en el header y se guardan en el navegador. Cálido es el modo por defecto.
 
 **Sistema visual.**
@@ -51,6 +53,14 @@ Las teclas HELLO están recortadas de las imágenes de Dany, mejoradas con Real-
 **Límite de calidad:** en la foto original cada tecla mide unos 45 px. Por eso E1 limita el zoom a unos 6 px de pantalla por px original y usa un desenfoque de cámara. E3 y B no necesitan primeros planos de la foto. Para un primer plano nítido de verdad haría falta una foto generada a más resolución (4096 px o más), o un escalado generativo que añada detalle.
 
 La página está pensada para escritorio; la versión elegida se ajustará a móvil al pasarla a `index.html`.
+
+## Prueba de scroll con cambio de perspectiva
+
+`pruebas-scroll/index.html` prueba la transición del hero a Proyectos al hacer scroll, inspirada en un video de Dany (la cámara pasa del escritorio real al monitor y entra en la pantalla). La escena queda fija mientras dura el recorrido y la cámara persigue la posición del scroll con inercia, para que la rueda del ratón no dé saltos.
+- **Hacia el monitor:** la cámara levanta la vista (la mesa toma perspectiva y el monitor baja al centro), se acerca y se endereza hasta que la pantalla llena el visor. La pantalla se enciende con el fondo de la web y entran el título y las tarjetas de proyectos. Como la foto solo muestra el borde inferior del monitor, la pantalla se extiende hacia arriba en código (bisel y fondo de bandas con los colores de la foto), así se ve nítida a cualquier zoom. También se extiende la superficie del escritorio por encima de la foto.
+- **La mesa se inclina:** el escritorio se tumba hacia atrás en perspectiva y la sección de proyectos sube encima como una hoja.
+
+Pensada para escritorio; el móvil se definirá aparte.
 
 ## Pendientes
 
