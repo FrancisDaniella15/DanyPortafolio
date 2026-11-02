@@ -234,7 +234,7 @@ p { margin: 0; }
 .desk__photo { position: absolute; inset: 0; width: 100%; height: 100%; transition: opacity .7s ease; }
 [data-theme="calido"] .desk__photo--claro,
 [data-theme="claro"] .desk__photo--calido { opacity: 0; }
-.desk__key { position: absolute; width: 42px; height: 43px; }
+.desk__key { position: absolute; width: 46.5px; height: 47.5px; }
 
 /* ---------- Intro HELLO ---------- */
 

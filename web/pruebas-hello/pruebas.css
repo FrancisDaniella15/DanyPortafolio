@@ -27,15 +27,15 @@
   position: absolute;
   left: calc(var(--x) * 1px);
   top: calc(var(--y) * 1px);
-  width: 42px;
-  height: 43px;
+  width: 46.5px;
+  height: 47.5px;
   border-radius: 7px;
   background-size: 1536px 1024px;
   background-position: calc(var(--x) * -1px) calc(var(--y) * -1px);
   transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
 }
-[data-theme="calido"] .photo-key { background-image: url('../assets/hero/escritorio-calido-4608.webp'); }
-[data-theme="claro"] .photo-key { background-image: url('../assets/hero/escritorio-claro-4608.webp'); }
+[data-theme="calido"] .photo-key { background-image: url('../assets/hero/escritorio-calido-4608.webp?v=2'); }
+[data-theme="claro"] .photo-key { background-image: url('../assets/hero/escritorio-claro-4608.webp?v=2'); }
 .photo-key.is-down {
   transform: translateY(1.6px) scale(.975);
   filter: brightness(.92);

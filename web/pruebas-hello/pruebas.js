@@ -15,10 +15,10 @@
   const PHOTO_H = 1024;
   // Letra O en la foto (px de la imagen original) y en la tecla HELLO (fracción de la imagen),
   // para que el cruce alinee las letras y no los bordes de las teclas.
-  const PHOTO_O = { cx: 929.8, cy: 708.85, glyph: 9.5 };
+  const PHOTO_O = { cx: 930.3, cy: 709.5, glyph: 8.5 };
   const HELLO_O = { cx: .5, cy: .46, glyph: .2888 };
   // Ancho de la tecla O en la foto (px de la imagen original), para que la O aterrice a su tamaño.
-  const PHOTO_KEY_W = 45;
+  const PHOTO_KEY_W = 46.5;
 
   const NOTES = {
     b: 'B · Tus teclas HELLO reales caen, esperan y vuelan en curva hasta su letra del teclado.',
@@ -161,7 +161,7 @@
     const theme = root.dataset.theme === 'claro' ? 'claro' : 'calido';
     const keyO = realKeys[4];
     keyO.src = '../assets/hello/' + theme + '-o-grande.webp';
-    detailO.src = '../assets/hero/escritorio-' + theme + '-detalle-o.webp';
+    detailO.src = '../assets/hero/escritorio-' + theme + '-detalle-o.webp?v=2';
     if (settings.keyWidth) keyRow.style.setProperty('--k', settings.keyWidth + 'px');
     overlay.classList.add('is-on');
     if (settings.anchorO) {
