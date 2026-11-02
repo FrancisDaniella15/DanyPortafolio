@@ -1,6 +1,10 @@
-// Scroll con cambio de perspectiva desde el hero hasta los proyectos.
-// "zoom": la cámara se acerca al espacio vacío de la alfombrilla y ahí aparecen los proyectos.
-// "mesa": el escritorio se inclina hacia atrás y los proyectos suben por encima.
+// Transición del hero a Proyectos: la cámara se acerca al espacio vacío de la alfombrilla,
+// la mesa se funde con el fondo y los proyectos aparecen en su sitio. Tres formas de
+// controlarla con el scroll, para comparar:
+//   gesto: un solo gesto reproduce toda la transición y se detiene en los proyectos.
+//   iman:  el acercamiento sigue al scroll; al final la página se imanta a los proyectos
+//          y estos aparecen por tiempo.
+//   pausa: sigue al scroll; los proyectos se enfocan antes y quedan fijos un tramo.
 (function () {
   'use strict';
 
@@ -18,26 +22,22 @@
   // Espacio vacío de la alfombrilla en la foto (px): entre el monitor y el teclado.
   const EMPTY = { x: 720, y: 385, width: 760, height: 420 };
   const NOTES = {
-    zoom: 'Al espacio en blanco: la cámara se acerca al hueco libre de la alfombrilla y ahí aparecen los proyectos.',
-    mesa: 'La mesa se inclina: el escritorio se tumba hacia atrás y los proyectos suben encima.'
+    gesto: '1 · Un gesto: un movimiento de rueda o trackpad reproduce toda la transición y se detiene en los proyectos, ya nítidos. Hacia arriba vuelve al hero.',
+    iman: '2 · Imán: el acercamiento sigue al scroll; al final la página se imanta a los proyectos y estos aparecen por tiempo.',
+    pausa: '3 · Pausa: sigue al scroll; los proyectos se enfocan antes y quedan fijos un tramo antes de seguir.'
   };
 
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let variant = 'zoom';
+  let variant = 'gesto';
   let geo = null;
-  let target = 0;
-  let current = 0;
-  let frame = null;
 
   // ---------- Utilidades ----------
 
   const clamp = function (v, a, b) { return Math.min(b, Math.max(a, v)); };
   const lerp = function (a, b, t) { return a + (b - a) * t; };
+  const easeInOut = function (t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
   // Tramo de p entre a y b, con aceleración y frenado suaves.
-  function phase(p, a, b) {
-    const t = clamp((p - a) / (b - a), 0, 1);
-    return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-  }
+  function phase(p, a, b) { return easeInOut(clamp((p - a) / (b - a), 0, 1)); }
 
   function measure() {
     const W = window.innerWidth;
@@ -47,105 +47,185 @@
     stage.style.setProperty('--s', s.toFixed(4));
     stage.style.setProperty('--tx', view.tx.toFixed(1) + 'px');
     stage.style.setProperty('--ty', view.ty.toFixed(1) + 'px');
-    // Centro del espacio vacío en pantalla (punto al que se acerca la cámara).
-    const E = { x: view.tx + EMPTY.x * s, y: view.ty + EMPTY.y * s };
-    // Zoom final: el espacio vacío llena el visor.
-    const Zf = Math.max(W / (EMPTY.width * s), H / (EMPTY.height * s));
-    // Distancia de scroll en la que transcurre la animación.
-    // Toda la parte en la que la escena está fija.
-    const span = scrolly.offsetHeight - H;
-    geo = { W: W, H: H, s: s, E: E, Zf: Zf, span: span, top: scrolly.offsetTop };
+    geo = {
+      W: W,
+      H: H,
+      // Centro del espacio vacío en pantalla y zoom con el que llena el visor.
+      E: { x: view.tx + EMPTY.x * s, y: view.ty + EMPTY.y * s },
+      Zf: Math.max(W / (EMPTY.width * s), H / (EMPTY.height * s)),
+      // Scroll en el que la escena se suelta: ahí empieza la sección de proyectos.
+      release: scrolly.offsetTop + scrolly.offsetHeight - H
+    };
   }
 
-  // ---------- Variantes ----------
+  // ---------- Dibujo ----------
 
-  function renderZoom(p) {
+  // z: avance del acercamiento (0 hero, 1 hueco llenando el visor). c: aparición de proyectos.
+  function render(z, c) {
     const g = geo;
-    // La cámara se acerca al hueco con un leve cambio de perspectiva que se endereza
-    // al llegar; el hueco termina centrado y llenando el visor.
-    const a = phase(p, .02, .78);
+    const a = easeInOut(clamp(z, 0, 1));
     const Z = Math.exp(lerp(0, Math.log(g.Zf), a));
     const rot = 9 * Math.sin(Math.PI * a);
     const Sx = lerp(g.E.x, g.W / 2, a);
     const Sy = lerp(g.E.y, g.H / 2, a);
-    // translate(S) · rotateX · scale · translate(−E): el punto E va a S.
     desk.style.transform = 'translate(' + Sx.toFixed(2) + 'px, ' + Sy.toFixed(2) + 'px) rotateX(' + rot.toFixed(3) + 'deg) scale(' + Z.toFixed(4) + ') translate(' + (-g.E.x).toFixed(2) + 'px, ' + (-g.E.y).toFixed(2) + 'px)';
-    desk.style.opacity = '';
-    // Al final, la alfombrilla se funde con el fondo de la web.
-    fill.style.opacity = phase(p, .6, .82).toFixed(3);
-    // Los proyectos aparecen en su sitio: de difuminados y transparentes a nítidos.
-    const c = phase(p, .8, 1);
-    projects.style.opacity = c.toFixed(3);
-    // Invisible no bloquea los clics del hero.
-    projects.style.pointerEvents = c > .5 ? '' : 'none';
-    projects.style.filter = c >= 1 ? '' : 'blur(' + (14 * (1 - c)).toFixed(2) + 'px)';
-    fadeHeroText(p);
-  }
-
-  function renderMesa(p) {
-    const g = geo;
-    const a = phase(p, 0, 1);
-    const rot = lerp(0, 52, a);
-    const Z = lerp(1, .9, a);
-    // Origen en el borde inferior: la parte de arriba se aleja.
-    const ox = g.W / 2;
-    const oy = g.H;
-    desk.style.transform = 'translate(' + ox + 'px, ' + (oy - g.H * .06 * a).toFixed(2) + 'px) rotateX(' + rot.toFixed(3) + 'deg) scale(' + Z.toFixed(4) + ') translate(' + (-ox) + 'px, ' + (-oy) + 'px)';
-    desk.style.opacity = lerp(1, .55, phase(p, .3, 1)).toFixed(3);
-    fill.style.opacity = '0';
-    projects.style.opacity = '';
-    projects.style.filter = '';
-    projects.style.pointerEvents = '';
-    fadeHeroText(p);
-  }
-
-  function fadeHeroText(p) {
-    const t = phase(p, 0, .14);
+    fill.style.opacity = phase(z, .72, 1).toFixed(3);
+    const t = phase(z, 0, .18);
     content.style.opacity = (1 - t).toFixed(3);
     content.style.transform = 'translateY(' + (-40 * t).toFixed(2) + 'px)';
+    const r = easeInOut(clamp(c, 0, 1));
+    projects.style.opacity = r.toFixed(3);
+    projects.style.filter = r >= 1 ? '' : 'blur(' + (14 * (1 - r)).toFixed(2) + 'px)';
+    projects.style.pointerEvents = r > .5 ? '' : 'none';
   }
 
-  // ---------- Bucle con inercia ----------
-
-  // Mientras la escena está fija, la sección de proyectos se mantiene quieta arriba;
-  // al soltarse la escena, su posición natural coincide y sigue con el scroll normal.
+  // Mientras la escena está fija, la sección de proyectos se mantiene quieta arriba; al
+  // soltarse la escena, su posición natural coincide y sigue con el scroll normal.
   function pinProjects() {
-    if (variant !== 'zoom') { projects.style.transform = ''; return; }
     const natural = projects.offsetTop - window.scrollY;
     projects.style.transform = natural > 0 ? 'translateY(' + (-natural) + 'px)' : '';
   }
 
-  function readScroll() {
+  // Animación por tiempo de un valor (devuelve una función para cancelarla).
+  function tween(from, to, duration, onFrame, onDone) {
+    const start = performance.now();
+    let id = 0;
+    function step(now) {
+      const k = clamp((now - start) / duration, 0, 1);
+      onFrame(lerp(from, to, k));
+      if (k < 1) id = requestAnimationFrame(step);
+      else if (onDone) onDone();
+    }
+    id = requestAnimationFrame(step);
+    return function () { cancelAnimationFrame(id); };
+  }
+
+  // ---------- 1 · Un gesto ----------
+
+  const gesto = { state: 0, busy: false, cancel: null };
+
+  function playGesto(direction) {
+    if (gesto.busy || direction === gesto.state) return;
+    gesto.busy = true;
+    // Se coloca el scroll en el punto de llegada y la escena se reproduce por tiempo.
+    window.scrollTo({ top: geo.release, behavior: 'instant' });
     pinProjects();
-    target = clamp((window.scrollY - geo.top) / geo.span, 0, 1);
-    if (!frame) frame = requestAnimationFrame(tick);
+    gesto.cancel = tween(gesto.state, direction, 1500, function (k) {
+      // Acercamiento en el primer 80 % del tiempo, proyectos en el último 35 %.
+      render(k / .8, (k - .65) / .35);
+    }, function () {
+      gesto.state = direction;
+      if (direction === 0) window.scrollTo({ top: 0, behavior: 'instant' });
+      pinProjects();
+      // Pequeña espera para que la inercia del gesto no se lleve el contenido.
+      window.setTimeout(function () { gesto.busy = false; }, 350);
+    });
   }
 
-  function tick() {
-    // La cámara persigue la posición del scroll con suavizado: los saltos de la rueda
-    // del ratón se convierten en un movimiento continuo.
-    current += (target - current) * .1;
-    if (Math.abs(target - current) < .0004) current = target;
-    (variant === 'mesa' ? renderMesa : renderZoom)(current);
-    frame = current === target ? null : requestAnimationFrame(tick);
+  function gestoIntent(down, event) {
+    const atHero = gesto.state === 0;
+    const atProjectsTop = gesto.state === 1 && window.scrollY <= geo.release + 2;
+    if (gesto.busy) { if (event) event.preventDefault(); return; }
+    if (down && atHero) { if (event) event.preventDefault(); playGesto(1); }
+    else if (!down && atProjectsTop) { if (event) event.preventDefault(); playGesto(0); }
   }
 
-  // ---------- Controles ----------
+  // ---------- 2 · Imán y 3 · Pausa (siguen al scroll) ----------
+
+  const follow = { target: 0, current: 0, frame: null, reveal: 0, revealing: null, idle: null };
+
+  function scrollProgress() {
+    return clamp(window.scrollY / geo.release, 0, 1);
+  }
+
+  function followTick() {
+    // La cámara persigue la posición del scroll con suavizado.
+    follow.current += (follow.target - follow.current) * .1;
+    if (Math.abs(follow.target - follow.current) < .0004) follow.current = follow.target;
+    const p = follow.current;
+    if (variant === 'iman') render(p / .85, follow.reveal);
+    else render(p / .6, (p - .55) / .2);   // pausa: nítido en .75; de .75 a 1 queda fijo
+    follow.frame = follow.current === follow.target ? null : requestAnimationFrame(followTick);
+  }
+
+  function onFollowScroll() {
+    pinProjects();
+    follow.target = scrollProgress();
+    if (!follow.frame) follow.frame = requestAnimationFrame(followTick);
+    if (variant !== 'iman') return;
+    // Los proyectos aparecen por tiempo al llegar y se ocultan al volver atrás.
+    if (follow.target > .92 && follow.reveal < 1 && !follow.revealing) revealProjects(1);
+    if (follow.target < .7 && follow.reveal > 0 && !follow.revealing) revealProjects(0);
+    // Imán: al dejar de hacer scroll dentro del tramo, la página se coloca en un extremo.
+    window.clearTimeout(follow.idle);
+    follow.idle = window.setTimeout(function () {
+      const p = scrollProgress();
+      if (p > 0 && p < 1) window.scrollTo({ top: p > .45 ? geo.release : 0, behavior: 'smooth' });
+    }, 140);
+  }
+
+  function revealProjects(to) {
+    const stop = tween(follow.reveal, to, to ? 700 : 300, function (v) {
+      follow.reveal = v;
+      render(follow.current / .85, v);
+    }, function () { follow.revealing = null; });
+    follow.revealing = stop;
+  }
+
+  // ---------- Entrada y controles ----------
+
+  function onWheel(event) {
+    if (variant !== 'gesto' || Math.abs(event.deltaY) < 2) return;
+    gestoIntent(event.deltaY > 0, event);
+  }
+
+  let touchY = null;
+  function onTouchStart(event) { touchY = event.touches[0].clientY; }
+  function onTouchMove(event) {
+    if (variant !== 'gesto' || touchY === null) return;
+    const dy = touchY - event.touches[0].clientY;
+    if (Math.abs(dy) > 12) { gestoIntent(dy > 0, event); touchY = null; }
+    else if (gesto.busy || gesto.state === 0) event.preventDefault();
+  }
+
+  function onKey(event) {
+    if (variant !== 'gesto') return;
+    if (['ArrowDown', 'PageDown', ' '].indexOf(event.key) >= 0) gestoIntent(true, event);
+    else if (['ArrowUp', 'PageUp'].indexOf(event.key) >= 0) gestoIntent(false, event);
+  }
+
+  function onScroll() {
+    if (variant === 'gesto') {
+      pinProjects();
+      // Barra de desplazamiento u otro movimiento dentro del tramo: completa la transición.
+      if (!gesto.busy) {
+        const y = window.scrollY;
+        if (gesto.state === 0 && y > 4) playGesto(1);
+        else if (gesto.state === 1 && y < geo.release - 4) playGesto(0);
+      }
+      return;
+    }
+    onFollowScroll();
+  }
 
   function setVariant(name) {
     variant = name;
-    root.classList.toggle('v-zoom', name === 'zoom');
-    root.classList.toggle('v-mesa', name === 'mesa');
+    ['gesto', 'iman', 'pausa'].forEach(function (v) { root.classList.toggle('v-' + v, v === name); });
     document.querySelectorAll('[data-variant]').forEach(function (button) {
       button.setAttribute('aria-pressed', String(button.dataset.variant === name));
     });
     note.textContent = NOTES[name];
     try { history.replaceState(null, '', '?v=' + name); } catch (error) {}
+    if (gesto.cancel) gesto.cancel();
+    if (follow.revealing) follow.revealing();
+    gesto.state = 0;
+    gesto.busy = false;
+    follow.target = follow.current = follow.reveal = 0;
+    follow.revealing = null;
     measure();
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'instant' });
     pinProjects();
-    target = current = 0;
-    (variant === 'mesa' ? renderMesa : renderZoom)(0);
+    render(0, 0);
   }
 
   function setTheme(theme) {
@@ -170,7 +250,16 @@
     return;
   }
   const requested = new URLSearchParams(location.search).get('v');
-  setVariant(requested === 'mesa' ? 'mesa' : 'zoom');
-  window.addEventListener('scroll', readScroll, { passive: true });
-  window.addEventListener('resize', function () { measure(); readScroll(); });
+  setVariant(NOTES[requested] ? requested : 'gesto');
+  window.addEventListener('wheel', onWheel, { passive: false });
+  window.addEventListener('touchstart', onTouchStart, { passive: true });
+  window.addEventListener('touchmove', onTouchMove, { passive: false });
+  window.addEventListener('keydown', onKey);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function () {
+    measure();
+    pinProjects();
+    if (variant === 'gesto') render(gesto.state, gesto.state);
+    else onFollowScroll();
+  });
 })();

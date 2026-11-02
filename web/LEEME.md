@@ -54,15 +54,14 @@ Las teclas HELLO están recortadas de las imágenes de Dany, mejoradas con Real-
 
 La página está pensada para escritorio; la versión elegida se ajustará a móvil al pasarla a `index.html`.
 
-## Prueba de scroll con cambio de perspectiva
+## Prueba de scroll: al espacio en blanco
 
-`pruebas-scroll/index.html` prueba la transición del hero a Proyectos al hacer scroll, inspirada en un video de Dany (la cámara pasa del escritorio real al monitor y entra en la pantalla). La escena queda fija mientras dura el recorrido y la cámara persigue la posición del scroll con inercia, para que la rueda del ratón no dé saltos.
-- **Al espacio en blanco** (opción por defecto): el texto del hero se desvanece y la cámara se acerca al hueco libre de la alfombrilla, entre el monitor y el teclado, con un leve cambio de perspectiva que se endereza al llegar. Al llegar, el hueco se funde con el fondo de la web, que conserva la cuadrícula, y la sección de proyectos aparece en su sitio, de difuminada a nítida, sin subir desde abajo. Cuando termina, el scroll sigue normal desde esa misma posición. Usa solo la foto real.
-- **La mesa se inclina:** el escritorio se tumba hacia atrás en perspectiva y la sección de proyectos sube encima como una hoja. Usa solo la foto real.
+`pruebas-scroll/index.html` prueba la transición del hero a Proyectos. Al hacer scroll, el texto del hero se desvanece y la cámara se acerca al hueco libre de la alfombrilla, entre el monitor y el teclado, con un leve cambio de perspectiva. El hueco se funde con el fondo de la web (con cuadrícula) y la sección de proyectos aparece en su sitio, de difuminada a nítida. Usa solo la foto real. Hay tres formas de controlarla para comparar:
+- **1 · Un gesto:** un solo movimiento de rueda, trackpad o teclado reproduce toda la transición por tiempo (unos 1,5 s) y se detiene en los proyectos ya nítidos; durante la animación se ignora el scroll extra, para que la inercia no se lleve el contenido. Hacia arriba, desde el inicio de los proyectos, vuelve al hero.
+- **2 · Imán:** el acercamiento sigue al scroll; al dejar de desplazarse en medio del recorrido, la página se coloca sola en el hero o en los proyectos, y los proyectos aparecen por tiempo al llegar.
+- **3 · Pausa:** sigue al scroll; los proyectos se enfocan antes y quedan fijos un tramo, para absorber la inercia antes de seguir con el scroll normal.
 
-La primera prueba, «Hacia el monitor», se descartó: la foto solo muestra el borde del monitor y la pantalla dibujada en código no encajaba con su perspectiva.
-
-Pensada para escritorio; el móvil se definirá aparte.
+Pensada para escritorio; el móvil se definirá aparte. Descartadas: «Hacia el monitor» (la pantalla dibujada no encajaba con la foto) y «La mesa se inclina».
 
 ## Pendientes
 

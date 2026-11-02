@@ -2,6 +2,9 @@
 
 /* Recorrido: la escena queda fija mientras dura el scroll del contenedor. */
 .scrolly { position: relative; height: 290vh; }
+/* Alto del recorrido según la variante. En «un gesto» la escena se reproduce por tiempo. */
+html.v-gesto .scrolly { height: 200vh; }
+html.v-pausa .scrolly { height: 350vh; }
 .scrolly__sticky {
   position: sticky;
   top: 0;
@@ -43,15 +46,15 @@
   pointer-events: none;
 }
 
-/* Se solapa con la última pantalla de la escena. En la variante del hueco, el script la
+/* Se solapa con la última pantalla de la escena. El script la
    mantiene quieta en pantalla mientras aparece difuminada y, al soltarse la escena,
    sigue con el scroll normal desde la misma posición. */
 .projects { position: relative; z-index: 2; margin-top: -100vh; padding-top: clamp(96px, 13vh, 150px); }
-html.v-zoom .projects { opacity: 0; will-change: transform, opacity, filter; }
+.projects { opacity: 0; will-change: transform, opacity, filter; }
 /* La cuadrícula sigue en la sección de proyectos, alineada con la de la capa final. */
-html.v-zoom .projects,
-html.v-zoom .zoom-fill { background-attachment: fixed; }
-html.v-zoom .projects {
+.projects,
+.zoom-fill { background-attachment: fixed; }
+.projects {
   background-color: var(--bg);
   background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
   background-size: 52px 52px;
@@ -59,20 +62,10 @@ html.v-zoom .projects {
 }
 .projects__heading h2 { margin-bottom: 32px; }
 
-/* Variante "la mesa se inclina": la sección sube como una hoja sobre el escritorio. */
-html.v-mesa .projects {
-  margin-top: -70vh;
-  padding-top: clamp(56px, 8vw, 96px);
-  border-radius: 32px 32px 0 0;
-  background: var(--bg);
-  box-shadow: 0 -30px 60px -30px var(--shadow);
-}
-html.v-mesa .zoom-fill { display: none; }
-
 /* Sin movimiento: página normal. */
 html.reduce .scrolly { height: auto; }
 html.reduce .scrolly__sticky { position: relative; height: 100vh; }
-html.reduce .projects { margin-top: 0; padding-top: clamp(80px, 11vw, 150px); }
+html.reduce .projects { margin-top: 0; padding-top: clamp(80px, 11vw, 150px); opacity: 1; }
 
 /* Controles de la prueba, arriba a la derecha para no chocar con el dock. */
 .lab {
