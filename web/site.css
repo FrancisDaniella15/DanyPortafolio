@@ -240,11 +240,17 @@ p { margin: 0; }
 
 .intro { display: none; }
 html.js[data-intro] .intro { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; }
-.intro__bg { position: absolute; inset: 0; background-color: var(--bg); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 26px 26px; background-position: center; }
-.intro__word { position: relative; display: flex; gap: calc(var(--u) * .3); --u: clamp(52px, 12.5vw, 136px); }
-.intro__word .key { --u: clamp(52px, 12.5vw, 136px); transform-origin: 0 0; }
-.intro__word .key__cap { font-size: calc(var(--u) * .32); }
-html[data-intro="play"] .intro__word .key { opacity: 0; }
+.intro__bg { position: absolute; inset: 0; background: var(--bg); }
+/* Teclas HELLO reales (recortadas de las imágenes de Dany). --k: ancho de cada tecla. */
+.intro__word { position: relative; display: flex; gap: calc(var(--k, 44px) * .26); }
+.intro-key {
+  width: var(--k, 44px);
+  height: auto;
+  transform-origin: 0 0;
+  filter: drop-shadow(0 calc(var(--k, 44px) * .12) calc(var(--k, 44px) * .12) rgba(70, 45, 20, .22));
+  opacity: 0;
+  user-select: none;
+}
 .intro__skip { position: absolute; right: clamp(16px, 3vw, 32px); bottom: clamp(16px, 3vw, 32px); padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; background: color-mix(in srgb, var(--surface) 70%, transparent); color: var(--muted); font-size: 13px; font-weight: 600; cursor: pointer; transition: opacity .4s; }
 
 html[data-intro] body { overflow: hidden; }
@@ -255,7 +261,6 @@ html[data-intro="reveal"] .site-header,
 html[data-intro="reveal"] .hero__content > * { opacity: 1; translate: 0 0; }
 html[data-intro="reveal"] .hero__content > * { transition: opacity .8s ease, translate 1s var(--ease-out); transition-delay: calc(500ms + var(--i, 0) * 90ms); }
 html[data-intro="reveal"] .site-header { transition-delay: .9s; }
-html[data-intro="reveal"] .intro__bg { opacity: 0; transition: opacity .9s ease .15s; }
 html[data-intro="reveal"] .intro__skip { opacity: 0; pointer-events: none; }
 
 /* ---------- Secciones ---------- */
