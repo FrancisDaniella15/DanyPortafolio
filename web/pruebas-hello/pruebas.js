@@ -23,7 +23,7 @@
   const NOTES = {
     b: 'B · Tus teclas HELLO reales caen, esperan y vuelan en curva hasta su letra del teclado.',
     e: 'E1 · Zoom: HELLO entra de derecha a izquierda; mientras la cámara se acerca a la O, el teclado va apareciendo a su alrededor. Luego la cámara se aleja hasta el hero.',
-    e3: 'E3 · Y (2D): HELLO aparece centrado; H-E-L-L se disuelven y la O cae en un arco suave hasta su tecla mientras toda la escena aparece de desenfocada a nítida.',
+    e3: 'E3 · Y (2D): HELLO aparece centrado; H-E-L-L se disuelven y la O cae en un arco suave hasta su tecla, da un rebote y encaja, mientras toda la escena aparece de desenfocada a nítida.',
     e3z: 'E3 · Z (3D): HELLO aparece centrado y cerca de la cámara; H-E-L-L se disuelven y la O baja hasta su tecla encogiéndose, con su sombra acercándose, mientras la escena se abre desde ahí.'
   };
 
@@ -335,8 +335,8 @@
     const gx = target.x;
     const gy = target.y;
 
-    // Tiempos (ms). Y: caída sin rebotes. Z: caída y dos rebotes cortos.
-    const T = depth ? { fall: 720, up1: 190, down1: 190, up2: 95, down2: 95 } : { fall: 800, up1: 0, down1: 0, up2: 0, down2: 0 };
+    // Tiempos (ms). Y: caída y un solo rebote. Z: caída y dos rebotes cortos.
+    const T = depth ? { fall: 720, up1: 190, down1: 190, up2: 95, down2: 95 } : { fall: 760, up1: 200, down1: 200, up2: 0, down2: 0 };
     const total = T.fall + T.up1 + T.down1 + T.up2 + T.down2;
     let elapsed = 0;
     function mark(ms) { elapsed += ms; return elapsed / total; }
@@ -380,21 +380,25 @@
         { transform: at(k, gx, gy), filter: shadow(0, .03, .04, .38) }
       ], { duration: total, fill: 'forwards' }));
     } else {
-      // Y: cae acelerando y frena con suavidad justo al llegar, sin rebotes. El
-      // desplazamiento horizontal hasta la columna de su tecla va aparte y a ritmo
-      // constante, así la trayectoria es un arco suave.
+      // Y: cae acelerando, da un solo rebote corto y se asienta. El desplazamiento
+      // horizontal hasta la columna de su tecla va aparte y a ritmo constante, así la
+      // caída es un arco suave y el rebote es vertical.
+      const bounce = (gy - glyph.y) * .08;
+      later(function () { pressPhotoKey('o', false); }, T.fall + T.up1 + T.down1);
       drop = track(keyO.animate([
-        { transform: at(1, glyph.x, glyph.y) },
+        { transform: at(1, glyph.x, glyph.y), easing: gravity },
+        { transform: at(k, glyph.x, gy), offset: mark(T.fall), easing: rise },
+        { transform: at(k, glyph.x, gy - bounce), offset: mark(T.up1), easing: gravity },
         { transform: at(k, glyph.x, gy) }
-      ], { duration: T.fall, easing: 'cubic-bezier(.5,0,.68,1)', fill: 'forwards' }));
+      ], { duration: total, fill: 'forwards' }));
       track(keyO.animate([
         { translate: '0px 0px' },
         { translate: (gx - glyph.x).toFixed(2) + 'px 0px' }
       ], { duration: T.fall, easing: 'linear', fill: 'forwards' }));
     }
-    // La tecla HELLO se funde con la del teclado: en Y al llegar, en Z durante el último rebote.
+    // La tecla HELLO se funde con la del teclado durante el último rebote.
     const melt = track(keyO.animate([{ opacity: 1 }, { opacity: 0 }], {
-      duration: 320, delay: depth ? T.fall + T.up1 + T.down1 : T.fall + 60, easing: 'ease', fill: 'forwards'
+      duration: 320, delay: T.fall + T.up1 + T.down1 * (depth ? 1 : .5), easing: 'ease', fill: 'forwards'
     }));
     try { await Promise.all([drop.finished, melt.finished]); } catch (error) { return; }
     overlay.classList.remove('is-on');
