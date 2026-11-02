@@ -28,6 +28,9 @@ Las otras opciones probadas siguen en `web/pruebas-hello/` por si se quiere camb
 - **Después del gesto:** el scroll es normal; hacia arriba, desde el inicio de los proyectos, vuelve al hero.
 - **Otras opciones:** las otras formas probadas siguen en `web/pruebas-scroll/`.
 
+### 5. En paralelo: `exploracion-hero/`
+Francis subió a GitHub, en paralelo, una carpeta con exploraciones visuales del hero y un prototipo de transición (`exploracion-hero/`, ver su README). Se integró sin cambios y no afecta a `web/`.
+
 ## Cómo probarlo
 
 1. Desde la raíz del proyecto, levantar el servidor local:
