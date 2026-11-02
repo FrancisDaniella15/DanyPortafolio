@@ -78,14 +78,12 @@
     return stage.querySelector('.photo-key[data-key="' + letter + '"]');
   }
 
-  function pressPhotoKey(letter, lit) {
+  // La tecla de la foto se hunde un instante, sin colores añadidos.
+  function pressPhotoKey(letter) {
     const key = photoKey(letter);
     if (!key) return;
     key.classList.add('is-down');
-    later(function () {
-      key.classList.remove('is-down');
-      if (lit) key.classList.add('is-lit');
-    }, 150);
+    later(function () { key.classList.remove('is-down'); }, 150);
   }
 
   function setRealKeySources() {
@@ -137,7 +135,7 @@
       const tilt = i % 2 ? 5 : -5;
       const duration = 1150;
       const delay = i * 85;
-      later(function () { pressPhotoKey(key.dataset.letter, false); }, delay + duration * .86);
+      later(function () { pressPhotoKey(key.dataset.letter); }, delay + duration * .86);
       return track(key.animate([
         { transform: 'translate(0, 0) scale(1) rotate(0deg)', opacity: 1 },
         { transform: 'translate(' + dx * .45 + 'px, ' + (dy * .45 + lift) + 'px) scale(' + (1 + k) / 2 + ') rotate(' + tilt + 'deg)', opacity: 1, offset: .45 },
@@ -347,7 +345,7 @@
     function mark(ms) { elapsed += ms; return elapsed / total; }
     const gravity = 'cubic-bezier(.55,.085,.68,.53)';   // acelera (caída)
     const rise = 'cubic-bezier(.25,.46,.45,.94)';       // frena (subida)
-    later(function () { pressPhotoKey('o', false); revealHero(); }, T.fall);
+    later(function () { pressPhotoKey('o'); revealHero(); }, T.fall);
 
     if (depth) {
       // Z: la escena se abre desde la tecla de destino con un borde muy suave.
@@ -389,7 +387,7 @@
       // horizontal hasta la columna de su tecla va aparte y a ritmo constante, así la
       // caída es un arco suave y el rebote es vertical.
       const bounce = (gy - glyph.y) * .08;
-      later(function () { pressPhotoKey('o', false); }, T.fall + T.up1 + T.down1);
+      later(function () { pressPhotoKey('o'); }, T.fall + T.up1 + T.down1);
       drop = track(keyO.animate([
         { transform: at(1, glyph.x, glyph.y), easing: gravity },
         { transform: at(k, glyph.x, gy), offset: mark(T.fall), easing: rise },

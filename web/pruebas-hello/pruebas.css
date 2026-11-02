@@ -32,17 +32,16 @@
   border-radius: 7px;
   background-size: 1536px 1024px;
   background-position: calc(var(--x) * -1px) calc(var(--y) * -1px);
-  transition: transform .12s ease, filter .12s ease, box-shadow .5s ease;
+  transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
 }
 [data-theme="calido"] .photo-key { background-image: url('../assets/hero/escritorio-calido-4608.webp'); }
 [data-theme="claro"] .photo-key { background-image: url('../assets/hero/escritorio-claro-4608.webp'); }
 .photo-key.is-down {
   transform: translateY(1.6px) scale(.975);
   filter: brightness(.92);
-  box-shadow: inset 0 2px 3px rgba(0, 0, 0, .28), 0 0 0 1px rgba(239, 106, 33, .55), 0 0 16px 3px rgba(239, 106, 33, .5);
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, .22);
   transition-duration: .06s;
 }
-.photo-key.is-lit { box-shadow: 0 0 0 1px rgba(239, 106, 33, .35), 0 0 12px 2px rgba(239, 106, 33, .28); }
 
 /* E: capa de detalle (IA ×16) alrededor de la O para el primer plano */
 .detail-o {
