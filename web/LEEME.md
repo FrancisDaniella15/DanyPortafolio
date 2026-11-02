@@ -16,6 +16,8 @@ y abrir http://localhost:4173. No requiere instalaciones; fuentes e imágenes es
 
 **Hero con las fotos del escritorio.** Se usan las fotos de Dany (`../referencias/hero-hello/`), mejoradas para web. Se escalaron ×4 con IA (Real-ESRGAN, modelo realesrgan-x4plus) de 1536 a 6144 px y se redujeron a los tamaños web. Se exportaron a WebP en 1200, 1920 y 3072 px (`assets/hero/`), y el navegador elige el tamaño según la pantalla. El texto cae sobre la parte libre de la alfombrilla. Las posiciones de H, E, L y O en la foto están en `index.html` (`.desk__key`, en píxeles de la imagen original).
 
+**Del hero a Proyectos (un gesto).** En el diseño de escritorio, un solo movimiento de rueda, trackpad o teclado (flecha abajo, Av Pág o espacio) reproduce la transición por tiempo, en unos 1,5 s. El texto del hero se va, la cámara se acerca al espacio vacío de la alfombrilla con un leve cambio de perspectiva, la mesa se funde con el fondo de cuadrícula y la sección de proyectos aparece en su sitio, de difuminada a nítida. Se detiene con los proyectos arriba; luego el scroll es normal. Hacia arriba, desde el inicio de los proyectos, vuelve al hero. Durante la animación se ignora el scroll extra para que la inercia no se lleve el contenido. «Proyectos» en el dock reproduce la transición, «Sobre mí» y «Contacto» saltan directo, y la firma vuelve al hero. No actúa durante el HELLO, en el diseño compacto (móvil y tablet) ni con «reducir movimiento». Código en `scroll-fx.js`; las otras formas probadas siguen en `pruebas-scroll/`.
+
 **Navegación.** Arriba solo queda la firma, sin barra, para que el monitor de la foto se vea entero; al desplazarse gana un fondo esmerilado. Los enlaces, el selector Claro/Cálido y el CTA viven en un dock flotante abajo al centro. En pantallas estrechas el dock es más compacto y sin CTA (Contacto lleva al mismo sitio); el diseño móvil está pendiente de definir.
 
 **Dos modos.** **Claro** usa la foto blanca y **Cálido** la foto crema; al cambiar de modo, una se funde con la otra. El resto de la página usa los mismos colores. Se eligen en el header y se guardan en el navegador. Cálido es el modo por defecto.
@@ -32,7 +34,8 @@ y abrir http://localhost:4173. No requiere instalaciones; fuentes e imágenes es
 - `index.html`: página completa (inicio y vista de caso).
 - `site.css`: estilos y los dos modos (variables en `[data-theme]`).
 - `desk.js`: encuadre de la foto e intro.
-- `site.js`: modos, header, menú móvil, casos de estudio, trayectoria, copiar correo y apariciones al desplazarse.
+- `scroll-fx.js`: transición del hero a Proyectos con un gesto de scroll (solo escritorio).
+- `site.js`: modos, header, casos de estudio, trayectoria, copiar correo y apariciones al desplazarse.
 - `content.js`: contenido de los tres casos.
 - `assets/hero/`: fotos del escritorio en tres tamaños por modo.
 - `assets/fonts/`: Instrument Sans, Instrument Serif y Caveat, con licencias OFL.

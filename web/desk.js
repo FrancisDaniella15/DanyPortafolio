@@ -210,6 +210,9 @@
   }
 
   window.DanyDesk = {
+    // Encuadre actual de la foto (escala y desplazamiento) y recálculo, para scroll-fx.js.
+    view: function () { return view; },
+    fit: fit,
     replay: function () {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       playIntro();

@@ -22,10 +22,11 @@
   })();
 </script>
 <link rel="preload" href="assets/fonts/InstrumentSans.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="site.css?v=20261101-6">
-<script src="content.js?v=20261101-6" defer></script>
-<script src="desk.js?v=20261101-6" defer></script>
-<script src="site.js?v=20261101-6" defer></script>
+<link rel="stylesheet" href="site.css?v=20261101-7">
+<script src="content.js?v=20261101-7" defer></script>
+<script src="desk.js?v=20261101-7" defer></script>
+<script src="scroll-fx.js?v=20261101-7" defer></script>
+<script src="site.js?v=20261101-7" defer></script>
 </head>
 <body>
 
@@ -58,28 +59,35 @@
 </header>
 
 <main id="home">
-  <section class="hero" id="inicio" tabindex="-1" aria-labelledby="hero-title">
-    <div class="hero__content">
-      <p class="hero__eyebrow" style="--i:0">Product Designer</p>
-      <h1 id="hero-title" style="--i:1">Diseño de producto, <em>con IA y criterio propio.</em></h1>
-      <p class="hero__lede" style="--i:2">FinTech · DeFi · Apps · Sistemas de diseño</p>
-      <div class="hero__actions" style="--i:3">
-        <a class="button button--primary" href="#contacto" data-home-target="contacto">Iniciemos un proyecto</a>
-        <a class="button" href="#proyectos" data-home-target="proyectos">Ver proyectos</a>
-      </div>
-    </div>
+  <!-- Escena fija del hero: un gesto de scroll acerca la cámara al espacio vacío de la
+       alfombrilla y ahí aparecen los proyectos (solo en el diseño de escritorio). -->
+  <div class="scrolly" id="scrolly">
+    <div class="scrolly__sticky">
+      <section class="hero" id="inicio" tabindex="-1" aria-labelledby="hero-title">
+        <div class="hero__content">
+          <p class="hero__eyebrow" style="--i:0">Product Designer</p>
+          <h1 id="hero-title" style="--i:1">Diseño de producto, <em>con IA y criterio propio.</em></h1>
+          <p class="hero__lede" style="--i:2">FinTech · DeFi · Apps · Sistemas de diseño</p>
+          <div class="hero__actions" style="--i:3">
+            <a class="button button--primary" href="#contacto" data-home-target="contacto">Iniciemos un proyecto</a>
+            <a class="button" href="#proyectos" data-home-target="proyectos">Ver proyectos</a>
+          </div>
+        </div>
 
-    <div class="desk" id="desk" aria-hidden="true">
-      <div class="desk__stage" id="desk-stage">
-        <img class="desk__photo desk__photo--calido" src="assets/hero/escritorio-calido-1920.webp?v=2" srcset="assets/hero/escritorio-calido-1200.webp?v=2 1200w, assets/hero/escritorio-calido-1920.webp?v=2 1920w, assets/hero/escritorio-calido-3072.webp?v=2 3072w" sizes="(max-width: 600px) 265vw, (max-width: 1099px) 130vw, 100vw" width="1536" height="1024" alt="" fetchpriority="high">
-        <img class="desk__photo desk__photo--claro" src="assets/hero/escritorio-claro-1920.webp?v=2" srcset="assets/hero/escritorio-claro-1200.webp?v=2 1200w, assets/hero/escritorio-claro-1920.webp?v=2 1920w, assets/hero/escritorio-claro-3072.webp?v=2 3072w" sizes="(max-width: 600px) 265vw, (max-width: 1099px) 130vw, 100vw" width="1536" height="1024" alt="">
-        <span class="desk__key" data-key="h" style="left:780px; top:736px"></span>
-        <span class="desk__key" data-key="e" style="left:625.5px; top:688px"></span>
-        <span class="desk__key" data-key="l" style="left:920.5px; top:735.5px"></span>
-        <span class="desk__key" data-key="o" style="left:907px; top:687px"></span>
-      </div>
+        <div class="desk" id="desk" aria-hidden="true">
+          <div class="desk__stage" id="desk-stage">
+            <img class="desk__photo desk__photo--calido" src="assets/hero/escritorio-calido-1920.webp?v=2" srcset="assets/hero/escritorio-calido-1200.webp?v=2 1200w, assets/hero/escritorio-calido-1920.webp?v=2 1920w, assets/hero/escritorio-calido-3072.webp?v=2 3072w" sizes="(max-width: 600px) 265vw, (max-width: 1099px) 130vw, 100vw" width="1536" height="1024" alt="" fetchpriority="high">
+            <img class="desk__photo desk__photo--claro" src="assets/hero/escritorio-claro-1920.webp?v=2" srcset="assets/hero/escritorio-claro-1200.webp?v=2 1200w, assets/hero/escritorio-claro-1920.webp?v=2 1920w, assets/hero/escritorio-claro-3072.webp?v=2 3072w" sizes="(max-width: 600px) 265vw, (max-width: 1099px) 130vw, 100vw" width="1536" height="1024" alt="">
+            <span class="desk__key" data-key="h" style="left:780px; top:736px"></span>
+            <span class="desk__key" data-key="e" style="left:625.5px; top:688px"></span>
+            <span class="desk__key" data-key="l" style="left:920.5px; top:735.5px"></span>
+            <span class="desk__key" data-key="o" style="left:907px; top:687px"></span>
+          </div>
+        </div>
+      </section>
+      <div class="zoom-fill" id="zoom-fill" aria-hidden="true"></div>
     </div>
-  </section>
+  </div>
 
   <section class="section" id="proyectos" tabindex="-1" aria-labelledby="work-title">
     <div class="container">

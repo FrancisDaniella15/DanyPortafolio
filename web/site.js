@@ -54,6 +54,11 @@
 
   function focusAndScroll(element, smooth) {
     if (!element) return;
+    // Inicio y Proyectos pasan por la transición del hero (scroll-fx.js) cuando está activa.
+    if (window.DanyScroll && window.DanyScroll.go(element.id, !smooth)) {
+      element.focus({ preventScroll: true });
+      return;
+    }
     element.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
     element.focus({ preventScroll: true });
   }

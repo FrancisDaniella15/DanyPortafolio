@@ -253,6 +253,35 @@ p { margin: 0; }
 [data-theme="claro"] .desk__photo--calido { opacity: 0; }
 .desk__key { position: absolute; width: 46.5px; height: 47.5px; }
 
+/* ---------- Del hero a Proyectos: un gesto de scroll ---------- */
+/* Solo con html.scroll-fx (diseño de escritorio y sin «reducir movimiento»): el hero queda
+   fijo, la cámara se acerca al espacio vacío de la alfombrilla, la mesa se funde con el
+   fondo y la sección de proyectos aparece en su sitio. Lo controla scroll-fx.js. */
+
+.zoom-fill { display: none; }
+html.scroll-fx .scrolly { position: relative; height: 200vh; }
+html.scroll-fx .scrolly__sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; background: var(--bg); }
+html.scroll-fx .hero { height: 100%; overflow: visible; perspective: 1300px; perspective-origin: 50% 45%; }
+html.scroll-fx .desk { overflow: visible; background: transparent; transform-origin: 0 0; will-change: transform; }
+html.scroll-fx .hero__content { will-change: transform, opacity; }
+html.scroll-fx .zoom-fill,
+html.scroll-fx #proyectos {
+  background-color: var(--bg);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 52px 52px;
+  background-position: center;
+  background-attachment: fixed;
+}
+html.scroll-fx .zoom-fill { position: absolute; inset: 0; z-index: 1; display: block; opacity: 0; pointer-events: none; }
+html.scroll-fx #proyectos {
+  position: relative;
+  z-index: 2;
+  margin-top: -100vh;
+  padding-top: clamp(96px, 13vh, 150px);
+  opacity: 0;
+  will-change: transform, opacity, filter;
+}
+
 /* ---------- Intro HELLO ---------- */
 
 .intro { display: none; }
