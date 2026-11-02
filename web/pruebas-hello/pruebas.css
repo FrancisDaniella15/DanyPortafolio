@@ -12,12 +12,6 @@
   initial-value: 0px;
 }
 
-@property --wy {
-  syntax: '<length>';
-  inherits: false;
-  initial-value: 0px;
-}
-
 @property --r {
   syntax: '<length>';
   inherits: false;
@@ -75,10 +69,6 @@
 .overlay__bg--hole {
   -webkit-mask-image: radial-gradient(circle at var(--mx) var(--my), transparent var(--r), #000 calc(var(--r) + var(--feather, 90px)));
   mask-image: radial-gradient(circle at var(--mx) var(--my), transparent var(--r), #000 calc(var(--r) + var(--feather, 90px)));
-}
-.overlay__bg--curtain {
-  -webkit-mask-image: linear-gradient(to bottom, transparent var(--wy), #000 calc(var(--wy) + var(--feather, 200px)));
-  mask-image: linear-gradient(to bottom, transparent var(--wy), #000 calc(var(--wy) + var(--feather, 200px)));
 }
 .real-keys { position: relative; display: flex; gap: calc(var(--k) * .26); --k: clamp(62px, 11.5vw, 156px); }
 .real-key {

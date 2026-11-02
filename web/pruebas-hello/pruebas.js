@@ -23,7 +23,7 @@
   const NOTES = {
     b: 'B · Tus teclas HELLO reales caen, esperan y vuelan en curva hasta su letra del teclado.',
     e: 'E1 · Zoom: HELLO entra de derecha a izquierda; mientras la cámara se acerca a la O, el teclado va apareciendo a su alrededor. Luego la cámara se aleja hasta el hero.',
-    e3: 'E3 · Y (2D): HELLO se detiene con la O en la vertical de su tecla; H-E-L-L se disuelven y la O baja por la pantalla arrastrando la escena como una cortina, rebota y encaja.',
+    e3: 'E3 · Y (2D): HELLO se detiene con la O en la vertical de su tecla; H-E-L-L se disuelven y, mientras la O baja, rebota y encaja, toda la escena aparece de desenfocada a nítida.',
     e3z: 'E3 · Z (3D): HELLO aparece centrado y cerca de la cámara; H-E-L-L se disuelven y la O baja hasta su tecla encogiéndose, con su sombra acercándose, mientras la escena se abre desde ahí.'
   };
 
@@ -45,7 +45,7 @@
     stage.style.transform = '';
     stage.querySelectorAll('.photo-key').forEach(function (key) { key.className = 'photo-key'; });
     overlay.classList.remove('is-on');
-    overlayBg.classList.remove('overlay__bg--hole', 'overlay__bg--curtain');
+    overlayBg.classList.remove('overlay__bg--hole');
     stage.parentElement.style.filter = '';
     detailO.classList.remove('is-on');
     realKeys.forEach(function (key) { key.style.opacity = ''; });
@@ -357,17 +357,16 @@
         { '--mx': gx + 'px', '--my': gy + 'px', '--r': reach + 'px' }
       ], { duration: T.fall + 320, easing: 'cubic-bezier(.3,0,.5,1)', fill: 'forwards' }));
     } else {
-      // Y: cortina suave de arriba hacia abajo que va detrás de la O: la tecla arrastra
-      // la escena al caer, la descubre hasta el teclado al aterrizar y termina abajo.
-      const feather = Math.round(height * .38);
-      const settle = 460;
-      overlayBg.style.setProperty('--feather', feather + 'px');
-      overlayBg.classList.add('overlay__bg--curtain');
-      track(overlayBg.animate([
-        { '--wy': -feather + 'px', easing: gravity },
-        { '--wy': (gy - feather * .25) + 'px', offset: T.fall / (T.fall + settle), easing: 'cubic-bezier(.2,.6,.3,1)' },
-        { '--wy': height + 'px' }
-      ], { duration: T.fall + settle, fill: 'forwards' }));
+      // Y: toda la escena aparece a la vez, de muy desenfocada a nítida, poco a poco.
+      // Empieza con la caída y termina después de los rebotes, sin seguir a la tecla.
+      const reveal = T.fall + 900;
+      track(stage.parentElement.animate([
+        { filter: 'blur(26px)' },
+        { filter: 'blur(0px)' }
+      ], { duration: reveal, easing: 'cubic-bezier(.3,0,.2,1)', fill: 'forwards' }));
+      track(overlayBg.animate([{ opacity: 1 }, { opacity: 0 }], {
+        duration: reveal * .8, easing: 'cubic-bezier(.4,0,.2,1)', fill: 'forwards'
+      }));
     }
 
     const frames = depth
