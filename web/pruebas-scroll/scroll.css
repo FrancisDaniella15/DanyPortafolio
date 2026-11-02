@@ -1,7 +1,7 @@
 /* Prueba de scroll con cambio de perspectiva. Se apoya en ../site.css. */
 
 /* Recorrido: la escena queda fija mientras dura el scroll del contenedor. */
-.scrolly { position: relative; height: 220vh; }
+.scrolly { position: relative; height: 290vh; }
 .scrolly__sticky {
   position: sticky;
   top: 0;
@@ -43,9 +43,11 @@
   pointer-events: none;
 }
 
-/* Se solapa con la escena: el título entra mientras la cámara aún se acerca y,
-   cuando la escena se suelta, ya está arriba con las tarjetas a la vista. */
-.projects { position: relative; z-index: 2; margin-top: -80vh; padding-top: 0; }
+/* Se solapa con la última pantalla de la escena. En la variante del hueco, el script la
+   mantiene quieta en pantalla mientras aparece difuminada y, al soltarse la escena,
+   sigue con el scroll normal desde la misma posición. */
+.projects { position: relative; z-index: 2; margin-top: -100vh; padding-top: clamp(96px, 13vh, 150px); }
+html.v-zoom .projects { opacity: 0; will-change: transform, opacity, filter; }
 /* La cuadrícula sigue en la sección de proyectos, alineada con la de la capa final. */
 html.v-zoom .projects,
 html.v-zoom .zoom-fill { background-attachment: fixed; }

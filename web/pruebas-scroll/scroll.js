@@ -11,6 +11,7 @@
   const stage = document.getElementById('desk-stage');
   const content = hero.querySelector('.hero__content');
   const fill = document.getElementById('zoom-fill');
+  const projects = document.getElementById('proyectos');
   const note = document.getElementById('note');
   const PHOTO_W = 1536;
   const PHOTO_H = 1024;
@@ -51,8 +52,8 @@
     // Zoom final: el espacio vacío llena el visor.
     const Zf = Math.max(W / (EMPTY.width * s), H / (EMPTY.height * s));
     // Distancia de scroll en la que transcurre la animación.
-    // Termina un poco antes de que la escena se suelte (con el título ya arriba).
-    const span = scrolly.offsetHeight - H * 1.1;
+    // Toda la parte en la que la escena está fija.
+    const span = scrolly.offsetHeight - H;
     geo = { W: W, H: H, s: s, E: E, Zf: Zf, span: span, top: scrolly.offsetTop };
   }
 
@@ -62,7 +63,7 @@
     const g = geo;
     // La cámara se acerca al hueco con un leve cambio de perspectiva que se endereza
     // al llegar; el hueco termina centrado y llenando el visor.
-    const a = phase(p, 0, .8);
+    const a = phase(p, .02, .78);
     const Z = Math.exp(lerp(0, Math.log(g.Zf), a));
     const rot = 9 * Math.sin(Math.PI * a);
     const Sx = lerp(g.E.x, g.W / 2, a);
@@ -71,7 +72,13 @@
     desk.style.transform = 'translate(' + Sx.toFixed(2) + 'px, ' + Sy.toFixed(2) + 'px) rotateX(' + rot.toFixed(3) + 'deg) scale(' + Z.toFixed(4) + ') translate(' + (-g.E.x).toFixed(2) + 'px, ' + (-g.E.y).toFixed(2) + 'px)';
     desk.style.opacity = '';
     // Al final, la alfombrilla se funde con el fondo de la web.
-    fill.style.opacity = phase(p, .3, .72).toFixed(3);
+    fill.style.opacity = phase(p, .6, .82).toFixed(3);
+    // Los proyectos aparecen en su sitio: de difuminados y transparentes a nítidos.
+    const c = phase(p, .8, 1);
+    projects.style.opacity = c.toFixed(3);
+    // Invisible no bloquea los clics del hero.
+    projects.style.pointerEvents = c > .5 ? '' : 'none';
+    projects.style.filter = c >= 1 ? '' : 'blur(' + (14 * (1 - c)).toFixed(2) + 'px)';
     fadeHeroText(p);
   }
 
@@ -86,6 +93,9 @@
     desk.style.transform = 'translate(' + ox + 'px, ' + (oy - g.H * .06 * a).toFixed(2) + 'px) rotateX(' + rot.toFixed(3) + 'deg) scale(' + Z.toFixed(4) + ') translate(' + (-ox) + 'px, ' + (-oy) + 'px)';
     desk.style.opacity = lerp(1, .55, phase(p, .3, 1)).toFixed(3);
     fill.style.opacity = '0';
+    projects.style.opacity = '';
+    projects.style.filter = '';
+    projects.style.pointerEvents = '';
     fadeHeroText(p);
   }
 
@@ -97,7 +107,16 @@
 
   // ---------- Bucle con inercia ----------
 
+  // Mientras la escena está fija, la sección de proyectos se mantiene quieta arriba;
+  // al soltarse la escena, su posición natural coincide y sigue con el scroll normal.
+  function pinProjects() {
+    if (variant !== 'zoom') { projects.style.transform = ''; return; }
+    const natural = projects.offsetTop - window.scrollY;
+    projects.style.transform = natural > 0 ? 'translateY(' + (-natural) + 'px)' : '';
+  }
+
   function readScroll() {
+    pinProjects();
     target = clamp((window.scrollY - geo.top) / geo.span, 0, 1);
     if (!frame) frame = requestAnimationFrame(tick);
   }
@@ -124,6 +143,7 @@
     try { history.replaceState(null, '', '?v=' + name); } catch (error) {}
     measure();
     window.scrollTo(0, 0);
+    pinProjects();
     target = current = 0;
     (variant === 'mesa' ? renderMesa : renderZoom)(0);
   }
